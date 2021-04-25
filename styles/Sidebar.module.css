@@ -1,0 +1,49 @@
+.sidebar {
+  background: #24292e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 4vw;
+  min-width: 40px;
+  height: calc(100vh - 30px);
+}
+
+.iconContainer {
+  cursor: pointer;
+  width: 100%;
+}
+
+.active {
+  border-left: 2px solid rgba(249, 130, 108, 1);
+}
+
+.icon {
+  height: 48px;
+  width: 48px;
+  padding: 0.65rem 0;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    width: 8vw;
+  }
+  .icon {
+    height: 48px;
+    width: 48px;
+    padding: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 10vw;
+  }
+  .icon {
+    height: 36px;
+    width: 36px;
+    padding: 0.6rem;
+  }
+}

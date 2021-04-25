@@ -1,9 +1,7 @@
-import Titlebar from '../components/Titlebar';
-
 export default function Home() {
   return (
     <div>
-      <Titlebar />
+      <h1>Home Page</h1>
     </div>
   );
 }

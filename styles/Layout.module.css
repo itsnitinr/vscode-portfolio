@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+.main {
+  display: flex;
+  background: #24292e;
+}
+
+.content {
+  padding: 2rem;
+  color: #efefef;
+  font-family: 'Ubuntu Mono', monospace;
+  flex: 1;
+}
