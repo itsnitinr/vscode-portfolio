@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap');
+
+.titlebar {
+  background: #1f2428;
+  height: 30px;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.85rem;
+}
+
+.items {
+  flex: 1;
+  display: flex;
+  margin-right: auto;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+}
+
+.items > * {
+  padding: 0 0.5rem;
+  cursor: pointer;
+}
+
+.windowButtons {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.windowButtons * {
+  margin-left: 0.5rem;
+  height: 13px;
+  width: 13px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.minimize {
+  background: #f1fa8c;
+  margin-left: auto;
+}
+
+.maximize {
+  background: #50fa7b;
+}
+
+.close {
+  background: #ff5555;
+}
+
+@media screen and (max-width: 900px) {
+  .items p {
+    display: none;
+  }
+  .title {
+    flex: 4;
+  }
+}
