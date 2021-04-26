@@ -4,9 +4,9 @@ import WarningIcon from './icons/WarningIcon';
 import BellIcon from './icons/BellIcon';
 import CheckIcon from './icons/CheckIcon';
 import VercelIcon from './icons/VercelIcon';
-import styles from '../styles/BottomBar.module.css';
+import styles from '../styles/Bottombar.module.css';
 
-const BottomBar = () => {
+const Bottombar = () => {
   return (
     <footer className={styles.bottomBar}>
       <div className={styles.container}>
@@ -38,4 +38,4 @@ const BottomBar = () => {
   );
 };
 
-export default BottomBar;
+export default Bottombar;

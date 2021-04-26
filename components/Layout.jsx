@@ -1,7 +1,7 @@
 import Titlebar from '../components/Titlebar';
 import Sidebar from '../components/Sidebar';
 import Explorer from '../components/Explorer';
-import BottomBar from '../components/BottomBar';
+import Bottombar from '../components/Bottombar';
 import styles from '../styles/Layout.module.css';
 
 const Layout = ({ children }) => {
@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
         <Explorer />
         <main className={styles.content}>{children}</main>
       </div>
-      <BottomBar />
+      <Bottombar />
     </>
   );
 };
