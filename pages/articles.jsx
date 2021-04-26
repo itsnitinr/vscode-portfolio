@@ -1,8 +1,11 @@
+import Head from '../components/Head';
+
 const ArticlesPage = () => {
   return (
-    <div>
+    <>
+      <Head title="Nitin Ranganath | Articles" />
       <h1>Articles Page</h1>
-    </div>
+    </>
   );
 };
 
