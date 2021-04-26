@@ -1,0 +1,18 @@
+.tabs {
+  display: flex;
+  /* flex-wrap: wrap; */
+  background: #1f2428;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .tabs {
+    width: 78vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tabs {
+    width: 89.5vw;
+  }
+}

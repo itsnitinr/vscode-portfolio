@@ -26,6 +26,7 @@
   align-items: center;
   padding: 0 0.2rem;
   cursor: pointer;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .section:hover {
@@ -34,7 +35,6 @@
 
 @media screen and (max-width: 600px) {
   .bottomBar {
-    justify-content: center;
     font-size: 0.6rem;
   }
   .section {

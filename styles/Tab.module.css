@@ -1,0 +1,21 @@
+.tab {
+  padding: 0.5rem 1.25rem;
+  background: #1f2428;
+  color: #ececec;
+  display: flex;
+  align-items: center;
+  border: 1px solid #1c2125;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.tab p {
+  margin-left: 5px;
+}
+
+.active {
+  border-top: 1px solid #f9826c;
+  background: #24292e;
+  border-bottom: none;
+}

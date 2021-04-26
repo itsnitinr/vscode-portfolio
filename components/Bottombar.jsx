@@ -16,7 +16,7 @@ const Bottombar = () => {
         </div>
         <div className={styles.section}>
           <ErrorIcon className={styles.icon} />
-          <p className={styles.errorText}>0</p>&nbsp;
+          <p className={styles.errorText}>0</p>&nbsp;&nbsp;
           <WarningIcon className={styles.icon} />
           <p>0</p>
         </div>
