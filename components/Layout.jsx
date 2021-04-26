@@ -1,5 +1,7 @@
 import Titlebar from '../components/Titlebar';
 import Sidebar from '../components/Sidebar';
+import Explorer from '../components/Explorer';
+import BottomBar from '../components/BottomBar';
 import styles from '../styles/Layout.module.css';
 
 const Layout = ({ children }) => {
@@ -8,8 +10,10 @@ const Layout = ({ children }) => {
       <Titlebar />
       <div className={styles.main}>
         <Sidebar />
-        <div className={styles.content}>{children}</div>
+        <Explorer />
+        <main className={styles.content}>{children}</main>
       </div>
+      <BottomBar />
     </>
   );
 };

@@ -1,0 +1,69 @@
+.explorer {
+  background: #1f2428;
+  width: 18vw;
+  color: rgb(225, 228, 232);
+  font-family: 'Source Sans Pro', sans-serif;
+  border-right: 1px solid #161a1d;
+}
+
+.title {
+  padding: 0.5rem 0.75rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.files {
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.file {
+  padding: 0.2rem 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.file p {
+  margin-left: 5px;
+}
+
+.file:hover {
+  background: #24292e;
+}
+
+.chevron {
+  transition: transform 0.2s;
+}
+
+@media screen and (max-width: 900px) {
+  .explorer {
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .explorer {
+    display: none;
+  }
+}

@@ -1,0 +1,43 @@
+.bottomBar {
+  background: #24292e;
+  height: 25px;
+  border-top: 1px solid #161a1d;
+  color: rgb(225, 228, 232);
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.section {
+  display: flex;
+  margin-right: 0.75rem;
+  height: 24px;
+  align-items: center;
+  padding: 0 0.2rem;
+  cursor: pointer;
+}
+
+.section:hover {
+  background: #4f4f52;
+}
+
+@media screen and (max-width: 600px) {
+  .bottomBar {
+    justify-content: center;
+    font-size: 0.6rem;
+  }
+  .section {
+    margin-right: 0.5rem;
+  }
+}

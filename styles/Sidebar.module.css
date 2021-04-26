@@ -6,12 +6,17 @@
   align-items: stretch;
   width: 4vw;
   min-width: 40px;
-  height: calc(100vh - 30px);
+  height: calc(100vh - 30px - 25px);
+  border-right: 0.1px solid #1f2428;
 }
 
 .iconContainer {
   cursor: pointer;
   width: 100%;
+}
+
+.iconContainer:hover {
+  background: #1f2428;
 }
 
 .active {
