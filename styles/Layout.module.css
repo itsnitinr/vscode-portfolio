@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 
 .main {
   display: flex;
@@ -8,6 +8,27 @@
 .content {
   padding: 2rem;
   color: #efefef;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   flex: 1;
+  height: 85vh;
+  overflow-y: auto;
+}
+
+.content {
+  scrollbar-width: 10px;
+  scrollbar-color: #f9826c;
+}
+
+.content::-webkit-scrollbar {
+  width: 15px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: #24292e;
+  border-left: 1px solid #1e1f29;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: #333536;
+  border-left: 1px solid #1e1f29;
 }
