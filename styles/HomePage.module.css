@@ -8,7 +8,7 @@
 }
 
 .welcome {
-  color: #f9826c;
+  color: var(--accent-color);
   font-size: 1.25rem;
   margin-bottom: 2rem;
 }
@@ -20,7 +20,7 @@
 
 .subtitle {
   font-size: 2rem;
-  color: #f9826c;
+  color: var(--accent-color);
   margin-bottom: 2.5rem;
 }
 
@@ -41,12 +41,12 @@
 }
 
 .contained {
-  background: #f9826c;
+  background: var(--accent-color);
   color: white;
 }
 
 .outlined {
-  border: 2px solid #f9826c;
+  border: 2px solid var(--accent-color);
   background: transparent;
   color: white;
 }
@@ -63,7 +63,6 @@
   }
   .subtitle {
     font-size: 1.2rem;
-    color: #f9826c;
     margin-bottom: 2.5rem;
   }
   .buttons > * {

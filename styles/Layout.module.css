@@ -2,12 +2,12 @@
 
 .main {
   display: flex;
-  background: #24292e;
+  background: var(--main-bg);
 }
 
 .content {
   padding: 2rem;
-  color: #efefef;
+  color: var(--text-color);
   font-family: 'JetBrains Mono', monospace;
   flex: 1;
   height: 85vh;
@@ -16,7 +16,7 @@
 
 .content {
   scrollbar-width: 10px;
-  scrollbar-color: #f9826c;
+  scrollbar-color: var(--accent-color);
 }
 
 .content::-webkit-scrollbar {
@@ -24,11 +24,11 @@
 }
 
 .content::-webkit-scrollbar-track {
-  background: #24292e;
+  background: var(--scrollbar-track-bg);
   border-left: 1px solid #1e1f29;
 }
 
 .content::-webkit-scrollbar-thumb {
-  background: #333536;
+  background: var(--scrollbar-thumb-bg);
   border-left: 1px solid #1e1f29;
 }

@@ -1,7 +1,7 @@
 .tabs {
   display: flex;
   /* flex-wrap: wrap; */
-  background: #1f2428;
+  background: var(--tabs-bg);
   overflow-x: auto;
 }
 

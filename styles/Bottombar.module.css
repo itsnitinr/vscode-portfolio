@@ -1,5 +1,5 @@
 .bottomBar {
-  background: #24292e;
+  background: var(--bottombar-bg);
   height: 25px;
   border-top: 1px solid #161a1d;
   color: rgb(225, 228, 232);
@@ -30,7 +30,7 @@
 }
 
 .section:hover {
-  background: #4f4f52;
+  background: var(--bottombar-hover-bg);
 }
 
 @media screen and (max-width: 600px) {

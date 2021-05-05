@@ -1,5 +1,5 @@
 .sidebar {
-  background: #24292e;
+  background: var(--sidebar-bg);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,11 +16,11 @@
 }
 
 .iconContainer:hover {
-  background: #1f2428;
+  background: var(--sidebar-hover-bg);
 }
 
 .active {
-  border-left: 2px solid rgba(249, 130, 108, 1);
+  border-left: 2px solid var(--accent-color);
 }
 
 .icon {

@@ -1,6 +1,6 @@
 .tab {
   padding: 0.5rem 1.25rem;
-  background: #1f2428;
+  background: var(--tab-bg);
   color: #ececec;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
 }
 
 .active {
-  border-top: 1px solid #f9826c;
-  background: #24292e;
+  border-top: 1px solid var(--accent-color);
+  background: var(--tab-active-bg);
   border-bottom: none;
 }
