@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem 0;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.info {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info button {
+  margin-top: 0.75rem;
+  border: none;
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding: 0.15rem 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.info button:focus {
+  outline: 1px solid var(--accent-color);
+}

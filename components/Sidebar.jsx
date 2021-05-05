@@ -110,7 +110,9 @@ const Sidebar = () => {
           </Link>
         </div>
         <div className={styles.iconContainer}>
-          <SettingsIcon fill="rgb(106, 115, 125)" className={styles.icon} />
+          <Link href="/settings">
+            <SettingsIcon fill="rgb(106, 115, 125)" className={styles.icon} />
+          </Link>
         </div>
       </div>
     </aside>

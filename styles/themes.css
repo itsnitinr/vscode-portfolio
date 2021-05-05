@@ -12,7 +12,30 @@
   --tab-bg: #1f2428;
   --tab-active-bg: #24292e;
   --bottombar-bg: #24292e;
+  --button-bg: #176f2c;
+  --button-text: #dcffe4;
   --bottombar-hover-bg: #4f4f52;
   --scrollbar-track-bg: #24292e;
   --scrollbar-thumb-bg: #333536;
+}
+
+/* Dracula */
+[data-theme='dracula'] {
+  --main-bg: #282a36;
+  --text-color: #efefef;
+  --accent-color: #bd93f9;
+  --titlebar-bg: #1e1f29;
+  --sidebar-bg: #343746;
+  --sidebar-hover-bg: #3c3d51;
+  --explorer-bg: #21222c;
+  --explorer-hover-bg: #313241;
+  --tabs-bg: #191a21;
+  --tab-bg: #21222c;
+  --tab-active-bg: #282a36;
+  --bottombar-bg: #191a21;
+  --button-bg: #44475a;
+  --button-text: #f8f8f2;
+  --bottombar-hover-bg: #4f4f52;
+  --scrollbar-track-bg: #282a36;
+  --scrollbar-thumb-bg: #454647;
 }
