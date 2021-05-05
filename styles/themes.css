@@ -39,3 +39,45 @@
   --scrollbar-track-bg: #282a36;
   --scrollbar-thumb-bg: #454647;
 }
+
+/* Ayu Dark */
+[data-theme='ayu-dark'] {
+  --main-bg: #0a0e14;
+  --text-color: #efefef;
+  --accent-color: #e6b450;
+  --titlebar-bg: #1f2428;
+  --sidebar-bg: #0a0e14;
+  --sidebar-hover-bg: #00010a;
+  --explorer-bg: #0a0e14;
+  --explorer-hover-bg: #00010a;
+  --tabs-bg: #0a0e14;
+  --tab-bg: #0a0e14;
+  --tab-active-bg: #0a0e14;
+  --bottombar-bg: #0a0e14;
+  --button-bg: #e6b450;
+  --button-text: #0a0e14;
+  --bottombar-hover-bg: #4f4f52;
+  --scrollbar-track-bg: #0a0e14;
+  --scrollbar-thumb-bg: #454647;
+}
+
+/* Ayu Dark */
+[data-theme='ayu-mirage'] {
+  --main-bg: #1f2430;
+  --text-color: #efefef;
+  --accent-color: #e6b450;
+  --titlebar-bg: #1f2428;
+  --sidebar-bg: #1f2430;
+  --sidebar-hover-bg: #191e2a;
+  --explorer-bg: #1f2430;
+  --explorer-hover-bg: #191e2a;
+  --tabs-bg: #1f2430;
+  --tab-bg: #1f2430;
+  --tab-active-bg: #1f2430;
+  --bottombar-bg: #1f2430;
+  --button-bg: #e6b450;
+  --button-text: #1f2430;
+  --bottombar-hover-bg: #4f4f52;
+  --scrollbar-track-bg: #1f2430;
+  --scrollbar-thumb-bg: #454647;
+}
