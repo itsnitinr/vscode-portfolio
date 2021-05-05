@@ -36,6 +36,13 @@ const SettingsPage = () => {
           theme="ayu-mirage"
           description="A simple theme with bright colors."
         />
+        <ThemeInfo
+          name="Nord"
+          icon="/nord.png"
+          publisher="arcticicestudio"
+          theme="nord"
+          description="An arctic, north-bluish clean and elegant Visual Studio Code theme."
+        />
       </div>
     </>
   );

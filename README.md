@@ -9,9 +9,9 @@ A Visual Studio Code themed developer portfolio website built with Next.js and d
 - [ ] Themes and customizations
   - [x] GitHub Dark (default)
   - [ ] One Dark Pro
-  - [ ] Dracula
-  - [ ] Ayu
-  - [ ] Nord
+  - [x] Dracula
+  - [x] Ayu
+  - [x] Nord
 - [ ] Interactive custom terminal
 
 For other features and themes suggestions, please open an issue.

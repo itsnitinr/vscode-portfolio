@@ -61,7 +61,7 @@
   --scrollbar-thumb-bg: #454647;
 }
 
-/* Ayu Dark */
+/* Ayu Mirage */
 [data-theme='ayu-mirage'] {
   --main-bg: #1f2430;
   --text-color: #efefef;
@@ -79,5 +79,26 @@
   --button-text: #1f2430;
   --bottombar-hover-bg: #4f4f52;
   --scrollbar-track-bg: #1f2430;
+  --scrollbar-thumb-bg: #454647;
+}
+
+/* Nord */
+[data-theme='nord'] {
+  --main-bg: #2e3440;
+  --text-color: #efefef;
+  --accent-color: #88c0d0;
+  --titlebar-bg: #1f2428;
+  --sidebar-bg: #2e3440;
+  --sidebar-hover-bg: #434c5e;
+  --explorer-bg: #2e3440;
+  --explorer-hover-bg: #434c5e;
+  --tabs-bg: #2e3440;
+  --tab-bg: #2e3440;
+  --tab-active-bg: #3b4252;
+  --bottombar-bg: #3b4252;
+  --button-bg: #434c5e;
+  --button-text: #d8dee9;
+  --bottombar-hover-bg: #4f4f52;
+  --scrollbar-track-bg: #2e3440;
   --scrollbar-thumb-bg: #454647;
 }
