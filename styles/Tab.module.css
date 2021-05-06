@@ -4,7 +4,7 @@
   color: #ececec;
   display: flex;
   align-items: center;
-  border: 1px solid #1c2125;
+  border: 1px solid var(--tab-border);
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.9rem;
   cursor: pointer;

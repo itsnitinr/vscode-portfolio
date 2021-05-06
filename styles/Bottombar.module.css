@@ -1,7 +1,7 @@
 .bottomBar {
   background: var(--bottombar-bg);
   height: 25px;
-  border-top: 1px solid #161a1d;
+  border-top: 1px solid var(--bottombar-border);
   color: rgb(225, 228, 232);
   padding: 0 0.5rem;
   display: flex;
