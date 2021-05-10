@@ -99,19 +99,23 @@ const Sidebar = () => {
       <div className={styles.sidebarBottom}>
         <div className={styles.iconContainer}>
           <Link href="/about">
-            <AccountIcon
-              fill={
-                router.pathname === '/about'
-                  ? 'rgb(225, 228, 232)'
-                  : 'rgb(106, 115, 125)'
-              }
-              className={styles.icon}
-            />
+            <>
+              <AccountIcon
+                fill={
+                  router.pathname === '/about'
+                    ? 'rgb(225, 228, 232)'
+                    : 'rgb(106, 115, 125)'
+                }
+                className={styles.icon}
+              />
+            </>
           </Link>
         </div>
         <div className={styles.iconContainer}>
           <Link href="/settings">
-            <SettingsIcon fill="rgb(106, 115, 125)" className={styles.icon} />
+            <>
+              <SettingsIcon fill="rgb(106, 115, 125)" className={styles.icon} />
+            </>
           </Link>
         </div>
       </div>
