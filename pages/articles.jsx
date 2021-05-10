@@ -6,4 +6,10 @@ const ArticlesPage = () => {
   );
 };
 
+export async function getStaticProps() {
+  return {
+    props: { title: "Articles" },
+  };
+}
+
 export default ArticlesPage;

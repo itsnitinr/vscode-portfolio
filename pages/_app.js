@@ -5,7 +5,6 @@ import "../styles/globals.css";
 import "../styles/themes.css";
 
 function MyApp({ Component, pageProps }) {
-  const [titleText, setTitleText] = useState("Home");
 
   useEffect(() => {
     if (localStorage.getItem("theme")) {
@@ -16,15 +15,9 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
 
-  useEffect(() => {
-    if (Component) {
-      setTitleText(Component?.name?.replace("Page", ""));
-    }
-  }, [Component]);
-
   return (
     <Layout>
-      <Head title={`Nitin Ranganath | ${titleText}`} />
+      <Head title={`Nitin Ranganath | ${pageProps.title}`} />
       <Component {...pageProps} />
     </Layout>
   );
