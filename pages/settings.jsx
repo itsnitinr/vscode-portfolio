@@ -1,11 +1,9 @@
-import Head from '../components/Head';
-import ThemeInfo from '../components/ThemeInfo';
-import styles from '../styles/SettingsPage.module.css';
+import ThemeInfo from "../components/ThemeInfo";
+import styles from "../styles/SettingsPage.module.css";
 
 const SettingsPage = () => {
   return (
     <>
-      <Head title="Nitin Ranganath | Settings" />
       <h2>Manage Themes</h2>
       <div className={styles.container}>
         <ThemeInfo
@@ -47,5 +45,13 @@ const SettingsPage = () => {
     </>
   );
 };
+
+
+export async function getStaticProps() {
+  return {
+    props: { title: "Settings" },
+  };
+}
+
 
 export default SettingsPage;

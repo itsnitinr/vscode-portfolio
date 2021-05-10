@@ -1,11 +1,9 @@
-import Link from 'next/link';
-import Head from '../components/Head';
-import styles from '../styles/HomePage.module.css';
+import Link from "next/link";
+import styles from "../styles/HomePage.module.css";
 
 export default function HomePage() {
   return (
     <>
-      <Head title="Nitin Ranganath | Home" />
       <div className={styles.container}>
         <h6 className={styles.welcome}>Hey there, geeks! I am</h6>
         <h1 className={styles.title}>Nitin Ranganath</h1>
@@ -22,3 +20,11 @@ export default function HomePage() {
     </>
   );
 }
+
+
+export async function getStaticProps() {
+  return {
+    props: { title: "Home" },
+  };
+}
+

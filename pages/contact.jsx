@@ -1,12 +1,15 @@
-import Head from '../components/Head';
-
 const ContactPage = () => {
   return (
     <>
-      <Head title="Nitin Ranganath | Contact" />
       <h1>Contact Page</h1>
     </>
   );
 };
+
+export async function getStaticProps() {
+  return {
+    props: { title: "Contact" },
+  };
+}
 
 export default ContactPage;

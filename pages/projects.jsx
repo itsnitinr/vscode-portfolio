@@ -1,12 +1,17 @@
-import Head from '../components/Head';
-
 const ProjectsPage = () => {
   return (
     <>
-      <Head title="Nitin Ranganath | Projects" />
       <h1>Projects Page</h1>
     </>
   );
 };
+
+
+export async function getStaticProps() {
+  return {
+    props: { title: "Projects" },
+  };
+}
+
 
 export default ProjectsPage;

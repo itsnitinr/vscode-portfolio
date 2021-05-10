@@ -101,9 +101,9 @@ const Sidebar = () => {
           <Link href="/about">
             <AccountIcon
               fill={
-                router.pathname === '/about'
-                  ? 'rgb(225, 228, 232)'
-                  : 'rgb(106, 115, 125)'
+                router.pathname === "/about"
+                  ? "rgb(225, 228, 232)"
+                  : "rgb(106, 115, 125)"
               }
               className={styles.icon}
             />
@@ -111,7 +111,11 @@ const Sidebar = () => {
         </div>
         <div className={styles.iconContainer}>
           <Link href="/settings">
-            <SettingsIcon fill="rgb(106, 115, 125)" className={styles.icon} />
+            <SettingsIcon fill={
+                router.pathname === "/settings"
+                  ? "rgb(225, 228, 232)"
+                  : "rgb(106, 115, 125)"
+              } className={styles.icon} />
           </Link>
         </div>
       </div>
