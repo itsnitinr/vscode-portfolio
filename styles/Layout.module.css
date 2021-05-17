@@ -32,3 +32,9 @@
   background: var(--scrollbar-thumb-bg);
   border-left: 1px solid #1e1f29;
 }
+
+@media screen and (max-width: 600px) {
+  .content {
+    padding: 2rem 1rem;
+  }
+}

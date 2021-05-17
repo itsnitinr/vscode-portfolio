@@ -16,6 +16,10 @@ A Visual Studio Code themed developer portfolio website built with Next.js and d
 
 For other features and themes suggestions, please open an issue.
 
+## Environment Variables
+
+For fetching your articles from dev.to, create an `.env.local` file inside the project directory. Check the `.env.local.example` file for more information.
+
 ## Running Development Server
 
 ```bash
