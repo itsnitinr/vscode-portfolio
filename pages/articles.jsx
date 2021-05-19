@@ -4,7 +4,17 @@ import styles from '../styles/ArticlesPage.module.css';
 const ArticlesPage = ({ articles }) => {
   return (
     <>
-      <h3>Recent Posts from dev.to</h3>
+      <h3>
+        Recent Posts from{' '}
+        <a
+          href="https://dev.to/itsnitinr"
+          target="_blank"
+          rel="noopener"
+          className={styles.underline}
+        >
+          dev.to
+        </a>
+      </h3>
       <div className={styles.container}>
         {articles.map((article) => (
           <ArticleCard key={article.id} article={article} />
