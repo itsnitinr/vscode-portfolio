@@ -1,73 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
 .container {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 75vh;
   flex-direction: column;
-  text-align: center;
+  position: relative;
 }
 
-.welcome {
-  color: var(--accent-color);
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+.background {
+  font-size: 5rem;
+  font-family: 'Montserrat';
+  line-height: 1.1;
+  color: var(--bg-text);
+  position: absolute;
+  z-index: 1;
 }
 
-.title {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  font-size: 2rem;
-  color: var(--accent-color);
-  margin-bottom: 2.5rem;
-}
-
-.buttons {
+.foreground {
+  z-index: 2;
   display: flex;
+  color: var(--accent-color);
+  justify-content: space-between;
+  align-items: center;
 }
 
-.buttons > * {
-  margin: 2rem 1.5rem;
-  padding: 0.75rem 1.25rem;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-  outline: 0;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s;
+.name {
+  color: #eee;
+  font-size: 3.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
-.contained {
+.bio {
+  color: #eee;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+.button {
   background: var(--accent-color);
-  color: white;
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  margin-right: 1.5rem;
+  color: #eee;
+  font-weight: 600;
+  border: none;
 }
 
 .outlined {
+  font-size: 1.25rem;
+  padding: 0.5rem 1rem;
+  color: #eee;
   border: 2px solid var(--accent-color);
   background: transparent;
-  color: white;
 }
 
-.contained:hover,
-.outlined:hover {
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+.illustration {
+  height: 500px;
+  width: 460px;
+}
+
+/* 4K Screens */
+@media screen and (min-width: 2000px) {
+  .background {
+    font-size: 8.5rem;
+  }
+  .content {
+    padding: 0 3rem;
+  }
+  .name {
+    font-size: 6rem;
+  }
+  .bio {
+    font-size: 3rem;
+    margin-bottom: 5rem;
+  }
+  .button {
+    font-size: 2rem;
+  }
+  .outlined {
+    font-size: 2rem;
+  }
+  .illustration {
+    height: 900px;
+    width: 700px;
+  }
+}
+
+/* iPad Pro */
+@media screen and (max-width: 1100px) {
+  .background {
+    display: none;
+  }
+  .container {
+    display: block;
+  }
+  .foreground {
+    margin: 4rem 0;
+    display: block;
+    text-align: center;
+  }
+  .name {
+    font-size: 4rem;
+  }
+  .bio {
+    font-size: 1.75rem;
+    margin-bottom: 3rem;
+  }
+  .illustration {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    height: 700px;
+    width: 600px;
+  }
+}
+
+/* iPad */
+@media screen and (max-width: 900px) {
+  .foreground {
+    margin: 2rem 0;
+  }
+  .name {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  .bio {
+    font-size: 1.5rem;
+  }
+  .illustration {
+    height: 550px;
+    width: 420px;
+    bottom: -50px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+  .name {
+    font-size: 2rem;
   }
-  .subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
+  .bio {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
   }
-  .buttons > * {
-    margin: 1.5rem 0.75rem;
-    padding: 0.5rem 1.25rem;
+  .button {
     font-size: 1rem;
+  }
+  .outlined {
+    font-size: 1rem;
+  }
+  .illustration {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    width: 300px;
+    height: 400px;
   }
 }

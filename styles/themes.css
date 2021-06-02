@@ -1,6 +1,7 @@
 /* GitHub Dark */
 :root {
   --main-bg: #24292e;
+  --bg-text: rgba(56, 58, 61, 0.35);
   --text-color: #efefef;
   --accent-color: #f9826c;
   --titlebar-bg: #1f2428;
@@ -26,6 +27,7 @@
 /* Dracula */
 [data-theme='dracula'] {
   --main-bg: #282a36;
+  --bg-text: #313340;
   --text-color: #efefef;
   --accent-color: #bd93f9;
   --titlebar-bg: #1e1f29;
@@ -51,6 +53,7 @@
 /* Ayu Dark */
 [data-theme='ayu-dark'] {
   --main-bg: #0a0e14;
+  --bg-text: #101620;
   --text-color: #efefef;
   --accent-color: #e6b450;
   --titlebar-bg: #1f2428;
@@ -76,6 +79,7 @@
 /* Ayu Mirage */
 [data-theme='ayu-mirage'] {
   --main-bg: #1f2430;
+  --bg-text: #272c38;
   --text-color: #efefef;
   --accent-color: #e6b450;
   --titlebar-bg: #1f2428;
@@ -101,6 +105,7 @@
 /* Nord */
 [data-theme='nord'] {
   --main-bg: #2e3440;
+  --bg-text: #3b414d;
   --text-color: #efefef;
   --accent-color: #88c0d0;
   --titlebar-bg: #1f2428;
