@@ -47,6 +47,7 @@
   color: #eee;
   font-weight: 600;
   border: none;
+  cursor: pointer;
 }
 
 .outlined {
@@ -55,6 +56,12 @@
   color: #eee;
   border: 2px solid var(--accent-color);
   background: transparent;
+  cursor: pointer;
+}
+
+.button:hover,
+.outlined:hover {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .illustration {
@@ -137,6 +144,7 @@
   }
 }
 
+/* Phone */
 @media screen and (max-width: 600px) {
   .name {
     font-size: 2rem;
@@ -153,7 +161,7 @@
   }
   .illustration {
     position: absolute;
-    bottom: 30px;
+    bottom: 0px;
     right: 0;
     width: 300px;
     height: 400px;
