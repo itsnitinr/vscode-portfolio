@@ -173,9 +173,9 @@
   }
   .illustration {
     position: absolute;
-    bottom: 0vh;
+    bottom: 0;
     right: 0;
-    width: 70vw;
+    width: 75vw;
     height: 50vh;
     z-index: 1;
   }
