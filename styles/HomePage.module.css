@@ -144,6 +144,15 @@
   }
 }
 
+@media screen and (orientation: landscape) and (max-width: 1050px) {
+  .container {
+    display: flex;
+  }
+  .illustration {
+    display: none;
+  }
+}
+
 /* Phone */
 @media screen and (max-width: 600px) {
   .name {
