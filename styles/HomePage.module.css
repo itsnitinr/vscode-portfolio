@@ -155,6 +155,9 @@
 
 /* Phone */
 @media screen and (max-width: 600px) {
+  .foreground {
+    margin: 0;
+  }
   .name {
     font-size: 2rem;
   }
@@ -170,9 +173,10 @@
   }
   .illustration {
     position: absolute;
-    bottom: 0px;
+    bottom: 0vh;
     right: 0;
-    width: 300px;
-    height: 400px;
+    width: 70vw;
+    height: 50vh;
+    z-index: 1;
   }
 }
