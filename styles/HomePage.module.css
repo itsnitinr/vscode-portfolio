@@ -33,10 +33,47 @@
 }
 
 .bio {
+  width: max-content;
   color: #eee;
   font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 3rem;
+  position: relative;
+}
+
+.bio::before,
+.bio::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.bio::before {
+  background: var(--main-bg);
+  animation: typewriter 2.5s steps(24) 500ms forwards;
+}
+
+.bio::after {
+  margin-left: 0.4rem;
+  width: 0.125em;
+  background: var(--accent-color);
+  animation: typewriter 2.5s steps(24) 500ms forwards,
+    blink 750ms steps(24) infinite;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
 }
 
 .button {
@@ -114,7 +151,7 @@
   }
   .bio {
     font-size: 1.75rem;
-    margin-bottom: 3rem;
+    margin: 0.75rem auto 3rem;
   }
   .illustration {
     position: absolute;
