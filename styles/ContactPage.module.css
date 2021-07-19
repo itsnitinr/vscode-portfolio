@@ -41,7 +41,8 @@
   width: 100%;
 }
 
-.form input:focus {
+.form input:focus,
+.form textarea:focus {
   outline: 1px solid var(--accent-color);
 }
 
@@ -69,5 +70,8 @@
 @media screen and (max-width: 600px) {
   .flex {
     display: block;
+  }
+  .form input {
+    font-size: 0.85rem;
   }
 }
