@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.container > * {
+  flex: 1;
+}
+
+.container > div:first-child {
+  border-right: 1px solid var(--accent-color);
+}
+
+.container h1 {
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.form input,
+.form textarea {
+  font-family: 'JetBrains Mono';
+  margin-bottom: 1.5rem;
+  background: var(--article-bg);
+  color: var(--text-color);
+  border: none;
+  font-size: 1rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.form input:focus {
+  outline: 1px solid var(--accent-color);
+}
+
+.form button {
+  background: var(--accent-color);
+  color: var(--main-bg);
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    display: block;
+  }
+  .container > div:first-child {
+    border-right: none;
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .flex {
+    display: block;
+  }
+}

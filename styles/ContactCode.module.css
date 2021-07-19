@@ -1,0 +1,28 @@
+.code {
+  counter-reset: line;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.line::before {
+  content: counter(line);
+  counter-increment: line;
+  margin-right: 1rem;
+  color: grey;
+}
+
+.code a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.className {
+  color: var(--accent-color);
+}
+
+@media screen and (max-width: 600px) {
+  .code {
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+  }
+}
