@@ -16,6 +16,10 @@
   text-decoration: none;
 }
 
+.code a:hover {
+  text-decoration: underline;
+}
+
 .className {
   color: var(--accent-color);
 }

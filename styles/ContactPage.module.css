@@ -27,6 +27,7 @@
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-size: 0.8rem;
 }
 
 .form input,
@@ -39,6 +40,7 @@
   font-size: 1rem;
   padding: 0.75rem;
   width: 100%;
+  resize: none;
 }
 
 .form input:focus,

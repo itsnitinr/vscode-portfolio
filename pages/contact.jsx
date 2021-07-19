@@ -33,7 +33,7 @@ const ContactPage = () => {
         <ContactCode />
       </div>
       <div>
-        <h1>Or, Fill Out A Form</h1>
+        <h1>Or Fill Out The Form</h1>
         <form className={styles.form} onSubmit={submitForm}>
           <div className={styles.flex}>
             <div>
@@ -44,6 +44,7 @@ const ContactPage = () => {
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </div>
             <div>
@@ -54,6 +55,7 @@ const ContactPage = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
           </div>
@@ -65,6 +67,7 @@ const ContactPage = () => {
               id="subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
+              required
             />
           </div>
           <div>
@@ -75,6 +78,7 @@ const ContactPage = () => {
               rows="5"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              required
             ></textarea>
           </div>
           <button type="submit">Submit</button>
