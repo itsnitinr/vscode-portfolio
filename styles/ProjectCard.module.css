@@ -1,0 +1,21 @@
+.card {
+  background: var(--article-bg);
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  padding: 1rem;
+  border-radius: 0 0 20px 20px;
+}
+
+.content p {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
