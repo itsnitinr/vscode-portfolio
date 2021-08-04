@@ -19,3 +19,44 @@
   font-size: 0.8rem;
   margin-top: 0.5rem;
 }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem 0 1rem;
+}
+
+.tags span {
+  margin: 0.5rem 0.5rem 0 0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.cta {
+  display: flex;
+  gap: 1rem;
+}
+
+.underline {
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  background-image: linear-gradient(
+    120deg,
+    var(--accent-color) 100%,
+    var(--accent-color) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+
+.underline:hover {
+  background-size: 100% 88%;
+}
