@@ -10,6 +10,11 @@
   font-size: 0.85rem;
 }
 
+.bottomBar a {
+  color: white;
+  text-decoration: none;
+}
+
 .icon {
   margin-right: 5px;
 }
