@@ -56,6 +56,12 @@
   transition: transform 0.2s;
 }
 
+@media screen and (min-width: 2000px) {
+  .explorer {
+    width: 10vw;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .explorer {
     width: 20vw;

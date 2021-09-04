@@ -4,8 +4,12 @@ import RepoCard from '../components/RepoCard';
 import styles from '../styles/GithubPage.module.css';
 
 const GithubPage = ({ repos, user }) => {
-  const contributionsTheme = {
-    text: '#eee',
+  const theme = {
+    level0: '#161B22',
+    level1: '#0e4429',
+    level2: '#006d32',
+    level3: '#26a641',
+    level4: '#39d353',
   };
 
   return (
@@ -34,12 +38,13 @@ const GithubPage = ({ repos, user }) => {
           <RepoCard key={repo.id} repo={repo} />
         ))}
       </div>
-      <GitHubCalendar
-        username={process.env.NEXT_PUBLIC_GITHUB_USERNAME}
-        theme={contributionsTheme}
-        blockMargin={2}
-        blockSize={20}
-      />
+      <div className={styles.contributions}>
+        <GitHubCalendar
+          username={process.env.NEXT_PUBLIC_GITHUB_USERNAME}
+          theme={theme}
+          hideColorLegend
+        />
+      </div>
     </>
   );
 };

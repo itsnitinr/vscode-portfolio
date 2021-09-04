@@ -29,13 +29,17 @@
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
   margin: 1.5rem 0;
 }
 
 .title {
   margin-bottom: 1.5rem;
+}
+
+.contributions article {
+  width: 100% !important;
 }
 
 @media screen and (max-width: 900px) {
