@@ -1,0 +1,11 @@
+{
+  "title": "Reach Out Via Socials",
+  "form": "Or Fill Out The Form",
+  "name": "Name",
+  "email": "Email",
+  "subject": "Subject",
+  "message": "Message",
+  "submit": "Submit",
+  "submitted": "Your response has been received!",
+  "submitted-error": "There was an error. Please try again in a while."
+}

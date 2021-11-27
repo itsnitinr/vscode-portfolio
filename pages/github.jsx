@@ -1,9 +1,12 @@
-import Image from 'next/image';
-import GitHubCalendar from 'react-github-calendar';
-import RepoCard from '../components/RepoCard';
-import styles from '../styles/GithubPage.module.css';
-import { FETCH_CONFIG } from '../constants/config';
 import React from 'react';
+import Image from 'next/image';
+import useTranslation from 'next-translate/useTranslation';
+import GitHubCalendar from 'react-github-calendar';
+
+import RepoCard from '../components/RepoCard';
+import { FETCH_CONFIG } from '../constants/config';
+
+import styles from '../styles/GithubPage.module.css';
 
 const GithubPage = ({ entities }) => {
   const theme = {
@@ -15,6 +18,8 @@ const GithubPage = ({ entities }) => {
   };
 
   const reposLength = Number(process.env.NEXT_PUBLIC_GITHUB_REPOS_LENGTH);
+  const { t } = useTranslation('github');
+
   return (
     <>
       {entities.map(({ user, repos }) => (
@@ -31,9 +36,7 @@ const GithubPage = ({ entities }) => {
               <h3>{user.followers} followers</h3>
             </div>
           </div>
-          <h2>
-            {String(reposLength)} Latest{reposLength > 1 ? 's' : ''} Updated Repositories
-          </h2>
+          <h2>{t('latest-repos', { count: repos.length })}</h2>
           <div className={styles.container}>
             {repos.map((repo) => (
               <RepoCard key={repo.id} repo={repo} />

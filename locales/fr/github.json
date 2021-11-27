@@ -1,0 +1,5 @@
+{
+  "latest-repos_one": "{{count}} dernier repos mis à jour",
+  "latest-repos_many": "{{count}} derniers repos mis à jour",
+  "latest-repos_other": "{{count}} derniers repos mis à jour"
+}

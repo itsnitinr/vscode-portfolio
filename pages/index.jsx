@@ -1,8 +1,12 @@
 import Link from 'next/link';
+import useTranslation from 'next-translate/useTranslation';
+
 import Illustration from '../components/Illustration';
 import styles from '../styles/HomePage.module.css';
 
 export default function HomePage() {
+  const { t } = useTranslation('home');
+
   return (
     <>
       <div className={styles.container}>
@@ -15,10 +19,10 @@ export default function HomePage() {
             <h1 className={styles.name}>Nitin Ranganath</h1>
             <h6 className={styles.bio}>Full Stack Web Developer</h6>
             <Link href="/projects">
-              <button className={styles.button}>View Work</button>
+              <button className={styles.button}>{t('view_work')}</button>
             </Link>
             <Link href="/contact">
-              <button className={styles.outlined}>Contact Me</button>
+              <button className={styles.outlined}>{t('contact_me')}</button>
             </Link>
           </div>
           <Illustration className={styles.illustration} />

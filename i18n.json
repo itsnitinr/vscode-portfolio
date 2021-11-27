@@ -1,0 +1,14 @@
+{
+  "locales": ["en", "fr"],
+  "defaultLocale": "en",
+  "pages": {
+    "*": ["common"],
+    "/": ["home"],
+    "/settings": ["settings"],
+    "/about": ["about"],
+    "/contact": ["contact"],
+    "/projects": ["projects"],
+    "/github": ["github"],
+    "articles": ["articles"]
+  }
+}
