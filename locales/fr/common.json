@@ -1,0 +1,14 @@
+{
+  "home": "accueil",
+  "language-name-en": "English 🇬🇧 ",
+  "language-name-fr": "Français 🇫🇷",
+  "file": "Fichier",
+  "edit": "Édition",
+  "selection": "Sélection",
+  "view": "Afficher",
+  "go": "Accéder",
+  "run": "Déboguer",
+  "terminal": "Terminal",
+  "window": "Fenêtre",
+  "help": "Aide"
+}

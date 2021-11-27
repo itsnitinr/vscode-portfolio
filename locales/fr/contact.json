@@ -1,0 +1,11 @@
+{
+  "title": "Contactez-moi via les réseaux !",
+  "form": "Ou par le formulaire de contact :",
+  "name": "Nom",
+  "email": "Email",
+  "subject": "Sujet",
+  "message": "Message",
+  "submit": "Envoyer",
+  "submitted": "Votre message a bien été reçu ! 🚀",
+  "submitted-error": "Il y a eu une erreur. Veuillez réessayer plus tard."
+}

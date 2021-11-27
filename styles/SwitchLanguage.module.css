@@ -1,0 +1,22 @@
+.underline {
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  background-image: linear-gradient(120deg, var(--accent-color) 100%, var(--accent-color) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > a:not(:last-of-type) {
+  margin-bottom: 1em;
+}

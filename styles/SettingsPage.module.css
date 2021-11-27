@@ -4,3 +4,14 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin: 1rem 0;
 }
+
+.language {
+  display: flex;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .language {
+    justify-content: center;
+  }
+}
