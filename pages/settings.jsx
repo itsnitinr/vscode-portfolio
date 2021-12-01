@@ -1,5 +1,5 @@
-import ThemeInfo from "../components/ThemeInfo";
-import styles from "../styles/SettingsPage.module.css";
+import ThemeInfo from '../components/ThemeInfo';
+import styles from '../styles/SettingsPage.module.css';
 
 const SettingsPage = () => {
   return (
@@ -41,17 +41,22 @@ const SettingsPage = () => {
           theme="nord"
           description="An arctic, north-bluish clean and elegant Visual Studio Code theme."
         />
+        <ThemeInfo
+          name="Night Owl"
+          icon="/night-owl.png"
+          publisher="sarah.drasner"
+          theme="night-owl"
+          description="A VS Code theme for the night owls out there."
+        />
       </div>
     </>
   );
 };
 
-
 export async function getStaticProps() {
   return {
-    props: { title: "Settings" },
+    props: { title: 'Settings' },
   };
 }
-
 
 export default SettingsPage;

@@ -79,7 +79,7 @@
 /* Ayu Mirage */
 [data-theme='ayu-mirage'] {
   --main-bg: #1f2430;
-  --bg-text: #272c38;
+  --bg-text: #21242b;
   --text-color: #efefef;
   --accent-color: #e6b450;
   --titlebar-bg: #1f2428;
@@ -126,4 +126,30 @@
   --scrollbar-track-bg: #2e3440;
   --scrollbar-thumb-bg: #454647;
   --article-bg: #363f50;
+}
+
+/* Night Owl */
+[data-theme='night-owl'] {
+  --main-bg: #011627;
+  --bg-text: #031d33;
+  --text-color: #89a4bb;
+  --accent-color: rgb(95, 126, 151);
+  --titlebar-bg: #011627;
+  --sidebar-bg: #011627;
+  --sidebar-hover-bg: #0e293f;
+  --explorer-bg: #011627;
+  --explorer-hover-bg: #0e293f;
+  --explorer-border: transparent;
+  --tabs-bg: #011627;
+  --tab-bg: #01111d;
+  --tab-active-bg: #0b2942;
+  --tab-border: rgb(39, 43, 59);
+  --bottombar-bg: #011627;
+  --bottombar-border: #262a39;
+  --button-bg: rgb(95, 126, 151);
+  --button-text: #fff;
+  --bottombar-hover-bg: #1b222f;
+  --scrollbar-track-bg: #011627;
+  --scrollbar-thumb-bg: #043254;
+  --article-bg: #031d33;
 }
