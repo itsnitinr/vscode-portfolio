@@ -3,7 +3,7 @@ import ErrorIcon from './icons/ErrorIcon';
 import WarningIcon from './icons/WarningIcon';
 import BellIcon from './icons/BellIcon';
 import CheckIcon from './icons/CheckIcon';
-import VercelIcon from './icons/VercelIcon';
+import NextjsIcon from './icons/NextjsIcon';
 import styles from '../styles/Bottombar.module.css';
 
 const Bottombar = () => {
@@ -28,7 +28,7 @@ const Bottombar = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.section}>
-          <VercelIcon className={styles.icon} />
+          <NextjsIcon className={styles.icon} />
           <p>Powered by Next.js</p>
         </div>
         <div className={styles.section}>

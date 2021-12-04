@@ -1,4 +1,4 @@
-function CheckIcon(props) {
+const CheckIcon = (props) => {
   return (
     <svg
       width={16}
@@ -15,6 +15,6 @@ function CheckIcon(props) {
       />
     </svg>
   );
-}
+};
 
 export default CheckIcon;

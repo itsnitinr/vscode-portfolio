@@ -1,4 +1,4 @@
-function GitCompare(props) {
+const GitCompareIcon = (props) => {
   return (
     <svg
       width={16}
@@ -15,6 +15,6 @@ function GitCompare(props) {
       />
     </svg>
   );
-}
+};
 
-export default GitCompare;
+export default GitCompareIcon;

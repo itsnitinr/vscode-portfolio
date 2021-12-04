@@ -1,4 +1,4 @@
-function SvgComponent(props) {
+const StarIcon = (props) => {
   return (
     <svg
       aria-hidden="true"
@@ -15,6 +15,6 @@ function SvgComponent(props) {
       />
     </svg>
   );
-}
+};
 
-export default SvgComponent;
+export default StarIcon;

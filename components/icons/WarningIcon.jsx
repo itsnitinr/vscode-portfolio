@@ -1,4 +1,4 @@
-function WarningIcon(props) {
+const WarningIcon = (props) => {
   return (
     <svg
       width={16}
@@ -15,6 +15,6 @@ function WarningIcon(props) {
       />
     </svg>
   );
-}
+};
 
 export default WarningIcon;

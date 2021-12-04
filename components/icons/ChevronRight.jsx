@@ -1,4 +1,4 @@
-function ChevronRight(props) {
+const ChevronRight = (props) => {
   return (
     <svg
       width={16}
@@ -15,6 +15,6 @@ function ChevronRight(props) {
       />
     </svg>
   );
-}
+};
 
 export default ChevronRight;

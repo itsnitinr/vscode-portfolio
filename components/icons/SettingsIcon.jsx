@@ -1,4 +1,4 @@
-function SettingsIcon(props) {
+const SettingsIcon = (props) => {
   return (
     <svg
       width={24}
@@ -15,6 +15,6 @@ function SettingsIcon(props) {
       />
     </svg>
   );
-}
+};
 
 export default SettingsIcon;
