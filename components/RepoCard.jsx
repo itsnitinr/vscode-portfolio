@@ -25,11 +25,11 @@ const RepoCard = ({ repo }) => {
           </div>
         </div>
         <div>
-          <a href={repo.html_url} target="_blank" rel="noopener">
+          <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
             <GithubIcon height={20} width={20} className={styles.icon} />
           </a>
           {repo.homepage && (
-            <a href={repo.homepage} target="_blank" rel="noopener">
+            <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
               <LinkIcon height={20} width={20} className={styles.icon} />
             </a>
           )}

@@ -29,11 +29,11 @@ const ContactPage = () => {
   return (
     <div className={styles.container}>
       <div>
-        <h1>Reach Out Via Socials</h1>
+        <h3 className={styles.heading}>Reach Out Via Socials</h3>
         <ContactCode />
       </div>
       <div>
-        <h1>Or Fill Out The Form</h1>
+        <h3 className={styles.heading}>Or Fill Out This Form</h3>
         <form className={styles.form} onSubmit={submitForm}>
           <div className={styles.flex}>
             <div>

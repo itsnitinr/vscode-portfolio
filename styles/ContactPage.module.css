@@ -59,6 +59,10 @@
   text-transform: uppercase;
 }
 
+.heading {
+  margin-bottom: 1.5rem;
+}
+
 @media screen and (max-width: 1200px) {
   .container {
     display: block;

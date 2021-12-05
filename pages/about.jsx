@@ -1,14 +1,14 @@
 const AboutPage = () => {
   return (
     <>
-      <h1>About Page</h1>
+      <h3>A Little Bit About Me</h3>
     </>
   );
 };
 
 export async function getStaticProps() {
   return {
-    props: { title: "About" },
+    props: { title: 'About' },
   };
 }
 

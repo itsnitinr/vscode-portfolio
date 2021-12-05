@@ -9,7 +9,7 @@ const ArticleCard = ({ article }) => {
     <a
       href={article.url}
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
       className={styles.container}
     >
       <Image

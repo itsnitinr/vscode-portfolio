@@ -20,7 +20,7 @@ const ProjectCard = ({ project }) => {
             <a
               href={project.source_code}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               className={styles.underline}
             >
               Source Code
@@ -29,7 +29,7 @@ const ProjectCard = ({ project }) => {
           <a
             href={project.demo}
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             className={styles.underline}
           >
             Live Demo
