@@ -1,4 +1,4 @@
-function MailIcon(props) {
+const MailIcon = (props) => {
   return (
     <svg
       width={16}
@@ -15,6 +15,6 @@ function MailIcon(props) {
       />
     </svg>
   );
-}
+};
 
 export default MailIcon;

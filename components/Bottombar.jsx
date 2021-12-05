@@ -1,9 +1,9 @@
-import GitCompareIcon from './icons/GitCompareIcon';
 import ErrorIcon from './icons/ErrorIcon';
 import WarningIcon from './icons/WarningIcon';
 import BellIcon from './icons/BellIcon';
 import CheckIcon from './icons/CheckIcon';
-import VercelIcon from './icons/VercelIcon';
+import NextjsIcon from './icons/NextjsIcon';
+import SourceControlIcon from './icons/SourceControlIcon';
 import styles from '../styles/Bottombar.module.css';
 
 const Bottombar = () => {
@@ -13,10 +13,10 @@ const Bottombar = () => {
         <a
           href="https://github.com/itsnitinr/vscode-portfolio"
           target="_blank"
-          rel="noreferrer"
+          rel="noreferrer noopener"
           className={styles.section}
         >
-          <GitCompareIcon className={styles.icon} />
+          <SourceControlIcon className={styles.icon} />
           <p>main</p>
         </a>
         <div className={styles.section}>
@@ -28,7 +28,7 @@ const Bottombar = () => {
       </div>
       <div className={styles.container}>
         <div className={styles.section}>
-          <VercelIcon className={styles.icon} />
+          <NextjsIcon className={styles.icon} />
           <p>Powered by Next.js</p>
         </div>
         <div className={styles.section}>

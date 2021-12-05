@@ -32,7 +32,6 @@ const GithubPage = ({ repos, user }) => {
           <h3>{user.followers} followers</h3>
         </div>
       </div>
-      <h2>6 Latest Updated Repositories</h2>
       <div className={styles.container}>
         {repos.map((repo) => (
           <RepoCard key={repo.id} repo={repo} />
@@ -43,6 +42,7 @@ const GithubPage = ({ repos, user }) => {
           username={process.env.NEXT_PUBLIC_GITHUB_USERNAME}
           theme={theme}
           hideColorLegend
+          hideMonthLabels
         />
       </div>
     </>
@@ -51,14 +51,27 @@ const GithubPage = ({ repos, user }) => {
 
 export async function getStaticProps() {
   const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
+    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_API_KEY}`,
+      },
+    }
   );
   const user = await userRes.json();
 
   const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=created_at&per_page=6`
+    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?per_page=100`,
+    {
+      headers: {
+        Authorization: `token ${process.env.GITHUB_API_KEY}`,
+      },
+    }
   );
-  const repos = await repoRes.json();
+  let repos = await repoRes.json();
+  repos = repos
+    .sort((a, b) => b.stargazers_count - a.stargazers_count)
+    .slice(0, 6);
 
   return {
     props: { title: 'GitHub', repos, user },

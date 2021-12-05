@@ -9,115 +9,80 @@ import AccountIcon from './icons/AccountIcon';
 import SettingsIcon from './icons/SettingsIcon';
 import styles from '../styles/Sidebar.module.css';
 
+const sidebarTopItems = [
+  {
+    Icon: FilesIcon,
+    path: '/',
+  },
+  {
+    Icon: GithubIcon,
+    path: '/github',
+  },
+  {
+    Icon: CodeIcon,
+    path: '/projects',
+  },
+  {
+    Icon: PencilIcon,
+    path: '/articles',
+  },
+  {
+    Icon: MailIcon,
+    path: '/contact',
+  },
+];
+
+const sidebarBottomItems = [
+  {
+    Icon: AccountIcon,
+    path: '/about',
+  },
+  {
+    Icon: SettingsIcon,
+    path: '/settings',
+  },
+];
+
 const Sidebar = () => {
   const router = useRouter();
 
   return (
     <aside className={styles.sidebar}>
       <div className={styles.sidebarTop}>
-        <Link href="/">
-          <div
-            className={`${styles.iconContainer} ${
-              router.pathname === '/' && styles.active
-            }`}
-          >
-            <FilesIcon
-              fill={
-                router.pathname === '/'
-                  ? 'rgb(225, 228, 232)'
-                  : 'rgb(106, 115, 125)'
-              }
-              className={styles.icon}
-            />
-          </div>
-        </Link>
-        <Link href="/github">
-          <div
-            className={`${styles.iconContainer} ${
-              router.pathname === '/github' && styles.active
-            }`}
-          >
-            <GithubIcon
-              fill={
-                router.pathname === '/github'
-                  ? 'rgb(225, 228, 232)'
-                  : 'rgb(106, 115, 125)'
-              }
-              className={styles.icon}
-            />
-          </div>
-        </Link>
-        <Link href="/projects">
-          <div
-            className={`${styles.iconContainer} ${
-              router.pathname === '/projects' && styles.active
-            }`}
-          >
-            <CodeIcon
-              fill={
-                router.pathname === '/projects'
-                  ? 'rgb(225, 228, 232)'
-                  : 'rgb(106, 115, 125)'
-              }
-              className={styles.icon}
-            />
-          </div>
-        </Link>
-        <Link href="/articles">
-          <div
-            className={`${styles.iconContainer} ${
-              router.pathname === '/articles' && styles.active
-            }`}
-          >
-            <PencilIcon
-              fill={
-                router.pathname === '/articles'
-                  ? 'rgb(225, 228, 232)'
-                  : 'rgb(106, 115, 125)'
-              }
-              className={styles.icon}
-            />
-          </div>
-        </Link>
-        <Link href="/contact">
-          <div
-            className={`${styles.iconContainer} ${
-              router.pathname === '/contact' && styles.active
-            }`}
-          >
-            <MailIcon
-              fill={
-                router.pathname === '/contact'
-                  ? 'rgb(225, 228, 232)'
-                  : 'rgb(106, 115, 125)'
-              }
-              className={styles.icon}
-            />
-          </div>
-        </Link>
+        {sidebarTopItems.map(({ Icon, path }) => (
+          <Link href={path} key={path}>
+            <div
+              className={`${styles.iconContainer} ${
+                router.pathname === path && styles.active
+              }`}
+            >
+              <Icon
+                fill={
+                  router.pathname === path
+                    ? 'rgb(225, 228, 232)'
+                    : 'rgb(106, 115, 125)'
+                }
+                className={styles.icon}
+              />
+            </div>
+          </Link>
+        ))}
       </div>
       <div className={styles.sidebarBottom}>
-        <div className={styles.iconContainer}>
-          <Link href="/about">
-            <AccountIcon
-              fill={
-                router.pathname === "/about"
-                  ? "rgb(225, 228, 232)"
-                  : "rgb(106, 115, 125)"
-              }
-              className={styles.icon}
-            />
-          </Link>
-        </div>
-        <div className={styles.iconContainer}>
-          <Link href="/settings">
-            <SettingsIcon fill={
-                router.pathname === "/settings"
-                  ? "rgb(225, 228, 232)"
-                  : "rgb(106, 115, 125)"
-              } className={styles.icon} />
-          </Link>
-        </div>
+        {sidebarBottomItems.map(({ Icon, path }) => (
+          <div className={styles.iconContainer}>
+            <Link href={path} key={path}>
+              <Icon
+                fill={
+                  router.pathname === path
+                    ? 'rgb(225, 228, 232)'
+                    : 'rgb(106, 115, 125)'
+                }
+                className={styles.icon}
+              />
+            </Link>
+          </div>
+        ))}
       </div>
     </aside>
   );
