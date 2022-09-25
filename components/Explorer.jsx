@@ -11,7 +11,7 @@ const explorerItems = [
     icon: 'react_icon.svg',
   },
   {
-    name: 'about.html',
+    name: 'sobre.html',
     path: '/about',
     icon: 'html_icon.svg',
   },

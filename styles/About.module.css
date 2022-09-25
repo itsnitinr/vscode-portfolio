@@ -1,0 +1,36 @@
+.cointainer p{
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+.containerSkills {
+  margin-top: 1rem;
+  display: flex;
+  justify-content:space-between;
+  max-width: 50vw;
+}
+
+.skill {
+  max-width: 30vw;
+}
+
+.skill h4 {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+/* Phone */
+@media screen and (max-width: 600px) {
+  .skill {
+    margin: 1rem 0
+  }
+
+  .containerSkills {
+    flex-direction: column;
+  }
+
+  .skill h4{
+    font-size: 1.2rem;
+  }
+
+}
