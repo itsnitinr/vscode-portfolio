@@ -192,6 +192,7 @@
 
 /* Phone */
 @media screen and (max-width: 600px) {
+  
   .foreground {
     margin: 0;
   }
@@ -204,6 +205,7 @@
   }
   .button {
     font-size: 1rem;
+    margin-top: 1rem;
   }
   .outlined {
     font-size: 1rem;
@@ -211,9 +213,10 @@
   .illustration {
     position: absolute;
     bottom: 0;
-    right: 0;
-    width: 75vw;
-    height: 50vh;
+    left: 0;
+    width: 80vw;
+    height: 40vh;
     z-index: 1;
   }
+
 }
