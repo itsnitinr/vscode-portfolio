@@ -3,53 +3,49 @@ import styles from '../styles/ContactCode.module.css';
 const contactItems = [
   {
     social: 'website',
-    link: 'nitinranganath.me',
-    href: 'https://nitinranganath.me',
+    link: 'danielcustodio.com.br',
+    href: 'http://danielcustodio.com.br/',
   },
   {
     social: 'email',
-    link: 'nitinranganath@gmail.com',
-    href: 'mailto:nitinranganath@gmail.com',
+    link: 'danielcustodio.dev@gmail.com',
+    href: 'mailto:danielcustodio.dev@gmail.com',
   },
   {
     social: 'github',
-    link: 'itsnitinr',
-    href: 'https://github.com/itsnitinr',
+    link: 'DanielSCustodio',
+    href: 'https://github.com/DanielSCustodio',
   },
   {
     social: 'linkedin',
-    link: 'nitinranganath',
-    href: 'https://www.linkedin.com/in/nitinranganath/',
+    link: 'danielscustodio',
+    href: 'https://www.linkedin.com/in/danielscustodio/',
   },
   {
     social: 'twitter',
-    link: 'iamnitinr',
-    href: 'https://www.twitter.com/iamnitinr',
+    link: 'Dscust',
+    href: 'https://twitter.com/Dscust',
   },
   {
     social: 'instagram',
-    link: 'iamnitinr',
-    href: 'https://www.instagram.com/iamnitinr',
+    link: 'danielscustodio',
+    href: 'https://www.instagram.com/danielscustodio/',
   },
-  {
-    social: 'polywork',
-    link: 'nitinranganath',
-    href: 'https://www.polywork.com/nitinranganath',
-  },
+
   {
     social: 'telegram',
-    link: 'iamnitinr',
-    href: 'https://t.me/iamnitinr',
+    link: 'Dscust',
+    href: 'https://t.me/dscust',
   },
   {
-    social: 'codepen',
-    link: 'nitinranganath',
-    href: 'https://codepen.io/itsnitinr',
+    social: 'wakatime',
+    link: '@Custodio',
+    href: 'https://wakatime.com/@Custodio',
   },
   {
     social: 'codesandbox',
-    link: 'itsnitinr',
-    href: 'https://codesandbox.io/u/itsnitinr',
+    link: 'DanielSCustodio',
+    href: 'https://codesandbox.io/u/DanielSCustodio',
   },
 ];
 
