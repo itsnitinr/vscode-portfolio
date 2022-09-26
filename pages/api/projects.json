@@ -1,37 +1,46 @@
 [
   {
     "id": 1,
-    "name": "Driwwwle",
-    "image": "https://imgur.com/kbGs6zH.png",
-    "description": "A platform for web developers to showcase their projects",
-    "tags": ["next", "node", "mongodb", "tailwind", "react-query"],
-    "source_code": "https://github.com/itsnitinr/driwwwle-v2",
-    "demo": "https://driwwwle.com/"
+    "name": "Blog Dev",
+    "image": "https://imgur.com/McS1c6T.png",
+    "description": "Um blog de programador para programador, tratando de assuntos do universo do desenvolvimento.",
+    "tags": ["next", "node", "typescript", "react", "prismic-cms"],
+    "source_code": "https://github.com/DanielSCustodio/Blog-com-Next.js",
+    "demo": "https://blogdev-three.vercel.app/"
   },
   {
     "id": 2,
-    "name": "PCB Cupid",
-    "image": "https://imgur.com/tAZotn3.png",
-    "description": "E-commerce website for a PCB manufacturing company",
-    "tags": ["react", "node", "mongodb", "redux", "razorpay", "material-ui"],
-    "demo": "https://www.pcbcupid.com/"
+    "name": "Site de Receitas",
+    "image": "https://imgur.com/WJiqrRg.png",
+    "description": "É possível ver, buscar, filtrar, favoritar e acompanhar o processo de preparação de receitas e drinks.",
+    "tags": ["react", "redux", "hooks", "context-api"],
+    "source_code": "https://github.com/DanielSCustodio/Site-de-Receitas",
+    "demo": "https://site-de-receitas-v5a4.vercel.app/"
   },
   {
     "id": 3,
-    "name": "HealthyWays",
-    "image": "https://imgur.com/8FFqaX8.png",
-    "description": "A food ordering platform for healthy and home-cooked meals",
-    "tags": ["react", "node", "mongodb", "redux", "razorpay", "material-ui"],
-    "source_code": "https://github.com/itsnitinr/healthyways",
-    "demo": "https://healthyways.herokuapp.com/"
+    "name": "App de Delivery",
+    "image": "https://imgur.com/FIKJ5P2.png",
+    "description": "Aplicação fullstack de delivery, realiza o fluxo da pessoa vendedora e do cliente.",
+    "tags": ["react", "node", "mysql", "sequelize", "express", "jwt"],
+    "source_code": "https://github.com/DanielSCustodio/App-de-delivery"
   },
   {
     "id": 4,
-    "name": "VSCode Portfolio",
-    "image": "https://imgur.com/mKkz0iz.png",
-    "description": "A themeable and developer-centric portfolio based on the VSCode",
-    "tags": ["next", "css-modules"],
-    "source_code": "https://github.com/itsnitinr/vscode-portfolio",
-    "demo": "http://vscode-portfolio.vercel.app/"
+    "name": "Git Collection",
+    "image": "https://imgur.com/0UMIwtJ.png",
+    "description": "Através da api do GitHub esta aplicação faz a busca de repositórios e os detalha.",
+    "tags": ["react", "styled-components","typescript","axios"],
+    "source_code": "https://github.com/DanielSCustodio/GitCollection",
+    "demo": "https://appgitcollection.netlify.app/"
+  },
+  {
+    "id": 5,
+    "name": "Testes com Jest e RTL",
+    "image": "https://imgur.com/J6MyVjc.png",
+    "description": "Testes com Jest e React Testing Library em uma aplicação React que consome uma API sobre Pokemón.",
+    "tags": ["react", "styled-components","typescript","axios"],
+    "source_code": "https://github.com/DanielSCustodio/Testes-com-Jest-RTL-Pokedex",
+    "demo": "https://testes-com-jest-rtl-pokedex-x7mv.vercel.app/"
   }
 ]

@@ -1,6 +1,7 @@
 .cointainer p{
   line-height: 1.5;
   margin: 1rem 0;
+  font-weight: lighter;
 }
 
 .containerSkills {

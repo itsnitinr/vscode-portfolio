@@ -21,7 +21,7 @@ const explorerItems = [
     icon: 'css_icon.svg',
   },
   {
-    name: 'projects.js',
+    name: 'projetos.js',
     path: '/projects',
     icon: 'js_icon.svg',
   },
@@ -52,7 +52,7 @@ const Explorer = () => {
             className={styles.chevron}
             style={portfolioOpen ? { transform: 'rotate(90deg)' } : {}}
           />
-          Portfolio
+          Portfólio
         </label>
         <div
           className={styles.files}
