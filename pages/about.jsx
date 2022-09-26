@@ -4,11 +4,11 @@ import styles from '../styles/About.module.css';
 const AboutPage = () => {
   return (
     <article className={ styles.cointainer }>
-      <h3>Sobre mim</h3>
+      <h1>Sobre mim</h1>
       <b>Formado em Análise e Desenvolvimento de Sistemas e estudante da Trybe por 1 ano.</b>
       <p>A minha principal ferramenta de trabalho é o React, apesar de ter conhecimentos sobre desenvolvimento back-end, escolhi me aprofundar no front-end, especialmente no ecossistema do React.</p>
       <p>No momento estou consolidando conhecimento sobre Next.js e desenvolvimento com Typescript.</p>
-      <p>Algumas stacks que tenho conhecimento.</p>
+      <h2>Algumas stacks que tenho conhecimento.</h2>
       <section className={ styles.containerSkills }>
         <div className={ styles.skill }>
           <h4><b>Front-end</b></h4>

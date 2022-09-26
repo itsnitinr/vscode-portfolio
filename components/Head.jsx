@@ -3,21 +3,21 @@ import Head from 'next/head';
 const CustomHead = ({ title }) => {
   return (
     <Head>
-      <title>{title}</title>
+      <title>{title} - Portólio de Daniel Custódio</title>
       <meta
         name="description"
-        content="Nitin Ranganath is an avid full stack web developer building websites and applications you'd love to use"
+        content="Desenvolvedor fullstack. Formado em Análise e Desenvolvimento de Sistemas e estudante da Trybe por 1 ano"
       />
       <meta
         name="keywords"
-        content="nitin ranganath, nitin, ranganath, web developer portfolio, nitin web developer, nitin developer, mern stack, nitin ranganath portfolio, vscode-portfolio"
+        content="daniel custodio, web developer portfolio, daniel custodio web developer, daniel custodio, desenvolvedor web, daniel custodio portfolio, portfolio de programador, portfolio de desenvolvedor, portfolio fullstack, programdor freelancer"
       />
-      <meta property="og:title" content="Nitin Ranganath's Portfolio" />
+      <meta property="og:title" content="Portfolio de Daniel Custódio" />
       <meta
         property="og:description"
-        content="A full-stack developer building websites that you'd like to use."
+        content="Desenvolvedor fullstack, construo sistemas e sites web."
       />
-      <meta property="og:image" content="https://imgur.com/4zi5KkQ.png" />
+      <meta property="og:image" content="https://imgur.com/g6acT2j.png" />
       <meta property="og:url" content="https://vscode-portfolio.vercel.app" />
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
@@ -27,5 +27,5 @@ const CustomHead = ({ title }) => {
 export default CustomHead;
 
 CustomHead.defaultProps = {
-  title: 'Nitin Ranganath',
+  title: 'Daniel Custódio',
 };
