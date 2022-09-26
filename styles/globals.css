@@ -19,6 +19,101 @@ li {
   background: rgba(97, 218, 251, 0.25);
 }
 
+.joi {
+  border: 0.1rem solid rgb(21, 55, 226);
+}
+.joi:hover {
+  background: rgba(28, 61, 222, 0.25);
+}
+
+
+.sinon {
+  border: 0.1rem solid rgb(171, 251, 97);
+}
+.sinon:hover {
+  background: rgba(141, 251, 97, 0.25);
+}
+
+
+.chai {
+  border: 0.1rem solid rgb(118, 106, 71);
+}
+.chai:hover {
+  background: rgba(127, 129, 90, 0.25);
+}
+
+.mocha {
+  border: 0.1rem solid rgb(75, 66, 40);
+}
+.mocha:hover {
+  background: rgba(94, 95, 65, 0.25);
+}
+
+.docker {
+  border: 0.1rem solid rgb(50, 53, 216);
+}
+.docker:hover {
+  background: rgba(16, 26, 53, 0.25);
+}
+
+.jquey {
+  border: 0.1rem solid rgb(97, 218, 251);
+}
+.jquey:hover {
+  background: rgba(97, 218, 251, 0.25);
+}
+
+.php {
+  border: 0.1rem solid rgb(78, 165, 190);
+}
+.php:hover {
+  background: rgba(72, 155, 177, 0.25);
+}
+
+.wordpress {
+  border: 0.1rem solid rgb(6, 73, 92);
+}
+.wordpress:hover {
+  background: rgba(4, 74, 94, 0.25);
+}
+
+.css {
+  border: 0.1rem solid rgb(231, 82, 23);
+}
+.css:hover {
+  background: rgba(173, 90, 11, 0.25);
+}
+
+.html {
+  border: 0.1rem solid rgb(10, 156, 196);
+}
+.html:hover {
+  background: rgba(3, 132, 167, 0.25);
+}
+
+
+.javascript {
+  border: 0.1rem solid rgb(251, 230, 97);
+}
+.javascript:hover {
+  background: rgba(251, 223, 97, 0.25);
+}
+
+
+.rtl {
+  border: 0.1rem solid rgb(251, 120, 97);
+}
+.rtl:hover {
+  background: rgba(251, 107, 97, 0.25);
+}
+
+.jest {
+  border: 0.1rem solid rgb(251, 97, 97);
+}
+.jest:hover {
+  background: rgba(251, 107, 97, 0.25);
+}
+
 .axios {
   border: 0.1rem solid rgb(251, 236, 97);
 }
