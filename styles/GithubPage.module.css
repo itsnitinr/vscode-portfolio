@@ -19,6 +19,10 @@
   height: 100%;
 }
 
+.avatar {
+  border-radius: 50%;
+}
+
 .user > div:last-child {
   border-right: none;
 }

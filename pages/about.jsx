@@ -5,6 +5,7 @@ const AboutPage = () => {
   return (
     <article className={ styles.cointainer }>
       <h3>Sobre mim</h3>
+      <i>Formado em Análise e Desenvolvimento de Sistemas e estudante da Trybe por 1 ano - Desenvolvedor Fullstack.</i>
       <p>A minha principal ferramenta de trabalho é o React, apesar de ter conhecimentos sobre desenvolvimento back-end, escolhi me aprofundar no front-end, especialmente no ecossistema do React.</p>
       <p>No momento estou consolidando conhecimento sobre Next.js e desenvolvimento com Typescript.</p>
       <p>Algumas stacks que tenho conhecimento.</p>
