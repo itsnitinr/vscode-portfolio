@@ -4,6 +4,7 @@ const CustomHead = ({ title }) => {
   return (
     <Head>
       <title>{title} - Portólio de Daniel Custódio</title>
+      	<meta name="google-site-verification" content="BH9IGWPc8M0i_tMhP5f7VwupCOzk-l9cbKSKnzJtWQY" />
       <meta
         name="description"
         content="Desenvolvedor fullstack. Formado em Análise e Desenvolvimento de Sistemas e estudante da Trybe por 1 ano"
