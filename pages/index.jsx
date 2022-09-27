@@ -10,7 +10,7 @@ export default function HomePage() {
             <h1 className={styles.name}>Daniel Custódio</h1>
             <h6 className={styles.bio}>Desenvolvedor Web Fullstack</h6>
             <Link href="/projects">
-              <button className={styles.button}>Veja meus projeto</button>
+              <button className={styles.button}>Veja meus projetos</button>
             </Link>
             <Link href="/contact">
               <button className={styles.outlined}>Contato</button>

@@ -55,7 +55,7 @@
     "id": 7,
     "name": "Jogo Mario",
     "image": "https://imgur.com/1XJsBu1.png",
-    "description": "Jogo do Mario no estilo jump com pontuação, igual ao jogo do dinosauro do Google Chrome. Utilizando Vanilla Javascript.",
+    "description": "Jogo do Mario no estilo jump com pontuação, igual ao jogo do dinossauro do Google Chrome. Utilizando Vanilla Javascript.",
     "tags": ["html", "css", "javascript"],
     "source_code": "https://github.com/DanielSCustodio/Jogo-Mario",
     "demo": "https://jogo-mario-w2vp.vercel.app/"
@@ -71,7 +71,7 @@
   },
   {
     "id": 9,
-    "name": "Agência de marketing",
+    "name": "Agência de Marketing",
     "image": "https://imgur.com/rmEYeVC.png",
     "description": "Página home de uma agência de marketing. O Intuito desse projeto é desenvolver as minhas habilidades em HTML e SASS.",
     "tags": ["html", "css", "sass"],
@@ -82,7 +82,7 @@
     "id": 10,
     "name": "Página clone de login do Instagram",
     "image": "https://imgur.com/QQWFUtz.png",
-    "description": "Réplica da página de registro/login do instagram. Usando HTML e CSS.",
+    "description": "Réplica da página de registro/login do Instagram. Usando HTML e CSS.",
     "tags": ["html", "css", "sass"],
     "source_code": "https://github.com/DanielSCustodio/clone-home-instagram",
     "demo": "https://app-clone-ig.netlify.app/"
@@ -92,7 +92,7 @@
     "id": 11,
     "name": "Site Batman",
     "image": "https://imgur.com/K2TdOU0.png",
-    "description": "O site traz algumas informações sobre o Batman.É um site totalmente responsivo utilizando PHP e jQuey.",
+    "description": "O site traz algumas informações sobre o Batman. É um site totalmente responsivo utilizando PHP e jQuey.",
     "tags": ["html", "css", "php","jquey"],
     "source_code": "https://github.com/DanielSCustodio/Site-Batman-PHP"
   },
@@ -108,7 +108,7 @@
     "id": 13,
     "name": "API Node REST/RESTful",
     "image": "https://imgur.com/zR7nm2m.png",
-    "description": "API com operações de CRUD. Nesse projeto foi utilizado o padrão de arquitetura MSC.",
+    "description": "API com operações de CRUD e validações. Foi utilizado o padrão de arquitetura MSC.",
     "tags": ["node", "express", "chai","jest", "joi"],
     "source_code": "https://github.com/DanielSCustodio/API-Node"
   },
@@ -116,7 +116,7 @@
     "id": 14,
     "name": "Blogs API",
     "image": "https://imgur.com/fGh2Qcq.png",
-    "description": "Arquitetura e desenvolvimento de uma API com um CRUD posts de blog (com o Sequelize).",
+    "description": "Arquitetura e desenvolvimento de uma API com CRUD e validações de posts de um blog.",
     "tags": ["node", "express", "sequelize","mysql"],
     "source_code": "https://github.com/DanielSCustodio/Blogs-API"
   },
@@ -124,7 +124,7 @@
     "id": 15,
     "name": "ISS Location Live",
     "image": "https://imgur.com/gsMq59V.png",
-    "description": "Mostra em tempo real a posição da ISS(International Space Station) em um mapa mundia.",
+    "description": "Mostra em tempo real a posição da ISS(International Space Station) em um mapa mundial.",
     "tags": ["react", "redux", "css","html"],
     "source_code": "https://github.com/DanielSCustodio/ISS-Location"
   }

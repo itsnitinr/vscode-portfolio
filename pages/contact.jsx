@@ -7,11 +7,11 @@ const ContactPage = () => {
   return (
     <div className={ styles.container }>
       <div>
-        <h3 className={ styles.heading }>Me contate pelas redes sociais</h3>
+        <h3 className={ styles.heading }>Me encontre nas redes sociais</h3>
         <ContactCode />
       </div>
       <div>
-        <h3 className={ styles.heading }>Ou se preferir me envie um e-mail.</h3>
+        <h3 className={ styles.heading }>Ou se preferir me envie um e-mail</h3>
         <form className={ styles.form }
           action="https://formsquash.io/f/tdoUhsw05p5DZQxr9syO" 
           method="POST">

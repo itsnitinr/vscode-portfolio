@@ -4,7 +4,7 @@ import styles from '../styles/SettingsPage.module.css';
 const SettingsPage = () => {
   return (
     <>
-      <h2>Manage Themes</h2>
+      <h2>Escolha um tema</h2>
       <div className={styles.container}>
         <ThemeInfo
           name="GitHub Dark"

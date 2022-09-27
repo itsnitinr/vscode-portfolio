@@ -2,11 +2,6 @@ import styles from '../styles/ContactCode.module.css';
 
 const contactItems = [
   {
-    social: 'website',
-    link: 'danielcustodio.com.br',
-    href: 'http://danielcustodio.com.br/',
-  },
-  {
     social: 'email',
     link: 'danielcustodio.dev@gmail.com',
     href: 'mailto:danielcustodio.dev@gmail.com',

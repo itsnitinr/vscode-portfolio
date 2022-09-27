@@ -13,6 +13,8 @@ const AboutPage = () => {
         <div className={ styles.skill }>
           <h4><b>Front-end</b></h4>
           <ul>
+            <li>HTML5 Semântico</li>
+            <li>CSS3</li>
             <li>JavaScript</li>
             <li>React</li>
             <li>Next.js</li>
@@ -35,7 +37,6 @@ const AboutPage = () => {
             <li>Sequelize</li>
             <li>MySQL</li>
             <li>MongoDB</li>
-            <li>Mongoose</li>
           </ul>
         </div>
         <div className={ styles.skill }>
