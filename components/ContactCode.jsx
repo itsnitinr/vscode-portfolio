@@ -2,11 +2,6 @@ import styles from '../styles/ContactCode.module.css';
 
 const contactItems = [
   {
-    social: 'email',
-    link: 'danielcustodio.dev@gmail.com',
-    href: 'mailto:danielcustodio.dev@gmail.com',
-  },
-  {
     social: 'github',
     link: 'DanielSCustodio',
     href: 'https://github.com/DanielSCustodio',
@@ -42,6 +37,11 @@ const contactItems = [
     link: 'DanielSCustodio',
     href: 'https://codesandbox.io/u/DanielSCustodio',
   },
+  {
+    social: 'email',
+    link: 'danielcustodio.dev@gmail.com',
+    href: 'mailto:danielcustodio.dev@gmail.com',
+  }
 ];
 
 const ContactCode = () => {
