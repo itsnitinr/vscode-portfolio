@@ -79,6 +79,15 @@
     "demo": "https://agencia-de-marketing-chi.vercel.app/"
   },
   {
+    "id": 16,
+    "name": "GitHub Details",
+    "image": "https://imgur.com/jTbmXAc.png",
+    "description": "Através da API do GitHub esta aplicação faz a busca de repositórios e detalha as issues.",
+    "tags": ["react", "styled-components", "css","html"],
+    "source_code": "https://github.com/DanielSCustodio/GitHub-Details",
+    "demo": "https://git-hub-details.vercel.app/"
+  },
+  {
     "id": 10,
     "name": "Página clone de login do Instagram",
     "image": "https://imgur.com/QQWFUtz.png",
@@ -128,4 +137,5 @@
     "tags": ["react", "redux", "css","html"],
     "source_code": "https://github.com/DanielSCustodio/ISS-Location"
   }
+
 ]
