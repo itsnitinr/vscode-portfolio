@@ -1,0 +1,28 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  border: 0;
+}
+
+.container img {
+  width: 15px;
+  margin-left: 1rem;
+}
+
+.container a{
+  text-decoration:  none;
+  color: #131313;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.container:hover{
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  background-color: aliceblue;
+}
+
+

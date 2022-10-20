@@ -1,3 +1,4 @@
+import ButtonCV from '../components/ButtonCV';
 import styles from '../styles/About.module.css';
 
 
@@ -49,6 +50,7 @@ const AboutPage = () => {
           </ul>
         </div>
       </section>
+      <ButtonCV/>
     </article>
   );
 };

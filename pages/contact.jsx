@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ButtonCV from '../components/ButtonCV';
 import ContactCode from '../components/ContactCode';
 import styles from '../styles/ContactPage.module.css';
 
@@ -9,6 +10,7 @@ const ContactPage = () => {
       <div>
         <h3 className={ styles.heading }>Me encontre nas redes sociais</h3>
         <ContactCode />
+        <ButtonCV/>
       </div>
       <div>
         <h3 className={ styles.heading }>Ou se preferir me envie um e-mail</h3>
