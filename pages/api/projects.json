@@ -34,6 +34,16 @@
     "source_code": "https://github.com/DanielSCustodio/GitCollection",
     "demo": "https://appgitcollection.netlify.app/"
   },
+  
+  {
+    "id": 16,
+    "name": "Blog Rockr",
+    "image": "https://imgur.com/b56l965.png",
+    "description": "Construção de um blog utilizando Next.js com TypeScript, consumindo dados de uma API.",
+    "tags": ["react", "next", "typescript", "sass"],
+    "source_code": "https://github.com/DanielSCustodio/Blog-Coderockr",
+    "demo": "https://coderockr-jade.vercel.app/"
+  },
   {
     "id": 5,
     "name": "Testes com Jest e RTL",
