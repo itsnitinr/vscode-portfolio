@@ -10,12 +10,12 @@ const ContactPage = () => {
       <div>
         <h3 className={ styles.heading }>Me encontre nas redes sociais</h3>
         <ContactCode />
-        <ButtonCV/>
+        <ButtonCV />
       </div>
       <div>
         <h3 className={ styles.heading }>Ou se preferir me envie um e-mail</h3>
         <form className={ styles.form }
-          action="https://formsquash.io/f/tdoUhsw05p5DZQxr9syO" 
+          action="https://formsquash.io/f/tdoUhsw05p5DZQxr9syO"
           method="POST">
           <div className={ styles.flex }>
             <div>
@@ -55,7 +55,7 @@ const ContactPage = () => {
               required
             ></textarea>
           </div>
-          
+
           <button type="submit">Enviar</button>
         </form>
       </div>

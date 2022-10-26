@@ -26,6 +26,10 @@ li {
   background: rgba(28, 61, 222, 0.25);
 }
 
+.firebase { 
+  border: 0.1rem solid rgb(22, 120, 129);}
+.firebase:hover { 
+  background:  rgba(22, 120, 129, 0.386);}
 
 .sinon {
   border: 0.1rem solid rgb(171, 251, 97);
