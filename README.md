@@ -5,7 +5,7 @@ A Visual Studio Code themed developer portfolio website built with Next.js and d
 
 ![vscode-portfolio banner](https://imgur.com/JXJ9mpO.gif)
 
-## Features Roadmap
+# Features Roadmap
 
 - [ ] Themes and customizations
   - [x] GitHub Dark (default)
