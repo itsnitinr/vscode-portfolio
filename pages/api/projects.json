@@ -37,7 +37,7 @@
 
   {
     "id": 17,
-    "name": "TaskBoard",
+    "name": "TasksBoard",
     "image": "https://imgur.com/4ZXwUac.png",
     "description": "Organizador de tarefas com método de pagamento e login via conta Google ou Github.",
     "tags": ["react", "next","typescript","sass","firebase"],
