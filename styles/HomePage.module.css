@@ -21,7 +21,7 @@
   z-index: 2;
   display: flex;
   color: var(--accent-color);
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 

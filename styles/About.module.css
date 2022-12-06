@@ -17,6 +17,10 @@
   flex-direction: column;
 }
 
+.skill li {
+  margin-bottom: 10px;
+}
+
 .skill h4 {
   font-size: 1.5rem;
   text-decoration: underline;
