@@ -28,5 +28,5 @@ const CustomHead = ({ title }) => {
 export default CustomHead;
 
 CustomHead.defaultProps = {
-  title: 'Daniel Custódio',
+  title:'',
 };

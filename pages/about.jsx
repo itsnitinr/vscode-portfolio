@@ -50,14 +50,14 @@ const AboutPage = () => {
           </ul>
         </div>
       </section>
-      <ButtonCV/>
+      <ButtonCV/> 
     </article>
   );
 };
 
 export async function getStaticProps () {
   return {
-    props: { title: 'About' },
+    props: { title: 'Sobre mim' },
   };
 }
 
