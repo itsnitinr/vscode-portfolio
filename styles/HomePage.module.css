@@ -8,6 +8,14 @@
   position: relative;
 }
 
+.background {
+  font-size: 5rem;
+  font-family: 'Montserrat';
+  line-height: 1.1;
+  color: var(--bg-text);
+  position: absolute;
+  z-index: 1;
+}
 
 .foreground {
   z-index: 2;

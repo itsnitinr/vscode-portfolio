@@ -1,5 +1,13 @@
 [
   {
+    "id": 18,
+    "name": "Haila Heloísa - Marketing Digital",
+    "image": "https://imgur.com/pW8wNWi.png",
+    "description": "Landing page mais blog, projeto desenvolvido para a Haila Heloísa, especialista em Marketing Digital.",
+    "tags": ["html", "css", "wordpress", "javascript"],
+    "demo": "https://hailaheloisa.com/"
+  },
+  {
     "id": 1,
     "name": "Blog Dev",
     "image": "https://imgur.com/McS1c6T.png",
@@ -30,7 +38,7 @@
     "name": "Git Collection",
     "image": "https://imgur.com/0UMIwtJ.png",
     "description": "Através da API do GitHub esta aplicação faz a busca de repositórios e os detalha.",
-    "tags": ["react", "styled-components","typescript","axios"],
+    "tags": ["react", "styled-components", "typescript", "axios"],
     "source_code": "https://github.com/DanielSCustodio/GitCollection",
     "demo": "https://appgitcollection.netlify.app/"
   },
@@ -40,11 +48,11 @@
     "name": "TasksBoard",
     "image": "https://imgur.com/4ZXwUac.png",
     "description": "Organizador de tarefas com método de pagamento e login via conta Google ou Github.",
-    "tags": ["react", "next","typescript","sass","firebase"],
+    "tags": ["react", "next", "typescript", "sass", "firebase"],
     "source_code": "https://github.com/DanielSCustodio/TasksBoard",
     "demo": "https://apptasksboard.vercel.app/"
   },
-  
+
   {
     "id": 16,
     "name": "Blog Rockr",
@@ -59,7 +67,7 @@
     "name": "Testes com Jest e RTL",
     "image": "https://imgur.com/J6MyVjc.png",
     "description": "Testes com Jest e React Testing Library em uma aplicação React que consome uma API sobre Pokémon.",
-    "tags": ["react", "rtl", "jest", "node","javascript"],
+    "tags": ["react", "rtl", "jest", "node", "javascript"],
     "source_code": "https://github.com/DanielSCustodio/Testes-com-Jest-RTL-Pokedex",
     "demo": "https://testes-com-jest-rtl-pokedex-x7mv.vercel.app/"
   },
@@ -68,7 +76,7 @@
     "name": "Link Languages",
     "image": "https://imgur.com/fVqrjJH.png",
     "description": "Site profissional para escola de idioma Link Languages, consiste em ser institucional com landing pages.",
-    "tags": ["html", "css", "wordpress","javascript"],
+    "tags": ["html", "css", "wordpress", "javascript"],
     "demo": "https://linklanguages.com.br/"
   },
   {
@@ -103,7 +111,7 @@
     "name": "GitHub Details",
     "image": "https://imgur.com/jTbmXAc.png",
     "description": "Através da API do GitHub esta aplicação faz a busca de repositórios e detalha as issues.",
-    "tags": ["react", "styled-components", "css","html"],
+    "tags": ["react", "styled-components", "css", "html"],
     "source_code": "https://github.com/DanielSCustodio/GitHub-Details",
     "demo": "https://git-hub-details.vercel.app/"
   },
@@ -122,7 +130,7 @@
     "name": "Site Batman",
     "image": "https://imgur.com/K2TdOU0.png",
     "description": "O site traz algumas informações sobre o Batman. É um site totalmente responsivo utilizando PHP e jQuey.",
-    "tags": ["html", "css", "php","jquey"],
+    "tags": ["html", "css", "php", "jquey"],
     "source_code": "https://github.com/DanielSCustodio/Site-Batman-PHP"
   },
   {
@@ -130,7 +138,17 @@
     "name": "Trybe Futebol Clube",
     "image": "https://imgur.com/hRely3R.png",
     "description": "Gerencia partidas de futebol, permitindo: criar, editar, deletar e obter a classificação dos líderes.",
-    "tags": ["react","node", "typescript", "express","sequelize","docker","mocha","chai","sinon"],
+    "tags": [
+      "react",
+      "node",
+      "typescript",
+      "express",
+      "sequelize",
+      "docker",
+      "mocha",
+      "chai",
+      "sinon"
+    ],
     "source_code": "https://github.com/DanielSCustodio/Trybe-futebol-clube"
   },
   {
@@ -138,7 +156,7 @@
     "name": "API Node REST/RESTful",
     "image": "https://imgur.com/zR7nm2m.png",
     "description": "API com operações de CRUD e validações. Foi utilizado o padrão de arquitetura MSC.",
-    "tags": ["node", "express", "chai","jest", "joi"],
+    "tags": ["node", "express", "chai", "jest", "joi"],
     "source_code": "https://github.com/DanielSCustodio/API-Node"
   },
   {
@@ -146,7 +164,7 @@
     "name": "Blogs API",
     "image": "https://imgur.com/fGh2Qcq.png",
     "description": "Arquitetura e desenvolvimento de uma API com CRUD e validações de posts de um blog.",
-    "tags": ["node", "express", "sequelize","mysql"],
+    "tags": ["node", "express", "sequelize", "mysql"],
     "source_code": "https://github.com/DanielSCustodio/Blogs-API"
   },
   {
@@ -154,8 +172,7 @@
     "name": "ISS Location Live",
     "image": "https://imgur.com/gsMq59V.png",
     "description": "Mostra em tempo real a posição da ISS(International Space Station) em um mapa mundial.",
-    "tags": ["react", "redux", "css","html"],
+    "tags": ["react", "redux", "css", "html"],
     "source_code": "https://github.com/DanielSCustodio/ISS-Location"
   }
-
 ]
