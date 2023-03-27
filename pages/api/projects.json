@@ -29,7 +29,7 @@
     "id": 3,
     "name": "App de Delivery",
     "image": "https://imgur.com/FIKJ5P2.png",
-    "description": "Aplicação fullstack de delivery, realiza o fluxo da pessoa vendedora e do cliente.",
+    "description": "Aplicação fullstack de delivery. Tem como objetivo realizar o fluxo da pessoa vendedora e do cliente.",
     "tags": ["react", "node", "mysql", "sequelize", "express", "jwt"],
     "source_code": "https://github.com/DanielSCustodio/App-de-delivery"
   },
@@ -54,7 +54,7 @@
   },
 
   {
-    "id": 16,
+    "id": 19,
     "name": "Blog Rockr",
     "image": "https://imgur.com/b56l965.png",
     "description": "Construção de um blog utilizando Next.js com TypeScript, consumindo dados de uma API.",
@@ -129,8 +129,8 @@
     "id": 11,
     "name": "Site Batman",
     "image": "https://imgur.com/K2TdOU0.png",
-    "description": "O site traz algumas informações sobre o Batman. É um site totalmente responsivo utilizando PHP e jQuey.",
-    "tags": ["html", "css", "php", "jquey"],
+    "description": "O site traz algumas informações sobre o Batman. É um site totalmente responsivo utilizando PHP e jQuery.",
+    "tags": ["html", "css", "php", "jquery"],
     "source_code": "https://github.com/DanielSCustodio/Site-Batman-PHP"
   },
   {
@@ -174,5 +174,13 @@
     "description": "Mostra em tempo real a posição da ISS(International Space Station) em um mapa mundial.",
     "tags": ["react", "redux", "css", "html"],
     "source_code": "https://github.com/DanielSCustodio/ISS-Location"
-  }
+  },
+    {
+      "id": 20,
+      "name": "Accounts",
+      "image": "https://imgur.com/HXzzzuB.png",
+      "description": "Sistema em node.js que simula operações bancárias com validações.",
+      "tags": ["node", "javascript"],
+      "source_code": "https://github.com/DanielSCustodio/accounts"
+    }
 ]

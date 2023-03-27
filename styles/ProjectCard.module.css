@@ -42,11 +42,12 @@
 .cta {
   display: flex;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .underline {
   padding: 0.2rem 0;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   letter-spacing: 0;
   cursor: pointer;
   color: white;

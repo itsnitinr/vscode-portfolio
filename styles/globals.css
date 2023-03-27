@@ -60,10 +60,10 @@ li {
   background: rgba(16, 26, 53, 0.25);
 }
 
-.jquey {
+.jquery {
   border: 0.1rem solid rgb(97, 218, 251);
 }
-.jquey:hover {
+.jquery:hover {
   background: rgba(97, 218, 251, 0.25);
 }
 
