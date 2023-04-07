@@ -19,7 +19,7 @@
   {
     "id": 2,
     "name": "Site de Receitas",
-    "image": "https://imgur.com/WJiqrRg.png",
+    "image": "https://imgur.com/kLpC6Mo.png",
     "description": "É possível ver, buscar, filtrar, favoritar e acompanhar o processo de preparação de receitas e drinks.",
     "tags": ["react", "redux", "hooks", "context-api"],
     "source_code": "https://github.com/DanielSCustodio/Site-de-Receitas",
@@ -133,6 +133,16 @@
     "tags": ["html", "css", "php", "jquery"],
     "source_code": "https://github.com/DanielSCustodio/Site-Batman-PHP"
   },
+
+  {
+    "id": 21,
+    "name": "Página de E-commerce",
+    "image": "https://imgur.com/6iSbZCx.png",
+    "description": "Home page de um e-commerce com layout moderno utilizando arquitetura SASS.",
+    "tags": ["html", "sass", "css"],
+    "source_code": "https://github.com/DanielSCustodio/Home-page-e-commerce",
+    "demo": "https://home-page-e-commerce.vercel.app/"
+  },
   {
     "id": 12,
     "name": "Trybe Futebol Clube",
@@ -175,12 +185,12 @@
     "tags": ["react", "redux", "css", "html"],
     "source_code": "https://github.com/DanielSCustodio/ISS-Location"
   },
-    {
-      "id": 20,
-      "name": "Accounts",
-      "image": "https://imgur.com/HXzzzuB.png",
-      "description": "Sistema em node.js que simula operações bancárias com validações.",
-      "tags": ["node", "javascript"],
-      "source_code": "https://github.com/DanielSCustodio/accounts"
-    }
+  {
+    "id": 20,
+    "name": "Accounts",
+    "image": "https://imgur.com/HXzzzuB.png",
+    "description": "Sistema em node.js que simula operações bancárias com validações.",
+    "tags": ["node", "javascript"],
+    "source_code": "https://github.com/DanielSCustodio/accounts"
+  }
 ]
