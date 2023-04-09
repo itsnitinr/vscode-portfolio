@@ -16,15 +16,7 @@
     "source_code": "https://github.com/DanielSCustodio/Blog-com-Next.js",
     "demo": "https://blogdev-three.vercel.app/"
   },
-  {
-    "id": 2,
-    "name": "Site de Receitas",
-    "image": "https://imgur.com/kLpC6Mo.png",
-    "description": "É possível ver, buscar, filtrar, favoritar e acompanhar o processo de preparação de receitas e drinks.",
-    "tags": ["react", "redux", "hooks", "context-api"],
-    "source_code": "https://github.com/DanielSCustodio/Site-de-Receitas",
-    "demo": "https://site-de-receitas-v5a4.vercel.app/"
-  },
+
   {
     "id": 3,
     "name": "App de Delivery",
@@ -79,6 +71,17 @@
     "tags": ["html", "css", "wordpress", "javascript"],
     "demo": "https://linklanguages.com.br/"
   },
+
+  {
+    "id": 21,
+    "name": "Portfólio React com SASS",
+    "image": "https://imgur.com/aWY9yVV.png",
+    "description": "portfólio desenvolvido em React com o objetivo de praticar a integração do React com SASS.",
+    "tags": ["html", "css", "javascript", "react", "sass"],
+    "source_code": "https://github.com/DanielSCustodio/portfolio",
+    "demo": "https://portfolio-daniel-custodio.vercel.app/"
+  },
+
   {
     "id": 7,
     "name": "Jogo Mario",
@@ -142,6 +145,15 @@
     "tags": ["html", "sass", "css"],
     "source_code": "https://github.com/DanielSCustodio/Home-page-e-commerce",
     "demo": "https://home-page-e-commerce.vercel.app/"
+  },
+  {
+    "id": 2,
+    "name": "Site de Receitas",
+    "image": "https://imgur.com/kLpC6Mo.png",
+    "description": "É possível ver, buscar, filtrar, favoritar e acompanhar o processo de preparação de receitas e drinks.",
+    "tags": ["react", "redux", "hooks", "context-api"],
+    "source_code": "https://github.com/DanielSCustodio/Site-de-Receitas",
+    "demo": "https://site-de-receitas-v5a4.vercel.app/"
   },
   {
     "id": 12,

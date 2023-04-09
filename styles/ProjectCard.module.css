@@ -9,6 +9,7 @@
 .card img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  object-fit: cover;
 }
 
 .card:hover {
