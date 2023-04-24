@@ -21,6 +21,7 @@ const CustomHead = ({ title }) => {
       <meta property="og:image" content="https://imgur.com/g6acT2j.png" />
       <meta property="og:url" content="https://danielcustodio.com.br/" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="google-site-verification" content="Sbolx0p-WCauJ2As8ebGDAudISnSwQAu91W_b0uUxr4" />
     </Head>
   );
 };
