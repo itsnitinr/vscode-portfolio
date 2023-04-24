@@ -81,6 +81,13 @@ li {
   background: rgba(4, 74, 94, 0.25);
 }
 
+.handlebars {
+  border: 0.1rem solid rgb(246, 100, 10);
+}
+.handlebars:hover {
+  background: rgba(246, 101, 10, 0.466);
+}
+
 .css {
   border: 0.1rem solid rgb(231, 82, 23);
 }

@@ -138,7 +138,7 @@
   },
 
   {
-    "id": 21,
+    "id": 22,
     "name": "Página de E-commerce",
     "image": "https://imgur.com/6iSbZCx.png",
     "description": "Home page de um e-commerce com layout moderno utilizando arquitetura SASS.",
@@ -172,6 +172,14 @@
       "sinon"
     ],
     "source_code": "https://github.com/DanielSCustodio/Trybe-futebol-clube"
+  },
+  {
+    "id": 23,
+    "name": "Narrativa Livre",
+    "image": "https://imgur.com/tsS1xAo.png",
+    "description": "aplicação que permite aos usuários postar suas próprias histórias e realizar operações básicas de CRUD.",
+    "tags": ["node", "express", "mysql", "sass", "handlebars"],
+    "source_code": "https://github.com/DanielSCustodio/Narrativa-Livre"
   },
   {
     "id": 13,
