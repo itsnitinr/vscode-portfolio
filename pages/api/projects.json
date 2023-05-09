@@ -83,6 +83,15 @@
   },
 
   {
+    "id": 24,
+    "name": "To-Do List",
+    "image": "https://imgur.com/zm5EvLz.jpg",
+    "description": "To-Do List, com as operações de CRUD, além de poder desfazer uma tarefa.",
+    "tags": ["node", "handlebars", "css", "mysql", "express", "sequelize"],
+    "source_code": "https://github.com/DanielSCustodio/To-Do-List"
+  },
+
+  {
     "id": 7,
     "name": "Jogo Mario",
     "image": "https://imgur.com/1XJsBu1.png",
