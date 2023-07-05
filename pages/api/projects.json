@@ -46,6 +46,15 @@
   },
 
   {
+    "id": 25,
+    "name": "Scientific Evidence Dataset",
+    "image": "https://imgur.com/4BIKfaW.png",
+    "description": "Gestão e colaboração em questões relacionadas ao Corpo de Conhecimento em Engenharia de Software (SWEBOK).",
+    "tags": ["node", "sass", "express", "sql", "handlebars", "sequelize"],
+    "source_code": "https://github.com/DanielSCustodio/swebok-dataset"
+  },
+
+  {
     "id": 19,
     "name": "Blog Rockr",
     "image": "https://imgur.com/b56l965.png",

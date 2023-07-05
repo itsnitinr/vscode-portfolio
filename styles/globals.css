@@ -181,10 +181,10 @@ li {
   background: rgba(118, 74, 188, 0.25);
 }
 
-.mysql {
+.sql {
   border: 0.1rem solid rgb(82, 143, 240);
 }
-.mysql:hover {
+.sql:hover {
   background: rgba(82, 143, 240, 0.25);
 }
 
