@@ -22,7 +22,7 @@
     "name": "App de Delivery",
     "image": "https://imgur.com/FIKJ5P2.png",
     "description": "Aplicação fullstack de delivery. Tem como objetivo realizar o fluxo da pessoa vendedora e do cliente.",
-    "tags": ["react", "node", "mysql", "sequelize", "express", "jwt"],
+    "tags": ["react", "node", "sql", "sequelize", "express", "jwt"],
     "source_code": "https://github.com/DanielSCustodio/App-de-delivery"
   },
   {
@@ -96,7 +96,7 @@
     "name": "To-Do List",
     "image": "https://imgur.com/zm5EvLz.jpg",
     "description": "To-Do List, com as operações de CRUD, além de poder desfazer uma tarefa.",
-    "tags": ["node", "handlebars", "css", "mysql", "express", "sequelize"],
+    "tags": ["node", "handlebars", "css", "sql", "express", "sequelize"],
     "source_code": "https://github.com/DanielSCustodio/To-Do-List"
   },
 
@@ -196,7 +196,7 @@
     "name": "Narrativa Livre",
     "image": "https://imgur.com/tsS1xAo.png",
     "description": "aplicação que permite aos usuários postar suas próprias histórias e realizar operações básicas de CRUD.",
-    "tags": ["node", "express", "mysql", "sass", "handlebars"],
+    "tags": ["node", "express", "sql", "sass", "handlebars"],
     "source_code": "https://github.com/DanielSCustodio/Narrativa-Livre"
   },
   {
@@ -212,7 +212,7 @@
     "name": "Blogs API",
     "image": "https://imgur.com/fGh2Qcq.png",
     "description": "Arquitetura e desenvolvimento de uma API com CRUD e validações de posts de um blog.",
-    "tags": ["node", "express", "sequelize", "mysql"],
+    "tags": ["node", "express", "sequelize", "sql"],
     "source_code": "https://github.com/DanielSCustodio/Blogs-API"
   },
   {
