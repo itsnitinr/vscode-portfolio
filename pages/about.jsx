@@ -7,8 +7,9 @@ const AboutPage = () => {
     <article className={ styles.cointainer }>
       <h1>Sobre mim</h1>
       <b>Formado em Análise e Desenvolvimento de Sistemas, pós-graduando em Desenvolvimento Web Full-Stack e formado na Trybe </b>
-      <p>A minha principal ferramenta de trabalho é o React, apesar de ter conhecimentos sobre desenvolvimento back-end, escolhi me aprofundar no front-end, especialmente no ecossistema do React.</p>
-      <p>No momento estou consolidando conhecimento sobre Next.js e desenvolvimento com Typescript.</p>
+      <p>Sou programador web que se dedica ao desenvolvimento de sites, blogs e sistemas. Utilizo diferentes linguagens de programação e também a plataforma Wordpress, que é uma ferramenta muito popular para criação de websites e blogs. </p>
+      <p>Como programador web, minha principal tarefa é criar e manter aplicações web, garantindo que o conteúdo esteja bem organizado e a navegação seja fácil e intuitiva para os usuários.</p>
+      <p>Também trabalho em equipe, em colaboração com outros profissionais, como designers e especialistas em marketing digital, a fim de criar projetos completos e bem-sucedidos</p>
       <h2>Algumas stacks que tenho conhecimento.</h2>
       <section className={ styles.containerSkills }>
         <div className={ styles.skill }>
@@ -24,6 +25,7 @@ const AboutPage = () => {
             <li>Bootstrap</li>
             <li>SASS/SCSS</li>
             <li>Styled Components</li>
+            <li>Handlebras</li>
             <li>Wordpress</li>
           </ul>
         </div>
