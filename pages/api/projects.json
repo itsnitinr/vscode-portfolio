@@ -4,7 +4,7 @@
     "name": "Haila Heloísa - Marketing Digital",
     "image": "https://imgur.com/pW8wNWi.png",
     "description": "Landing page com blog, projeto desenvolvido para a Haila Heloísa, especialista em Marketing Digital.",
-    "tags": ["html", "css", "wordpress", "javascript"],
+    "tags": ["html", "css", "wordpress"],
     "demo": "https://hailaheloisa.com/"
   },
   {
@@ -44,6 +44,14 @@
     "source_code": "https://github.com/DanielSCustodio/TasksBoard",
     "demo": "https://apptasksboard.vercel.app/"
   },
+  {
+    "id": 26,
+    "name": "Karl Hammes",
+    "image": "https://imgur.com/1skw2Q9.png",
+    "description": "Site institucional do Grupo Karl Hammes destaca suas três principais áreas de expertise: Contabilidade, Imobiliária e Administração Condominial e Financeira.",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "https://karl-hammes.com.br/"
+  },
 
   {
     "id": 25,
@@ -77,7 +85,7 @@
     "name": "Link Languages",
     "image": "https://imgur.com/fVqrjJH.png",
     "description": "Site profissional para escola de idioma Link Languages, consiste em ser institucional com landing pages.",
-    "tags": ["html", "css", "wordpress", "javascript"],
+    "tags": ["html", "css", "wordpress"],
     "demo": "https://linklanguages.com.br/"
   },
 

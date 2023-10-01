@@ -16,7 +16,7 @@ export default function HomePage() {
               <button className={styles.outlined}>Contato</button>
             </Link>
           </div>
-          <img src="background.svg"  className={styles.illustration} alt="" />
+          <img src="illustration.svg" className={styles.illustration} alt="illustration" />
         </div>
       </div>
     </>
