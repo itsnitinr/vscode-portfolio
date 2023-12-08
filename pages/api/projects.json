@@ -80,14 +80,7 @@
     "source_code": "https://github.com/DanielSCustodio/Testes-com-Jest-RTL-Pokedex",
     "demo": "https://testes-com-jest-rtl-pokedex-x7mv.vercel.app/"
   },
-  {
-    "id": 6,
-    "name": "Link Languages",
-    "image": "https://imgur.com/fVqrjJH.png",
-    "description": "Site profissional para escola de idioma Link Languages, consiste em ser institucional com landing pages.",
-    "tags": ["html", "css", "wordpress"],
-    "demo": "https://linklanguages.com.br/"
-  },
+
 
   {
     "id": 21,
