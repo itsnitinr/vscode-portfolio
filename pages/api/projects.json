@@ -46,7 +46,7 @@
   {
     "id": 17,
     "name": "TasksBoard",
-    "image": "https://imgur.com/4ZXwUac.png",
+    "image": "https://i.postimg.cc/gkCDqkJY/Tasks-Board.webp",
     "description": "Organizador de tarefas com método de pagamento e login via conta Google ou Github.",
     "tags": ["react", "next", "typescript", "sass", "firebase"],
     "source_code": "https://github.com/DanielSCustodio/TasksBoard",
@@ -55,7 +55,7 @@
   {
     "id": 26,
     "name": "Karl Hammes",
-    "image": "https://imgur.com/1skw2Q9.png",
+    "image": "https://i.postimg.cc/nrvv3qMp/Karl.webp",
     "description": "Site institucional do Grupo Karl Hammes destaca suas três principais áreas de expertise: Contabilidade, Imobiliária e Administração Condominial e Financeira.",
     "tags": ["html", "css", "wordpress"],
     "demo": "https://karl-hammes.com.br/"
@@ -64,7 +64,7 @@
   {
     "id": 25,
     "name": "Scientific Evidence Dataset",
-    "image": "https://imgur.com/4BIKfaW.png",
+    "image": "https://i.postimg.cc/6pT83dwq/swebok.webp",
     "description": "Gestão e colaboração em questões relacionadas ao Corpo de Conhecimento em Engenharia de Software (SWEBOK).",
     "tags": ["node", "sass", "express", "sql", "handlebars", "sequelize"],
     "source_code": "https://github.com/DanielSCustodio/swebok-dataset"
@@ -73,7 +73,7 @@
   {
     "id": 19,
     "name": "Blog Rockr",
-    "image": "https://imgur.com/b56l965.png",
+    "image": "https://i.postimg.cc/QMQhxtBV/Rockr.webp",
     "description": "Construção de um blog utilizando Next.js com TypeScript, consumindo dados de uma API.",
     "tags": ["react", "next", "typescript", "sass"],
     "source_code": "https://github.com/DanielSCustodio/Blog-Coderockr",
@@ -82,7 +82,7 @@
   {
     "id": 5,
     "name": "Testes com Jest e RTL",
-    "image": "https://imgur.com/J6MyVjc.png",
+    "image": "https://i.postimg.cc/TwBzVv5B/Testes.webp",
     "description": "Testes com Jest e React Testing Library em uma aplicação React que consome uma API sobre Pokémon.",
     "tags": ["react", "rtl", "jest", "node", "javascript"],
     "source_code": "https://github.com/DanielSCustodio/Testes-com-Jest-RTL-Pokedex",
@@ -92,7 +92,7 @@
   {
     "id": 21,
     "name": "Portfólio React com SASS",
-    "image": "https://imgur.com/aWY9yVV.png",
+    "image": "https://i.postimg.cc/Dyc2TmXZ/Portfolio.webp",
     "description": "portfólio desenvolvido em React com o objetivo de praticar a integração do React com SASS.",
     "tags": ["html", "css", "javascript", "react", "sass"],
     "source_code": "https://github.com/DanielSCustodio/portfolio",
@@ -102,7 +102,7 @@
   {
     "id": 24,
     "name": "To-Do List",
-    "image": "https://imgur.com/zm5EvLz.jpg",
+    "image": "https://i.postimg.cc/T29S2bCZ/To-Do.webp",
     "description": "To-Do List, com as operações de CRUD, além de poder desfazer uma tarefa.",
     "tags": ["node", "handlebars", "css", "sql", "express", "sequelize"],
     "source_code": "https://github.com/DanielSCustodio/To-Do-List"
@@ -111,7 +111,7 @@
   {
     "id": 7,
     "name": "Jogo Mario",
-    "image": "https://imgur.com/1XJsBu1.png",
+    "image": "https://i.postimg.cc/8k0RbP57/Mario.webp",
     "description": "Jogo do Mario no estilo jump com pontuação, igual ao jogo do dinossauro do Google Chrome. Utilizando Vanilla Javascript.",
     "tags": ["html", "css", "javascript"],
     "source_code": "https://github.com/DanielSCustodio/Jogo-Mario",
@@ -120,7 +120,7 @@
   {
     "id": 8,
     "name": "Pixel Art",
-    "image": "https://imgur.com/KNea2Gv.png",
+    "image": "https://i.postimg.cc/VLtCBqph/Pixel.webp",
     "description": "O usuário pode desenhar a partir de uma tela de pixel com o tamanho estipulado pelo mesmo, com uma paleta de cores.",
     "tags": ["html", "css", "javascript"],
     "source_code": "https://github.com/DanielSCustodio/Pixel_Art",
@@ -129,7 +129,7 @@
   {
     "id": 9,
     "name": "Agência de Marketing",
-    "image": "https://imgur.com/rmEYeVC.png",
+    "image": "https://i.postimg.cc/Y2G84yfK/Marketing.webp",
     "description": "Página home de uma agência de marketing. O Intuito desse projeto é desenvolver as minhas habilidades em HTML e SASS.",
     "tags": ["html", "css", "sass"],
     "source_code": "https://github.com/DanielSCustodio/Agencia-de-Marketing",
@@ -138,7 +138,7 @@
   {
     "id": 16,
     "name": "GitHub Details",
-    "image": "https://imgur.com/jTbmXAc.png",
+    "image": "https://i.postimg.cc/6p2BFKCb/Details.webp",
     "description": "Através da API do GitHub esta aplicação faz a busca de repositórios e detalha as issues.",
     "tags": ["react", "styled-components", "css", "html"],
     "source_code": "https://github.com/DanielSCustodio/GitHub-Details",
@@ -147,7 +147,7 @@
   {
     "id": 10,
     "name": "Página clone de login do Instagram",
-    "image": "https://imgur.com/QQWFUtz.png",
+    "image": "https://i.postimg.cc/FKP5Knbk/Instagram.webp",
     "description": "Réplica da página de registro/login do Instagram. Usando HTML e CSS.",
     "tags": ["html", "css", "sass"],
     "source_code": "https://github.com/DanielSCustodio/clone-home-instagram",
@@ -157,7 +157,7 @@
   {
     "id": 11,
     "name": "Site Batman",
-    "image": "https://imgur.com/K2TdOU0.png",
+    "image": "https://i.postimg.cc/Gm2jC7p5/Batman.webp",
     "description": "O site traz algumas informações sobre o Batman. É um site totalmente responsivo utilizando PHP e jQuery.",
     "tags": ["html", "css", "php", "jquery"],
     "source_code": "https://github.com/DanielSCustodio/Site-Batman-PHP"
@@ -166,7 +166,7 @@
   {
     "id": 22,
     "name": "Página de E-commerce",
-    "image": "https://imgur.com/6iSbZCx.png",
+    "image": "https://i.postimg.cc/C1NZd0PH/E-commerce.webp",
     "description": "Home page de um e-commerce com layout moderno utilizando arquitetura SASS.",
     "tags": ["html", "sass", "css"],
     "source_code": "https://github.com/DanielSCustodio/Home-page-e-commerce",
@@ -175,7 +175,7 @@
   {
     "id": 2,
     "name": "Site de Receitas",
-    "image": "https://imgur.com/kLpC6Mo.png",
+    "image": "https://i.postimg.cc/Bn4nLkFm/Receitas.webp",
     "description": "É possível ver, buscar, filtrar, favoritar e acompanhar o processo de preparação de receitas e drinks.",
     "tags": ["react", "redux", "hooks", "context-api"],
     "source_code": "https://github.com/DanielSCustodio/Site-de-Receitas",
@@ -184,7 +184,7 @@
   {
     "id": 12,
     "name": "Trybe Futebol Clube",
-    "image": "https://imgur.com/hRely3R.png",
+    "image": "https://i.postimg.cc/WzwxQW44/Futebol.webp",
     "description": "Gerencia partidas de futebol, permitindo: criar, editar, deletar e obter a classificação dos líderes.",
     "tags": [
       "react",
@@ -202,7 +202,7 @@
   {
     "id": 23,
     "name": "Narrativa Livre",
-    "image": "https://imgur.com/tsS1xAo.png",
+    "image": "https://i.postimg.cc/0jX0MDWf/Narrativa.webphttps://imgur.com/tsS1xAo.png",
     "description": "aplicação que permite aos usuários postar suas próprias histórias e realizar operações básicas de CRUD.",
     "tags": ["node", "express", "sql", "sass", "handlebars"],
     "source_code": "https://github.com/DanielSCustodio/Narrativa-Livre"
@@ -210,7 +210,7 @@
   {
     "id": 13,
     "name": "API Node REST/RESTful",
-    "image": "https://imgur.com/zR7nm2m.png",
+    "image": "https://i.postimg.cc/59D3Vqz4/API.webp",
     "description": "API com operações de CRUD e validações. Foi utilizado o padrão de arquitetura MSC.",
     "tags": ["node", "express", "chai", "jest", "joi"],
     "source_code": "https://github.com/DanielSCustodio/API-Node"
@@ -218,7 +218,7 @@
   {
     "id": 14,
     "name": "Blogs API",
-    "image": "https://imgur.com/fGh2Qcq.png",
+    "image": "https://i.postimg.cc/5ttvv6zK/Blogs.webp",
     "description": "Arquitetura e desenvolvimento de uma API com CRUD e validações de posts de um blog.",
     "tags": ["node", "express", "sequelize", "sql"],
     "source_code": "https://github.com/DanielSCustodio/Blogs-API"
@@ -226,7 +226,7 @@
   {
     "id": 15,
     "name": "ISS Location Live",
-    "image": "https://imgur.com/gsMq59V.png",
+    "image": "https://i.postimg.cc/9XBm31KT/ISS.webp",
     "description": "Mostra em tempo real a posição da ISS(International Space Station) em um mapa mundial.",
     "tags": ["react", "redux", "css", "html"],
     "source_code": "https://github.com/DanielSCustodio/ISS-Location"
@@ -234,7 +234,7 @@
   {
     "id": 20,
     "name": "Accounts",
-    "image": "https://imgur.com/HXzzzuB.png",
+    "image": "https://i.postimg.cc/XYB6vgHs/Accounts.webp",
     "description": "Sistema em node.js que simula operações bancárias com validações.",
     "tags": ["node", "javascript"],
     "source_code": "https://github.com/DanielSCustodio/accounts"
