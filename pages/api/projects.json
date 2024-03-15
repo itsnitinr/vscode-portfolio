@@ -2,7 +2,7 @@
   {
     "id": 18,
     "name": "Haila Heloísa - Marketing Digital",
-    "image": "https://imgur.com/pW8wNWi.png",
+    "image": "https://i.postimg.cc/9FDrJm7n/haila.webp",
     "description": "Landing page com blog, projeto desenvolvido para a Haila Heloísa, especialista em Marketing Digital.",
     "tags": ["html", "css", "wordpress"],
     "demo": "https://hailaheloisa.com/"
@@ -10,7 +10,7 @@
   {
     "id": 1,
     "name": "Blog Dev",
-    "image": "https://imgur.com/McS1c6T.png",
+    "image": "https://i.postimg.cc/3r4BVDzX/blog-dev.webp",
     "description": "Um blog de programador para programador, tratando de assuntos do universo do desenvolvimento.",
     "tags": ["next", "node", "typescript", "react", "prismic-cms"],
     "source_code": "https://github.com/DanielSCustodio/Blog-com-Next.js",
@@ -28,7 +28,7 @@
   {
     "id": 3,
     "name": "App de Delivery",
-    "image": "https://imgur.com/FIKJ5P2.png",
+    "image": "https://i.postimg.cc/5tSGHFfY/delivery.webp",
     "description": "Aplicação fullstack de delivery. Tem como objetivo realizar o fluxo da pessoa vendedora e do cliente.",
     "tags": ["react", "node", "sql", "sequelize", "express", "jwt"],
     "source_code": "https://github.com/DanielSCustodio/App-de-delivery"
@@ -36,7 +36,7 @@
   {
     "id": 4,
     "name": "Git Collection",
-    "image": "https://imgur.com/0UMIwtJ.png",
+    "image": "https://i.postimg.cc/N08M5by6/git-collection.webp",
     "description": "Através da API do GitHub esta aplicação faz a busca de repositórios e os detalha.",
     "tags": ["react", "styled-components", "typescript", "axios"],
     "source_code": "https://github.com/DanielSCustodio/GitCollection",
