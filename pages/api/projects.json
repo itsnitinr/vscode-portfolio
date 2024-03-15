@@ -16,6 +16,14 @@
     "source_code": "https://github.com/DanielSCustodio/Blog-com-Next.js",
     "demo": "https://blogdev-three.vercel.app/"
   },
+  {
+    "id": 27,
+    "name": "Nova Digital Informática",
+    "image": "https://i.postimg.cc/DZ5ZNqSh/nova-digital-cover.png",
+    "description": "Site institucional onepage para empresa  Nova Digital, uma loja de informática, suprimentos de impressão e materiais de escritório",
+    "tags": ["html", "css", "wordpress","javascript"],
+    "demo": "https://novadigitalinfo.com.br/"
+  },
 
   {
     "id": 3,
@@ -80,7 +88,6 @@
     "source_code": "https://github.com/DanielSCustodio/Testes-com-Jest-RTL-Pokedex",
     "demo": "https://testes-com-jest-rtl-pokedex-x7mv.vercel.app/"
   },
-
 
   {
     "id": 21,
