@@ -21,10 +21,9 @@
     "name": "Nova Digital Informática",
     "image": "https://i.postimg.cc/DZ5ZNqSh/nova-digital-cover.png",
     "description": "Site institucional onepage para empresa  Nova Digital, uma loja de informática, suprimentos de impressão e materiais de escritório",
-    "tags": ["html", "css", "wordpress","javascript"],
+    "tags": ["html", "css", "wordpress", "javascript"],
     "demo": "https://novadigitalinfo.com.br/"
   },
-
   {
     "id": 3,
     "name": "App de Delivery",
@@ -32,6 +31,14 @@
     "description": "Aplicação fullstack de delivery. Tem como objetivo realizar o fluxo da pessoa vendedora e do cliente.",
     "tags": ["react", "node", "sql", "sequelize", "express", "jwt"],
     "source_code": "https://github.com/DanielSCustodio/App-de-delivery"
+  },
+  {
+    "id": 28,
+    "name": "Grupo Quali",
+    "image": "https://i.postimg.cc/SxrhzKLP/grupo-quali.png",
+    "description": "Site institucional do Grupo Quali destaca suas três principais áreas de expertise: Contabilidade, Imobiliária e Seguradora.",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "https://grupoqualitr.com.br/"
   },
   {
     "id": 4,
