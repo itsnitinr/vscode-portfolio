@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from './Titlebar.module.css'
+import styles from './TitleBar.module.css'
 
 function TitleBar() {
   return (

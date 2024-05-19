@@ -21,6 +21,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/public/*": ["public/*"]
+    },
     "plugins": [
       {
         "name": "next"

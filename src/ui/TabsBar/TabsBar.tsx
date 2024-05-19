@@ -1,5 +1,5 @@
 import Tab from '../Tab'
-import styles from './Tabsbar.module.css'
+import styles from './TabsBar.module.css'
 
 function TabsBar() {
   return (

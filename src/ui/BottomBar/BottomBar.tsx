@@ -4,7 +4,7 @@ import BellIcon from '../icons/BellIcon'
 import CheckIcon from '../icons/CheckIcon'
 import NextjsIcon from '../icons/NextjsIcon'
 import SourceControlIcon from '../icons/SourceControlIcon'
-import styles from './Bottombar.module.css'
+import styles from './BottomBar.module.css'
 
 function BottomBar() {
   return (

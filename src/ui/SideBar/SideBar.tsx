@@ -6,7 +6,7 @@ import GithubIcon from '../icons/GithubIcon'
 import MailIcon from '../icons/MailIcon'
 import AccountIcon from '../icons/AccountIcon'
 import SettingsIcon from '../icons/SettingsIcon'
-import styles from './Sidebar.module.css'
+import styles from './SideBar.module.css'
 
 const sidebarTopItems = [
   {
