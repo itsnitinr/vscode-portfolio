@@ -1,4 +1,4 @@
-import styles from '@/styles/AboutPage.module.css'
+import styles from './AboutPage.module.css'
 import type { Metadata } from 'next'
 
 function Page() {

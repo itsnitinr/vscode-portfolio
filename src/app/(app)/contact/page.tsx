@@ -1,5 +1,5 @@
 import ContactCode from '@/ui/ContactCode'
-import styles from '@/styles/ContactPage.module.css'
+import styles from './ContactPage.module.css'
 import Form from './Form'
 import type { Metadata } from 'next'
 

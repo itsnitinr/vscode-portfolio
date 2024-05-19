@@ -24,7 +24,6 @@
     "baseUrl": ".",
     "paths": {
       "@/ui/*": ["src/ui/*"],
-      "@/styles/*": ["src/styles/*"],
       "@/public/*": ["public/*"]
     },
     "plugins": [
@@ -34,6 +33,6 @@
     ],
     "types": ["node"]
   },
-  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.css"],
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules", ".next"]
 }

@@ -1,5 +1,5 @@
 import ThemeInfo from '@/ui/ThemeInfo'
-import styles from '@/styles/SettingsPage.module.css'
+import styles from './SettingsPage.module.css'
 import type { Metadata } from 'next'
 
 function Page() {

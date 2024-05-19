@@ -6,10 +6,10 @@ import SideBar from '@/ui/SideBar'
 import Explorer from '@/ui/Explorer'
 import BottomBar from '@/ui/BottomBar'
 import TabsBar from '@/ui/TabsBar'
-import styles from '@/styles/Layout.module.css'
+import styles from './Layout.module.css'
 
-import '@/styles/globals.css'
-import '@/styles/themes.css'
+import '@/public/globals.css'
+import '@/public/themes.css'
 
 type LayoutProps = {
   children: React.ReactNode

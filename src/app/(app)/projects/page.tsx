@@ -1,6 +1,6 @@
 import ProjectCard from '@/ui/ProjectCard'
 import { getProjects } from '../../api/projects/route'
-import styles from '@/styles/ProjectsPage.module.css'
+import styles from './ProjectsPage.module.css'
 
 function Page() {
   const projects = getProjects()

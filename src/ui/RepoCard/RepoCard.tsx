@@ -3,7 +3,7 @@ import ForkIcon from '@/ui/icons/ForkIcon'
 import StarIcon from '@/ui/icons/StarIcon'
 import GithubIcon from '@/ui/icons/GithubIcon'
 import LinkIcon from '@/ui/icons/LinkIcon'
-import styles from '@/styles/RepoCard.module.css'
+import styles from './RepoCard.module.css'
 
 type RepoCardProps = {
   repo: {

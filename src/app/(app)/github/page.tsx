@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import GitHubCalendar from 'react-github-calendar'
 import RepoCard from '@/ui/RepoCard'
-import styles from '@/styles/GithubPage.module.css'
+import styles from './GithubPage.module.css'
 import type { Metadata } from 'next'
 
 async function Page() {
