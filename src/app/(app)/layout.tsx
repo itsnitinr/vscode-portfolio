@@ -17,11 +17,10 @@ type LayoutProps = {
 
 function Layout({ children }: LayoutProps) {
   useEffect(() => {
-    if (localStorage.getItem('theme')) {
-      document.documentElement.setAttribute(
-        'data-theme',
-        localStorage.getItem('theme')
-      )
+    let theme = localStorage.getItem('theme')
+
+    if (theme) {
+      document.documentElement.setAttribute('data-theme', theme)
     }
   }, [])
 

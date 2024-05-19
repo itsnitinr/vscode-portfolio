@@ -1,4 +1,8 @@
-function Illustration(props) {
+type IllustrationProps = {
+  className: string
+}
+
+function Illustration(props: IllustrationProps) {
   return (
     <svg
       width={486}

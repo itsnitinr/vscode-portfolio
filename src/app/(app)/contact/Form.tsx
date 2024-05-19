@@ -8,7 +8,7 @@ function Form() {
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
 
-  const submitForm = async (e) => {
+  const submitForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact`, {
       method: 'POST',

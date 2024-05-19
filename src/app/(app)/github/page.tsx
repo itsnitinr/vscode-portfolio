@@ -23,7 +23,16 @@ async function Page() {
       }
     }
   )
-  let repos = await repoRes.json()
+  let repos: Array<{
+    id: number
+    name: string
+    description: string
+    watchers: number
+    forks: number
+    stargazers_count: number
+    html_url: string
+    homepage: string | null
+  }> = await repoRes.json()
 
   repos = repos
     .sort((a, b) => b.stargazers_count - a.stargazers_count)

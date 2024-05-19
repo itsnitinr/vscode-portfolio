@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import styles from '@/styles/ThemeInfo.module.css'
 
@@ -9,7 +10,7 @@ type ThemeInfoProps = {
 }
 
 function ThemeInfo({ icon, name, publisher, theme }: ThemeInfoProps) {
-  const setTheme = (theme) => {
+  const setTheme = (theme: string) => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
   }

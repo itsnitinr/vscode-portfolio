@@ -7,13 +7,14 @@ import styles from '@/styles/RepoCard.module.css'
 
 type RepoCardProps = {
   repo: {
+    id: number
     name: string
     description: string
     watchers: number
     forks: number
     stargazers_count: number
     html_url: string
-    homepage?: string
+    homepage: string | null
   }
 }
 
