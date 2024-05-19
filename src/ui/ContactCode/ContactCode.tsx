@@ -1,4 +1,4 @@
-import styles from '@/styles/ContactCode.module.css'
+import styles from './ContactCode.module.css'
 
 const contactItems = [
   {

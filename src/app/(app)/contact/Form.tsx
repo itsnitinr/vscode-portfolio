@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import styles from '@/styles/ContactPage.module.css'
+import styles from './ContactPage.module.css'
 
 function Form() {
   const [name, setName] = useState('')

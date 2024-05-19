@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Illustration from '@/ui/Illustration'
-import styles from '@/styles/HomePage.module.css'
+import styles from './HomePage.module.css'
 import type { Metadata } from 'next'
 
 function Page() {
