@@ -1,8 +1,8 @@
-import WatchIcon from '@/ui/icons/WatchIcon'
-import ForkIcon from '@/ui/icons/ForkIcon'
-import StarIcon from '@/ui/icons/StarIcon'
-import GithubIcon from '@/ui/icons/GithubIcon'
-import LinkIcon from '@/ui/icons/LinkIcon'
+import WatchIcon from '../icons/WatchIcon'
+import ForkIcon from '../icons/ForkIcon'
+import StarIcon from '../icons/StarIcon'
+import GithubIcon from '../icons/GithubIcon'
+import LinkIcon from '../icons/LinkIcon'
 import styles from './RepoCard.module.css'
 
 type RepoCardProps = {

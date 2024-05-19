@@ -1,9 +1,9 @@
-import ErrorIcon from '@/ui/icons/ErrorIcon'
-import WarningIcon from '@/ui/icons/WarningIcon'
-import BellIcon from '@/ui/icons/BellIcon'
-import CheckIcon from '@/ui/icons/CheckIcon'
-import NextjsIcon from '@/ui/icons/NextjsIcon'
-import SourceControlIcon from '@/ui/icons/SourceControlIcon'
+import ErrorIcon from '../icons/ErrorIcon'
+import WarningIcon from '../icons/WarningIcon'
+import BellIcon from '../icons/BellIcon'
+import CheckIcon from '../icons/CheckIcon'
+import NextjsIcon from '../icons/NextjsIcon'
+import SourceControlIcon from '../icons/SourceControlIcon'
 import styles from './Bottombar.module.css'
 
 function BottomBar() {

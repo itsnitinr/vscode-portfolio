@@ -1,4 +1,4 @@
-import Tab from '@/ui/Tab'
+import Tab from '../Tab'
 import styles from './Tabsbar.module.css'
 
 function TabsBar() {

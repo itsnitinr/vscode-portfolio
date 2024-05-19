@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import FilesIcon from '@/ui/icons/FilesIcon'
-import GithubIcon from '@/ui/icons/GithubIcon'
-// import CodeIcon from './icons/CodeIcon';
-import MailIcon from '@/ui/icons/MailIcon'
-import AccountIcon from '@/ui/icons/AccountIcon'
-import SettingsIcon from '@/ui/icons/SettingsIcon'
+import FilesIcon from '../icons/FilesIcon'
+import GithubIcon from '../icons/GithubIcon'
+// import CodeIcon from '../icons/CodeIcon';
+import MailIcon from '../icons/MailIcon'
+import AccountIcon from '../icons/AccountIcon'
+import SettingsIcon from '../icons/SettingsIcon'
 import styles from './Sidebar.module.css'
 
 const sidebarTopItems = [

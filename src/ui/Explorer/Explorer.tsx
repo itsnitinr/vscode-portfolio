@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import ChevronRight from '@/ui/icons/ChevronRight'
+import ChevronRight from '../icons/ChevronRight'
 import styles from './Explorer.module.css'
 
 const explorerItems = [

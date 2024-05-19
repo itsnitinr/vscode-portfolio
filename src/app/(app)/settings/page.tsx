@@ -1,4 +1,4 @@
-import ThemeInfo from '@/ui/ThemeInfo'
+import ThemeInfo from '../../../ui/ThemeInfo'
 import styles from './SettingsPage.module.css'
 import type { Metadata } from 'next'
 

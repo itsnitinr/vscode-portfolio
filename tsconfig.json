@@ -21,11 +21,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "@/ui/*": ["src/app/ui/*"],
-      "@/public/*": ["public/*"]
-    },
     "plugins": [
       {
         "name": "next"

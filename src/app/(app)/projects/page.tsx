@@ -1,4 +1,4 @@
-import ProjectCard from '@/ui/ProjectCard'
+import ProjectCard from '../../../ui/ProjectCard'
 import { getProjects } from '../../api/projects/route'
 import styles from './ProjectsPage.module.css'
 
