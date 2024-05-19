@@ -23,7 +23,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/ui/*": ["src/ui/*"],
+      "@/ui/*": ["src/app/ui/*"],
       "@/public/*": ["public/*"]
     },
     "plugins": [
