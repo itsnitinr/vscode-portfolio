@@ -3,13 +3,13 @@ import styles from '../styles/ContactCode.module.css';
 const contactItems = [
   {
     social: 'website',
-    link: 'nitinranganath.me',
-    href: 'https://nitinranganath.me',
+    link: 'AkashThakur.me',
+    href: 'https://AkashThakur.me',
   },
   {
     social: 'email',
-    link: 'nitinranganath@gmail.com',
-    href: 'mailto:nitinranganath@gmail.com',
+    link: 'AkashThakur@gmail.com',
+    href: 'mailto:AkashThakur@gmail.com',
   },
   {
     social: 'github',
@@ -18,32 +18,32 @@ const contactItems = [
   },
   {
     social: 'linkedin',
-    link: 'nitinranganath',
-    href: 'https://www.linkedin.com/in/nitinranganath/',
+    link: 'AkashThakur',
+    href: 'https://www.linkedin.com/in/AkashThakur/',
   },
   {
     social: 'twitter',
-    link: 'iamnitinr',
-    href: 'https://www.twitter.com/iamnitinr',
+    link: 'IamAkashThakur',
+    href: 'https://www.twitter.com/IamAkashThakur',
   },
   {
     social: 'instagram',
-    link: 'iamnitinr',
-    href: 'https://www.instagram.com/iamnitinr',
+    link: 'IamAkashThakur',
+    href: 'https://www.instagram.com/IamAkashThakur',
   },
   {
     social: 'polywork',
-    link: 'nitinranganath',
-    href: 'https://www.polywork.com/nitinranganath',
+    link: 'AkashThakur',
+    href: 'https://www.polywork.com/AkashThakur',
   },
   {
     social: 'telegram',
-    link: 'iamnitinr',
-    href: 'https://t.me/iamnitinr',
+    link: 'IamAkashThakur',
+    href: 'https://t.me/IamAkashThakur',
   },
   {
     social: 'codepen',
-    link: 'nitinranganath',
+    link: 'AkashThakur',
     href: 'https://codepen.io/itsnitinr',
   },
   {
