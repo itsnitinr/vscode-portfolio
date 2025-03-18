@@ -17,25 +17,32 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
       rel="noopener noreferrer"
       className={styles.container}
     >
-      <Image
-        src={article.cover_image}
-        alt={article.title}
-        width={300}
-        height={150}
-      />
+      <div className={styles.imageWrapper}>
+        <Image
+          src={article.cover_image}
+          alt={article.title}
+          fill
+          sizes="(max-width: 768px) 100vw, 300px"
+          className={styles.image}
+        />
+        <div className={styles.viewsBadge}>
+          <VscEye /> {article.page_views_count}
+        </div>
+      </div>
       <div className={styles.content}>
         <h3 className={styles.title}>{article.title}</h3>
-        <p>{article.description}</p>
-      </div>
-      <div className={styles.stats}>
-        <div className={styles.stat}>
-          <VscEye className={styles.icon} /> {article.page_views_count}
-        </div>
-        <div className={styles.stat}>
-          <VscHeart className={styles.icon} /> {article.public_reactions_count}
-        </div>
-        <div className={styles.stat}>
-          <VscComment className={styles.icon} /> {article.comments_count}
+        <p className={styles.description}>{article.description}</p>
+
+        <div className={styles.footer}>
+          <div className={styles.stats}>
+            <div className={styles.stat}>
+              <VscHeart className={styles.icon} />{' '}
+              {article.public_reactions_count}
+            </div>
+            <div className={styles.stat}>
+              <VscComment className={styles.icon} /> {article.comments_count}
+            </div>
+          </div>
         </div>
       </div>
     </a>

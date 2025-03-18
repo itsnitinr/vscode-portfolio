@@ -10,18 +10,18 @@ export interface Article {
 }
 
 export interface Project {
-  thumbnail: string;
-  name: string;
+  title: string;
   description: string;
-  tags: string[];
-  githubLink: string;
-  demoLink: string;
+  logo: string;
+  link: string;
+  slug: string;
 }
 
 export interface Repo {
   id: number;
   name: string;
   description: string;
+  language: string;
   watchers: number;
   forks: number;
   stargazers_count: number;

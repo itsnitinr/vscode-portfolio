@@ -1,15 +1,13 @@
 .container {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .container > * {
   flex: 1;
-}
-
-.container > div:first-child {
-  border-right: 1px solid var(--accent-color);
+  max-width: 600px;
 }
 
 .container h1 {
@@ -22,54 +20,38 @@
   gap: 1rem;
 }
 
-.form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.8rem;
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-align: center;
+  padding-top: 3rem;
 }
 
-.form input,
-.form textarea {
-  font-family: 'JetBrains Mono';
-  margin-bottom: 1.5rem;
-  background: var(--article-bg);
-  color: var(--text-color);
-  border: none;
+.pageSubtitle {
   font-size: 1rem;
-  padding: 0.75rem;
-  width: 100%;
-  resize: none;
-}
-
-.form input:focus,
-.form textarea:focus {
-  outline: 1px solid var(--accent-color);
-}
-
-.form button {
-  background: var(--accent-color);
-  color: var(--main-bg);
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.heading {
-  margin-bottom: 1.5rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  line-height: 1.6;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 1200px) {
   .container {
     display: block;
+    padding: 2rem 1rem;
   }
+
   .container > div:first-child {
     border-right: none;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -77,7 +59,21 @@
   .flex {
     display: block;
   }
+
   .form input {
     font-size: 0.85rem;
+  }
+
+  .container {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .pageTitle {
+    font-size: 1.75rem;
+  }
+
+  .pageSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 }

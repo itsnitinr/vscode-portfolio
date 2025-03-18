@@ -1,5 +1,4 @@
 import ProjectCard from '@/components/ProjectCard';
-
 import { projects } from '@/data/projects';
 
 import styles from '@/styles/ProjectsPage.module.css';
@@ -7,10 +6,15 @@ import styles from '@/styles/ProjectsPage.module.css';
 const ProjectsPage = () => {
   return (
     <>
-      <h3>Stuff I&apos;ve Built So Far</h3>
+      <h1 className={styles.pageTitle}>My Projects</h1>
+      <p className={styles.pageSubtitle}>
+        Here&apos;s a collection of my recent work. These projects showcase my
+        skills in web development, design, and problem-solving.
+      </p>
+
       <div className={styles.container}>
         {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+          <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
     </>
@@ -19,7 +23,7 @@ const ProjectsPage = () => {
 
 export async function getStaticProps() {
   return {
-    props: { title: 'Projects', projects },
+    props: { title: 'Projects' },
   };
 }
 

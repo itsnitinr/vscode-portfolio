@@ -2,8 +2,9 @@ import {
   VscEye,
   VscRepoForked,
   VscStarEmpty,
-  VscGithub,
-  VscLink,
+  VscGithubAlt,
+  VscLinkExternal,
+  VscTypeHierarchy,
 } from 'react-icons/vsc';
 
 import { Repo } from '@/types';
@@ -17,29 +18,48 @@ interface RepoCardProps {
 const RepoCard = ({ repo }: RepoCardProps) => {
   return (
     <div className={styles.card}>
-      <div>
+      <div className={styles.cardHeader}>
         <h3 className={styles.title}>{repo.name}</h3>
-        <p>{repo.description}</p>
+        {repo.language && (
+          <div className={styles.language}>
+            <VscTypeHierarchy className={styles.languageIcon} />
+            <span>{repo.language}</span>
+          </div>
+        )}
       </div>
+      <p>{repo.description || 'No description provided'}</p>
       <div className={styles.stats}>
         <div>
           <div>
-            <VscEye className={styles.icon} /> {repo.watchers}
+            <VscStarEmpty className={styles.icon} />
+            {repo.stargazers_count}
           </div>
           <div>
-            <VscRepoForked className={styles.icon} /> {repo.forks}
+            <VscRepoForked className={styles.icon} />
+            {repo.forks}
           </div>
           <div>
-            <VscStarEmpty className={styles.icon} /> {repo.stargazers_count}
+            <VscEye className={styles.icon} />
+            {repo.watchers}
           </div>
         </div>
         <div>
-          <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-            <VscGithub height={20} width={20} className={styles.icon} />
+          <a
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View Repository"
+          >
+            <VscGithubAlt className={styles.icon} />
           </a>
           {repo.homepage && (
-            <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
-              <VscLink height={20} width={20} className={styles.icon} />
+            <a
+              href={repo.homepage}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Visit Live Site"
+            >
+              <VscLinkExternal className={styles.icon} />
             </a>
           )}
         </div>

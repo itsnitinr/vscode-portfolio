@@ -3,6 +3,7 @@
 .main {
   display: flex;
   background: var(--main-bg);
+  overflow-x: hidden;
 }
 
 .content {
@@ -13,6 +14,7 @@
   height: 85vh;
   overflow-y: auto;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .content {

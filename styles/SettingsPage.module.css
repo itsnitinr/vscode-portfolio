@@ -1,6 +1,66 @@
-.container {
-  display: grid;
+.settingsContainer {
+  padding: 0.75rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.colorThemeSection {
+  padding: 0.5rem 0;
+}
+
+.sectionHeader {
+  display: flex;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  margin: 1rem 0;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent-color);
+}
+
+.sectionHeader h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sectionHeader svg {
+  font-size: 1rem;
+}
+
+.container {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.pageSubtitle {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  max-width: 600px;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.875rem;
+  }
+
+  .pageSubtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .settingsContainer {
+    padding: 0.5rem;
+  }
 }
