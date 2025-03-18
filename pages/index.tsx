@@ -54,56 +54,58 @@ export default function HomePage() {
 
   return (
     <div className={styles.heroLayout}>
-      <div className={styles.codeSection}>
-        <div className={styles.codeContainer}>
-          <div className={styles.editorContent}>
-            <div className={styles.lineNumbers}>
-              {codeLines.map((_, index) => (
-                <div
-                  key={index}
-                  className={`${styles.lineNumber} ${
-                    index === activeLineIndex ? styles.activeLine : ''
-                  }`}
-                >
-                  {index + 1}
-                </div>
-              ))}
-            </div>
+      <div className={styles.container}>
+        <div className={styles.codeSection}>
+          <div className={styles.codeContainer}>
+            <div className={styles.editorContent}>
+              <div className={styles.lineNumbers}>
+                {codeLines.map((_, index) => (
+                  <div
+                    key={index}
+                    className={`${styles.lineNumber} ${
+                      index === activeLineIndex ? styles.activeLine : ''
+                    }`}
+                  >
+                    {index + 1}
+                  </div>
+                ))}
+              </div>
 
-            <div className={styles.codeEditor}>
-              {codeLines.map((line, index) => (
-                <div
-                  key={index}
-                  className={`${styles.codeLine} ${styles[line.type]} ${
-                    index === activeLineIndex ? styles.highlightedLine : ''
-                  }`}
-                >
-                  {line.code}
-                </div>
-              ))}
-            </div>
+              <div className={styles.codeEditor}>
+                {codeLines.map((line, index) => (
+                  <div
+                    key={index}
+                    className={`${styles.codeLine} ${styles[line.type]} ${
+                      index === activeLineIndex ? styles.highlightedLine : ''
+                    }`}
+                  >
+                    {line.code}
+                  </div>
+                ))}
+              </div>
 
-            <div className={styles.overlayGlow}></div>
+              <div className={styles.overlayGlow}></div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className={styles.infoSection}>
-        <h1 className={styles.developerName}>
-          Nitin <span className={styles.accentText}>Ranganath</span>
-        </h1>
+        <div className={styles.infoSection}>
+          <h1 className={styles.developerName}>
+            Nitin <span className={styles.accentText}>Ranganath</span>
+          </h1>
 
-        <div className={styles.developerRole}>Full Stack Web Developer</div>
+          <div className={styles.developerRole}>Full Stack Web Developer</div>
 
-        <p className={styles.bio}>
-          I build elegant, responsive web applications with modern technologies.
-          Focused on clean code and intuitive user experiences.
-        </p>
+          <p className={styles.bio}>
+            I build elegant, responsive web applications with modern
+            technologies. Focused on clean code and intuitive user experiences.
+          </p>
 
-        <div className={styles.actionLinks}>
-          <Link href="/projects" className={styles.primaryLink}>
-            View Projects <VscArrowRight />
-          </Link>
+          <div className={styles.actionLinks}>
+            <Link href="/projects" className={styles.primaryLink}>
+              View Projects <VscArrowRight />
+            </Link>
+          </div>
         </div>
       </div>
 
