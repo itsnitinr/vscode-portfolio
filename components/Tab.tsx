@@ -3,7 +3,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import styles from '../styles/Tab.module.css';
 
-const Tab = ({ icon, filename, path }) => {
+interface TabProps {
+  icon: string;
+  filename: string;
+  path: string;
+}
+
+const Tab = ({ icon, filename, path }: TabProps) => {
   const router = useRouter();
 
   return (

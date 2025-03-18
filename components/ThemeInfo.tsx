@@ -1,8 +1,15 @@
 import Image from 'next/image';
 import styles from '../styles/ThemeInfo.module.css';
 
-const ThemeInfo = ({ icon, name, publisher, theme }) => {
-  const setTheme = (theme) => {
+interface ThemeInfoProps {
+  icon: string;
+  name: string;
+  publisher: string;
+  theme: string;
+}
+
+const ThemeInfo = ({ icon, name, publisher, theme }: ThemeInfoProps) => {
+  const setTheme = (theme: string) => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   };
