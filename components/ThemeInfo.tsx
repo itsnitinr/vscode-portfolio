@@ -17,7 +17,15 @@ const ThemeInfo = ({ icon, name, publisher, theme }: ThemeInfoProps) => {
 
   return (
     <div className={styles.container}>
-      <Image src={icon} alt={name} height={100} width={100} />
+      <div className={styles.imageWrapper}>
+        <Image
+          src={icon}
+          alt={name}
+          height={100}
+          width={100}
+          className={styles.themeImage}
+        />
+      </div>
       <div className={styles.info}>
         <div>
           <h3>{name}</h3>

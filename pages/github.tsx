@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import GitHubCalendar from 'react-github-calendar';
-import { VscGithubAlt, VscRepo, VscCode, VscPerson } from 'react-icons/vsc';
+import { VscRepo, VscPerson } from 'react-icons/vsc';
 
 import RepoCard from '@/components/RepoCard';
 import { Repo, User } from '@/types';
@@ -52,18 +52,12 @@ const GithubPage = ({ repos, user }: GithubPageProps) => {
         </div>
 
         <div className={styles.sectionHeader}>
-          <VscCode className={styles.sectionIcon} />
           <h3 className={styles.sectionTitle}>Popular Repositories</h3>
         </div>
         <div className={styles.reposContainer}>
           {repos.map((repo) => (
             <RepoCard key={repo.id} repo={repo} />
           ))}
-        </div>
-
-        <div className={styles.sectionHeader}>
-          <VscGithubAlt className={styles.sectionIcon} />
-          <h3 className={styles.sectionTitle}>Contribution Activity</h3>
         </div>
         <div className={styles.contributions}>
           <GitHubCalendar
