@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import GitHubCalendar from 'react-github-calendar';
+import { VscGithubAlt, VscRepo, VscPerson, VscCode } from 'react-icons/vsc';
 
 import RepoCard from '@/components/RepoCard';
 
@@ -14,42 +15,72 @@ interface GithubPageProps {
 
 const GithubPage = ({ repos, user }: GithubPageProps) => {
   return (
-    <>
-      <div className={styles.user}>
-        <div>
+    <div className={styles.githubPage}>
+      <div className={styles.profileSection}>
+        <div className={styles.profileInfo}>
           <Image
             src={user.avatar_url}
             className={styles.avatar}
             alt={user.login}
-            width={50}
-            height={50}
+            width={100}
+            height={100}
+            priority
           />
-          <h3 className={styles.username}>{user.login}</h3>
-        </div>
-        <div>
-          <h3>{user.public_repos} repos</h3>
-        </div>
-        <div>
-          <h3>{user.followers} followers</h3>
+          <div className={styles.userInfo}>
+            <h2 className={styles.username}>{user.login}</h2>
+            <div className={styles.stats}>
+              <div className={styles.statItem}>
+                <VscRepo className={styles.statIcon} />
+                <span>{user.public_repos} repositories</span>
+              </div>
+              <div className={styles.statItem}>
+                <VscPerson className={styles.statIcon} />
+                <span>{user.followers} followers</span>
+              </div>
+            </div>
+            <a
+              href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.profileLink}
+            >
+              <VscGithubAlt />
+              <span>View Profile</span>
+            </a>
+          </div>
         </div>
       </div>
-      <div className={styles.container}>
+
+      <div className={styles.sectionHeader}>
+        <VscCode className={styles.sectionIcon} />
+        <h3 className={styles.sectionTitle}>Popular Repositories</h3>
+      </div>
+      <div className={styles.reposContainer}>
         {repos.map((repo) => (
           <RepoCard key={repo.id} repo={repo} />
         ))}
       </div>
+
+      <div className={styles.sectionHeader}>
+        <VscGithubAlt className={styles.sectionIcon} />
+        <h3 className={styles.sectionTitle}>Contribution Activity</h3>
+      </div>
       <div className={styles.contributions}>
         <GitHubCalendar
           username={process.env.NEXT_PUBLIC_GITHUB_USERNAME!}
+          hideColorLegend
+          hideMonthLabels
+          colorScheme="dark"
           theme={{
             dark: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
             light: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
           }}
-          hideColorLegend
-          hideMonthLabels
+          style={{
+            width: '100%',
+          }}
         />
       </div>
-    </>
+    </div>
   );
 };
 

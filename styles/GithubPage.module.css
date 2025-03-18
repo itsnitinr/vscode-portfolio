@@ -1,58 +1,207 @@
-.user {
+.githubPage {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.profileSection {
   background: var(--article-bg);
-  padding: 1.5rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
 }
 
-.user > div {
+.profileInfo {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  border-right: 2px solid var(--accent-color);
-  padding: 0 1rem;
-  height: 100%;
+  gap: 1.5rem;
 }
 
-.user > div:last-child {
-  border-right: none;
+.avatar {
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  width: 100px;
+  height: 100px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .username {
-  margin-left: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
 }
 
-.container {
+.username::before {
+  content: '@';
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-right: 0.25rem;
+}
+
+.username::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -4px;
+  width: 40px;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.statIcon {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+.profileLink {
+  color: var(--accent-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.profileLink:hover {
+  text-decoration: underline;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 3rem 0 1.5rem;
+  width: 100%;
+}
+
+.sectionIcon {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin: 0;
+  font-weight: 500;
+  position: relative;
+  letter-spacing: 0.05em;
+}
+
+.reposContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin: 1.5rem 0;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
-.title {
-  margin-bottom: 1.5rem;
+.contributions {
+  background: var(--article-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  overflow-x: auto;
 }
 
 .contributions article {
   width: 100% !important;
+  min-width: 500px;
 }
 
-@media screen and (max-width: 900px) {
-  .user h3 {
-    font-size: 1rem;
+@media screen and (max-width: 768px) {
+  .githubPage {
+    padding: 1.5rem 1rem;
+  }
+
+  .profileSection {
+    padding: 1.5rem;
+  }
+
+  .stats {
+    gap: 1.5rem;
+  }
+
+  .sectionHeader {
+    margin: 2.5rem 0 1.25rem;
+  }
+
+  .reposContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .contributions {
+    padding: 1rem;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .user h3 {
-    font-size: 14px;
+  .avatar {
+    width: 80px;
+    height: 80px;
   }
+
   .username {
-    display: none;
+    font-size: 1.4rem;
+  }
+
+  .username::before {
+    font-size: 1.4rem;
+  }
+
+  .sectionIcon {
+    font-size: 1.1rem;
+    padding: 0.4rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .reposContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
