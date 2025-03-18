@@ -3,12 +3,18 @@ import styles from '@/styles/ContactPage.module.css';
 
 const ContactPage = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.contactContainer}>
-        <h3 className={styles.heading}>Reach Out Via Socials</h3>
-        <ContactCode />
+    <>
+      <h1 className={styles.pageTitle}>Contact Me</h1>
+      <p className={styles.pageSubtitle}>
+        Feel free to reach out to me through any of the social platforms below.
+        I&apos;m always open to new opportunities and connections.
+      </p>
+      <div className={styles.container}>
+        <div className={styles.contactContainer}>
+          <ContactCode />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

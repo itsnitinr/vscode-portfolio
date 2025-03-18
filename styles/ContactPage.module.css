@@ -3,7 +3,6 @@
   justify-content: center;
   max-width: 800px;
   margin: 0 auto;
-  padding: 3rem 1rem;
 }
 
 .container > * {
@@ -21,10 +20,27 @@
   gap: 1rem;
 }
 
-.heading {
-  margin-bottom: 1.5rem;
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--accent-color);
-  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-align: center;
+  padding-top: 3rem;
+}
+
+.pageSubtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  line-height: 1.6;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 1200px) {
@@ -52,7 +68,12 @@
     padding: 1.5rem 0.75rem;
   }
 
-  .heading {
-    font-size: 1.4rem;
+  .pageTitle {
+    font-size: 1.75rem;
+  }
+
+  .pageSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 }

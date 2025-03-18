@@ -5,7 +5,11 @@ import styles from '@/styles/SettingsPage.module.css';
 const SettingsPage = () => {
   return (
     <>
-      <h2>Manage Themes</h2>
+      <h1 className={styles.pageTitle}>Settings</h1>
+      <p className={styles.pageSubtitle}>
+        Customize your experience with different themes. Choose the one that
+        suits your style and preferences.
+      </p>
       <div className={styles.container}>
         <ThemeInfo
           name="GitHub Dark"

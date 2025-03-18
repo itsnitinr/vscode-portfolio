@@ -11,8 +11,9 @@ interface ArticlesPageProps {
 const ArticlesPage = ({ articles }: ArticlesPageProps) => {
   return (
     <>
-      <h3>
-        Recent Posts from{' '}
+      <h1 className={styles.pageTitle}>My Articles</h1>
+      <p className={styles.pageSubtitle}>
+        Recent posts from{' '}
         <a
           href="https://dev.to/itsnitinr"
           target="_blank"
@@ -20,8 +21,9 @@ const ArticlesPage = ({ articles }: ArticlesPageProps) => {
           className={styles.underline}
         >
           dev.to
-        </a>
-      </h3>
+        </a>{' '}
+        where I share insights and tutorials about web development.
+      </p>
       <div className={styles.container}>
         {articles.map((article) => (
           <ArticleCard key={article.id} article={article} />

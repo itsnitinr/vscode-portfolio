@@ -1,7 +1,33 @@
+.pageHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 3rem;
+}
+
 .githubPage {
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 1rem 0;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.pageSubtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  line-height: 1.6;
 }
 
 .profileSection {
@@ -11,19 +37,22 @@
   margin-bottom: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profileInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   gap: 1.5rem;
+  padding: 0 2rem;
 }
 
 .avatar {
   border-radius: 50%;
-  border: 2px solid var(--accent-color);
+  border: 3px solid var(--accent-color);
   width: 100px;
   height: 100px;
 }
@@ -32,7 +61,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 2rem;
 }
 
 .username {
@@ -66,60 +95,55 @@
 
 .stats {
   display: flex;
-  gap: 2rem;
-  margin-top: 0.5rem;
-  justify-content: center;
+  gap: 1.5rem;
 }
 
 .statItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
 
 .statIcon {
   color: var(--accent-color);
-  font-size: 1.2rem;
 }
 
 .profileLink {
-  color: var(--accent-color);
-  text-decoration: none;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+  width: fit-content;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
 }
 
 .profileLink:hover {
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .sectionHeader {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin: 3rem 0 1.5rem;
-  width: 100%;
+  gap: 0.5rem;
+  margin: 1.5rem 0 1rem;
 }
 
 .sectionIcon {
-  font-size: 1.25rem;
-  color: var(--text-color);
-  background-color: var(--accent-color);
-  padding: 0.5rem;
-  border-radius: 4px;
+  color: var(--accent-color);
+  font-size: 1.2rem;
 }
 
 .sectionTitle {
-  font-size: 1.5rem;
-  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 600;
   margin: 0;
-  font-weight: 500;
-  position: relative;
-  letter-spacing: 0.05em;
 }
 
 .reposContainer {
@@ -127,7 +151,6 @@
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
-  width: 100%;
 }
 
 .contributions {
@@ -145,21 +168,42 @@
   min-width: 500px;
 }
 
+.underline {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  background-image: linear-gradient(
+    120deg,
+    var(--accent-color) 100%,
+    var(--accent-color) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+
+.underline:hover {
+  background-size: 100% 88%;
+}
+
 @media screen and (max-width: 768px) {
-  .githubPage {
-    padding: 1.5rem 1rem;
+  .profileInfo {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .profileSection {
-    padding: 1.5rem;
+  .pageTitle {
+    font-size: 1.75rem;
   }
 
-  .stats {
-    gap: 1.5rem;
+  .pageSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
-  .sectionHeader {
-    margin: 2.5rem 0 1.25rem;
+  .userInfo {
+    width: 100%;
   }
 
   .reposContainer {

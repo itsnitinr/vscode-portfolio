@@ -5,6 +5,24 @@
   gap: 1.5rem;
 }
 
+.pageTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.pageSubtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
 .underline {
   cursor: pointer;
   color: white;
@@ -27,5 +45,14 @@
 @media screen and (max-width: 900px) {
   .container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .pageTitle {
+    font-size: 1.75rem;
+  }
+
+  .pageSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 }
