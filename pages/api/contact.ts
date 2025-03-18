@@ -1,10 +1,11 @@
-const { Client } = require('@notionhq/client');
+import { Client } from '@notionhq/client';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 const notion = new Client({
   auth: process.env.NOTION_API_TOKEN,
 });
 
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ msg: 'Only POST requests are allowed' });
   }
@@ -12,7 +13,7 @@ export default async (req, res) => {
     const { name, email, subject, message } = JSON.parse(req.body);
     await notion.pages.create({
       parent: {
-        database_id: process.env.NOTION_DATABASE_ID,
+        database_id: process.env.NOTION_DATABASE_ID!,
       },
       properties: {
         Name: {
