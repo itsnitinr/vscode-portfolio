@@ -1,5 +1,6 @@
 .container {
-  max-width: 800px;
+  max-width: 900px;
+  height: 100%;
   margin: 0 auto;
   padding: 3rem 1.5rem;
   color: var(--text-color);

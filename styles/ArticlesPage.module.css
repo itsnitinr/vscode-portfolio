@@ -1,3 +1,10 @@
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
 .container {
   margin-top: 1.5rem;
   display: grid;
@@ -44,7 +51,7 @@
 
 @media screen and (max-width: 900px) {
   .container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   .pageTitle {

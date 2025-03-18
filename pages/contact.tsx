@@ -1,9 +1,10 @@
 import ContactCode from '@/components/ContactCode';
+
 import styles from '@/styles/ContactPage.module.css';
 
 const ContactPage = () => {
   return (
-    <>
+    <div className={styles.layout}>
       <h1 className={styles.pageTitle}>Contact Me</h1>
       <p className={styles.pageSubtitle}>
         Feel free to reach out to me through any of the social platforms below.
@@ -14,7 +15,7 @@ const ContactPage = () => {
           <ContactCode />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

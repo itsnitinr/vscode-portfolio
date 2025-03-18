@@ -10,7 +10,7 @@ interface ArticlesPageProps {
 
 const ArticlesPage = ({ articles }: ArticlesPageProps) => {
   return (
-    <>
+    <div className={styles.layout}>
       <h1 className={styles.pageTitle}>My Articles</h1>
       <p className={styles.pageSubtitle}>
         Recent posts from{' '}
@@ -29,7 +29,7 @@ const ArticlesPage = ({ articles }: ArticlesPageProps) => {
           <ArticleCard key={article.id} article={article} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

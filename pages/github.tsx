@@ -14,7 +14,7 @@ interface GithubPageProps {
 
 const GithubPage = ({ repos, user }: GithubPageProps) => {
   return (
-    <>
+    <div className={styles.layout}>
       <div className={styles.pageHeading}>
         <h1 className={styles.pageTitle}>GitHub</h1>
         <p className={styles.pageSubtitle}>
@@ -75,7 +75,7 @@ const GithubPage = ({ repos, user }: GithubPageProps) => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,8 +1,12 @@
+.layout {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 100%;
+}
+
 .container {
   display: flex;
   justify-content: center;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
 .container > * {

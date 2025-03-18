@@ -1,3 +1,10 @@
+.layout {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
 .pageHeading {
   display: flex;
   flex-direction: column;
@@ -7,8 +14,7 @@
 }
 
 .githubPage {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
   padding: 1rem 0;
 }
 
@@ -157,7 +163,6 @@
   background: var(--article-bg);
   border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
   overflow-x: auto;
@@ -209,9 +214,11 @@
   .reposContainer {
     grid-template-columns: 1fr;
   }
+}
 
+@media screen and (max-width: 1200px) {
   .contributions {
-    padding: 1rem;
+    display: none;
   }
 }
 
@@ -241,10 +248,6 @@
   .stats {
     flex-direction: column;
     gap: 0.75rem;
-  }
-
-  .contributions {
-    display: none;
   }
 }
 

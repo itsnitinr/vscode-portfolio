@@ -1,3 +1,10 @@
+.layout {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
 .container {
   margin: 2rem 0;
   display: grid;
