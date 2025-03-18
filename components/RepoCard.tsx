@@ -1,8 +1,11 @@
-import WatchIcon from './icons/WatchIcon';
-import ForkIcon from './icons/ForkIcon';
-import StarIcon from './icons/StarIcon';
-import GithubIcon from './icons/GithubIcon';
-import LinkIcon from './icons/LinkIcon';
+import {
+  VscEye,
+  VscRepoForked,
+  VscStarEmpty,
+  VscGithub,
+  VscLink,
+} from 'react-icons/vsc';
+
 import styles from '../styles/RepoCard.module.css';
 
 interface RepoCardProps {
@@ -27,22 +30,22 @@ const RepoCard = ({ repo }: RepoCardProps) => {
       <div className={styles.stats}>
         <div>
           <div>
-            <WatchIcon className={styles.icon} /> {repo.watchers}
+            <VscEye className={styles.icon} /> {repo.watchers}
           </div>
           <div>
-            <ForkIcon className={styles.icon} /> {repo.forks}
+            <VscRepoForked className={styles.icon} /> {repo.forks}
           </div>
           <div>
-            <StarIcon className={styles.icon} /> {repo.stargazers_count}
+            <VscStarEmpty className={styles.icon} /> {repo.stargazers_count}
           </div>
         </div>
         <div>
           <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
-            <GithubIcon height={20} width={20} className={styles.icon} />
+            <VscGithub height={20} width={20} className={styles.icon} />
           </a>
           {repo.homepage && (
             <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
-              <LinkIcon height={20} width={20} className={styles.icon} />
+              <VscLink height={20} width={20} className={styles.icon} />
             </a>
           )}
         </div>

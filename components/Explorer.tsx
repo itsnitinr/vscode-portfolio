@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import ChevronRight from './icons/ChevronRight';
+import { VscChevronRight } from 'react-icons/vsc';
+
 import styles from '../styles/Explorer.module.css';
 
 const explorerItems = [
@@ -52,7 +53,7 @@ const Explorer = () => {
           onChange={() => setPortfolioOpen(!portfolioOpen)}
         />
         <label htmlFor="portfolio-checkbox" className={styles.heading}>
-          <ChevronRight
+          <VscChevronRight
             className={styles.chevron}
             style={portfolioOpen ? { transform: 'rotate(90deg)' } : {}}
           />
