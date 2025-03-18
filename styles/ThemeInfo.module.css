@@ -63,10 +63,6 @@
   outline: 1px solid var(--accent-color);
 }
 
-.activeButton {
-  /* No special styling for active button */
-}
-
 @media screen and (max-width: 768px) {
   .container {
     padding: 0.75rem;
