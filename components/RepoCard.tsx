@@ -6,18 +6,12 @@ import {
   VscLink,
 } from 'react-icons/vsc';
 
-import styles from '../styles/RepoCard.module.css';
+import { Repo } from '@/types';
+
+import styles from '@/styles/RepoCard.module.css';
 
 interface RepoCardProps {
-  repo: {
-    name: string;
-    description: string;
-    watchers: number;
-    forks: number;
-    stargazers_count: number;
-    html_url: string;
-    homepage: string;
-  };
+  repo: Repo;
 }
 
 const RepoCard = ({ repo }: RepoCardProps) => {

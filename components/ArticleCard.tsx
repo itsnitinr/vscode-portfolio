@@ -1,18 +1,12 @@
 import Image from 'next/image';
 import { VscEye, VscHeart, VscComment } from 'react-icons/vsc';
 
-import styles from '../styles/ArticleCard.module.css';
+import { Article } from '@/types';
+
+import styles from '@/styles/ArticleCard.module.css';
 
 interface ArticleCardProps {
-  article: {
-    url: string;
-    title: string;
-    description: string;
-    cover_image: string;
-    page_views_count: number;
-    public_reactions_count: number;
-    comments_count: number;
-  };
+  article: Article;
 }
 
 const ArticleCard = ({ article }: ArticleCardProps) => {

@@ -1,7 +1,8 @@
-import ArticleCard from '../components/ArticleCard';
-import styles from '../styles/ArticlesPage.module.css';
+import ArticleCard from '@/components/ArticleCard';
 
-import { Article } from '../types';
+import { Article } from '@/types';
+
+import styles from '@/styles/ArticlesPage.module.css';
 
 interface ArticlesPageProps {
   articles: Article[];

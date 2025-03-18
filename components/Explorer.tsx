@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { VscChevronRight } from 'react-icons/vsc';
 
-import styles from '../styles/Explorer.module.css';
+import styles from '@/styles/Explorer.module.css';
 
 const explorerItems = [
   {

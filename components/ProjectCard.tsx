@@ -1,15 +1,11 @@
 import Image from 'next/image';
-import styles from '../styles/ProjectCard.module.css';
+
+import { Project } from '@/types';
+
+import styles from '@/styles/ProjectCard.module.css';
 
 interface ProjectCardProps {
-  project: {
-    thumbnail: string;
-    name: string;
-    description: string;
-    tags: string[];
-    githubLink: string;
-    demoLink: string;
-  };
+  project: Project;
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {

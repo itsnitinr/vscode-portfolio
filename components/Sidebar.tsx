@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
 import {
   VscAccount,
   VscSettings,
@@ -11,40 +10,19 @@ import {
   VscEdit,
 } from 'react-icons/vsc';
 
-import styles from '../styles/Sidebar.module.css';
+import styles from '@/styles/Sidebar.module.css';
 
 const sidebarTopItems = [
-  {
-    Icon: VscFiles,
-    path: '/',
-  },
-  {
-    Icon: VscGithub,
-    path: '/github',
-  },
-  {
-    Icon: VscCode,
-    path: '/projects',
-  },
-  {
-    Icon: VscEdit,
-    path: '/articles',
-  },
-  {
-    Icon: VscMail,
-    path: '/contact',
-  },
+  { Icon: VscFiles, path: '/' },
+  { Icon: VscGithub, path: '/github' },
+  { Icon: VscCode, path: '/projects' },
+  { Icon: VscEdit, path: '/articles' },
+  { Icon: VscMail, path: '/contact' },
 ];
 
 const sidebarBottomItems = [
-  {
-    Icon: VscAccount,
-    path: '/about',
-  },
-  {
-    Icon: VscSettings,
-    path: '/settings',
-  },
+  { Icon: VscAccount, path: '/about' },
+  { Icon: VscSettings, path: '/settings' },
 ];
 
 const Sidebar = () => {
