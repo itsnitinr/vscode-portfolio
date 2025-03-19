@@ -1,30 +1,23 @@
+.layout {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .container {
-  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
   width: 100%;
   border-radius: 8px;
-}
-
-.pageSubtitle {
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 1rem;
-  max-width: 600px;
-  line-height: 1.5;
+  padding: 1rem;
 }
 
 @media screen and (max-width: 768px) {
   .container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 0.875rem;
-  }
-
-  .pageSubtitle {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
   }
 }
 

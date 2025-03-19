@@ -21,8 +21,8 @@ const ThemeInfo = ({ icon, name, publisher, theme }: ThemeInfoProps) => {
         <Image
           src={icon}
           alt={name}
-          height={100}
-          width={100}
+          height={80}
+          width={80}
           className={styles.themeImage}
         />
       </div>
