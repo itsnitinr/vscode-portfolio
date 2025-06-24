@@ -1,57 +1,69 @@
+import Image from 'next/image';
 import styles from '@/styles/AboutPage.module.css';
 
 const AboutPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h1 className={styles.title}>Nitin Ranganath</h1>
-        <div className={styles.subtitle}>Software Engineer</div>
+        <div className={styles.profileSection}>
+          <Image
+            src="/jeff-k-photo.png"
+            alt="Jeff K"
+            width={200}
+            height={200}
+            className={styles.profileImage}
+            priority
+          />
+          <div>
+            <h1 className={styles.title}>Jeff K</h1>
+            <div className={styles.subtitle}>Software Engineer</div>
+          </div>
+        </div>
 
         <div className={styles.aboutContent}>
           <section className={styles.section}>
             <p className={styles.paragraph}>
-              Hey! I&apos;m a software engineer from Mumbai, India. I primarily
-              work with JavaScript / TypeScript and the React ecosystem.
+              Hey! I&apos;m Jeff K, a passionate software engineer specializing in
+              full-stack development with a focus on creating innovative web applications.
             </p>
             <p className={styles.paragraph}>
-              I&apos;m focused on frontend development with React, but
-              you&apos;ll also find me working with Node.js, MongoDB and Express
-              while building the backend for my personal projects.
+              I work with modern technologies including React, Next.js, TypeScript,
+              Node.js, and various databases to build scalable and performant applications.
             </p>
           </section>
 
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Experience</h2>
             <p className={styles.paragraph}>
-              Currently at <span className={styles.highlight}>Tessact</span> as
-              Software Engineer 2, working with a lean team of 4 frontend
-              engineers to build a next-gen video creation suite for the people
-              of video.
+              I&apos;m passionate about clean code, best practices, and creating
+              exceptional user experiences. My expertise spans across the entire
+              development stack.
             </p>
             <p className={styles.paragraph}>
-              I&apos;ve been leading the development efforts for bringing
-              collaborative video reviewing and editing to the platform. I also
-              maintain our in-house component library, icon library and website.
+              I enjoy tackling complex problems and turning ideas into reality
+              through code. Always eager to learn new technologies and improve
+              my craft.
             </p>
           </section>
 
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>Writing</h2>
+            <h2 className={styles.sectionTitle}>Skills & Technologies</h2>
             <p className={styles.paragraph}>
-              I&apos;ve had the pleasure of writing for some amazing
-              publications like{' '}
-              <span className={styles.highlight}>100ms Blog</span>,{' '}
-              <span className={styles.highlight}>LogRocket Blog</span>,{' '}
-              <span className={styles.highlight}>DEV.to</span> and more as a
-              freelance technical author.
+              My technical toolkit includes{' '}
+              <span className={styles.highlight}>React</span>,{' '}
+              <span className={styles.highlight}>Next.js</span>,{' '}
+              <span className={styles.highlight}>TypeScript</span>,{' '}
+              <span className={styles.highlight}>Node.js</span>, and more.
+              I&apos;m always exploring new technologies to stay current in the
+              rapidly evolving tech landscape.
             </p>
           </section>
 
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Beyond Code</h2>
             <p className={styles.paragraph}>
-              Aside from programming and writing, I like to read a good
-              dystopian novel, listen to calm piano music or just laze around.
+              When I&apos;m not coding, you&apos;ll find me exploring new technologies,
+              contributing to open source projects, or enjoying the great outdoors.
             </p>
           </section>
         </div>

@@ -3,38 +3,33 @@ import styles from '@/styles/ContactCode.module.css';
 const contactItems = [
   {
     social: 'website',
-    link: 'nitinranganath.com',
-    href: 'https://nitinranganath.com',
+    link: 'jeffk.dev',
+    href: 'https://jeffk.dev',
   },
   {
     social: 'email',
-    link: 'nitinranganath@gmail.com',
-    href: 'mailto:nitinranganath@gmail.com',
+    link: 'jeffkazzee@gmail.com',
+    href: 'mailto:jeffkazzee@gmail.com',
   },
   {
     social: 'github',
-    link: 'itsnitinr',
-    href: 'https://github.com/itsnitinr',
+    link: 'Jeff-Kazzee',
+    href: 'https://github.com/Jeff-Kazzee',
   },
   {
     social: 'linkedin',
-    link: 'nitinranganath',
-    href: 'https://www.linkedin.com/in/nitinranganath/',
+    link: 'jeffkazzee',
+    href: 'https://www.linkedin.com/in/jeffkazzee/',
   },
   {
     social: 'twitter',
-    link: 'iamnitinr',
-    href: 'https://www.twitter.com/iamnitinr',
+    link: 'jeffkazzee',
+    href: 'https://www.twitter.com/jeffkazzee',
   },
   {
-    social: 'telegram',
-    link: 'iamnitinr',
-    href: 'https://t.me/iamnitinr',
-  },
-  {
-    social: 'peerlist',
-    link: 'nitinranganath',
-    href: 'https://peerlist.io/nitinranganath',
+    social: 'dev.to',
+    link: 'jeffkazzee',
+    href: 'https://dev.to/jeffkazzee',
   },
 ];
 

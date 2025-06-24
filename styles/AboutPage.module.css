@@ -12,6 +12,19 @@
   align-items: center;
 }
 
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.profileImage {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+}
+
 .title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -23,7 +36,6 @@
 .subtitle {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  margin-bottom: 3rem;
 }
 
 .aboutContent {
@@ -64,6 +76,16 @@
 @media screen and (max-width: 600px) {
   .container {
     padding: 2rem 1rem;
+  }
+
+  .profileSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profileImage {
+    width: 150px;
+    height: 150px;
   }
 
   .title {
