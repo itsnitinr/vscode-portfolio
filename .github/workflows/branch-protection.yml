@@ -1,0 +1,99 @@
+name: Branch Protection
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-branch-naming:
+    name: Check Branch Naming Convention
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check branch name
+        run: |
+          branch_name="${{ github.head_ref }}"
+          valid_prefixes="feature|bugfix|hotfix|release|docs|test|refactor|chore"
+          
+          if ! echo "$branch_name" | grep -qE "^($valid_prefixes)/[a-z0-9-]+$"; then
+            echo "❌ Branch name '$branch_name' does not follow naming convention!"
+            echo "✅ Valid formats: feature/*, bugfix/*, hotfix/*, release/*, docs/*, test/*, refactor/*, chore/*"
+            echo "Example: feature/add-user-authentication"
+            exit 1
+          fi
+          
+          echo "✅ Branch name follows convention"
+
+  check-commit-messages:
+    name: Check Conventional Commits
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Check commits
+        uses: wagoid/commitlint-github-action@v5
+        with:
+          configFile: .commitlintrc.json
+
+  pr-size-check:
+    name: PR Size Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check PR size
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const additions = pr.additions;
+            const deletions = pr.deletions;
+            const totalChanges = additions + deletions;
+            
+            let label = 'size/XS';
+            let comment = '';
+            
+            if (totalChanges > 1000) {
+              label = 'size/XXL';
+              comment = '⚠️ This PR is very large (>1000 changes). Consider breaking it into smaller PRs.';
+            } else if (totalChanges > 500) {
+              label = 'size/XL';
+              comment = '⚠️ This PR is large (>500 changes). Consider breaking it into smaller PRs.';
+            } else if (totalChanges > 250) {
+              label = 'size/L';
+            } else if (totalChanges > 100) {
+              label = 'size/M';
+            } else if (totalChanges > 30) {
+              label = 'size/S';
+            }
+            
+            // Add label
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              labels: [label]
+            });
+            
+            // Add comment if needed
+            if (comment) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: comment
+              });
+            }
+
+  auto-assign:
+    name: Auto Assign Reviewers
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: kentaro-m/auto-assign-action@v1.2.5
+        with:
+          configuration-path: .github/auto-assign.yml

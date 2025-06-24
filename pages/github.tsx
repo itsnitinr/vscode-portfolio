@@ -28,7 +28,7 @@ const GithubPage = ({ repos, user }: GithubPageProps) => {
         <div className={styles.profileSection}>
           <div className={styles.profileInfo}>
             <Image
-              src={user.avatar_url}
+              src="/jeff-k-animated.png"
               className={styles.avatar}
               alt={user.login}
               width={100}

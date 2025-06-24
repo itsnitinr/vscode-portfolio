@@ -8,35 +8,35 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'Driwwwle',
+    title: 'Chat Nexus',
     description:
-      'Discover creative websites and developers. A portal for you to share your projects.',
-    logo: '/logos/driwwwle.svg',
-    link: 'https://github.com/itsnitinr/driwwwle',
-    slug: 'driwwwle',
+      'Free AI chat application using OpenRouter API. Built with React and modern web technologies for seamless AI conversations.',
+    logo: '/logos/react_icon.svg',
+    link: 'https://github.com/Jeff-Kazzee/Personal-Portfolio',
+    slug: 'chat-nexus',
   },
   {
-    title: 'VSCode Portfolio',
+    title: 'Chroma Kan Ban',
     description:
-      'A Visual Studio Code themed developer portfolio built with Next.js and CSS Modules.',
+      'Beautiful project tracking and management tool with a colorful, intuitive interface. Built with Next.js and TypeScript.',
+    logo: '/logos/react_icon.svg',
+    link: 'https://github.com/Jeff-Kazzee/Personal-Portfolio',
+    slug: 'chroma-kan-ban',
+  },
+  {
+    title: 'Prompt Vault',
+    description:
+      'AI prompt sharing and storage platform. Save, organize, and share your best prompts with the community.',
+    logo: '/logos/react_icon.svg',
+    link: 'https://github.com/Jeff-Kazzee/Personal-Portfolio',
+    slug: 'prompt-vault',
+  },
+  {
+    title: 'VS Code Portfolio',
+    description:
+      'This portfolio! A Visual Studio Code themed developer portfolio showcasing my projects and skills.',
     logo: '/logos/vsc.svg',
-    link: 'https://github.com/itsnitinr/vscode-portfolio',
+    link: 'https://github.com/Jeff-Kazzee/Personal-Portfolio',
     slug: 'vscode-portfolio',
-  },
-  {
-    title: 'Subtrackt',
-    description:
-      'A simple and elegant way to track your subscriptions and save money.',
-    logo: '/logos/subtrackt.svg',
-    link: 'https://github.com/itsnitinr/subtrackt',
-    slug: 'subtrackt',
-  },
-  {
-    title: 'Coolify Deployments',
-    description:
-      'VSCode extension to track and deploy your Coolify applications.',
-    logo: '/logos/coolify.svg',
-    link: 'https://github.com/itsnitinr/coolify-vscode-extension',
-    slug: 'coolify-vscode-extension',
   },
 ];

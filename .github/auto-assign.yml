@@ -1,0 +1,23 @@
+# Auto assign configuration for pull requests
+
+# Set to true to add reviewers to pull requests
+addReviewers: true
+
+# Set to true to add assignees to pull requests
+addAssignees: author
+
+# Number of reviewers to add
+numberOfReviewers: 1
+
+# A list of reviewers to be added to pull requests (GitHub usernames)
+reviewers:
+  - Jeff-Kazzee
+
+# A list of keywords to skip auto assignment
+skipKeywords:
+  - wip
+  - draft
+
+# A list of assignees to be added to pull requests (GitHub usernames)
+assignees:
+  - Jeff-Kazzee
