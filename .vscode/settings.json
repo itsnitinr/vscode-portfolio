@@ -1,0 +1,7 @@
+{
+    "workbench.editor.autoLockGroups": {
+        "default": true,
+        "vscode.videoPreview": true
+    },
+    "workbench.editor.closeOnFileDelete": false
+}
