@@ -1,5 +1,29 @@
 [
   {
+    "id": 29,
+    "name": "Briluz.On E-commerce",
+    "image": "https://i.postimg.cc/TYBPSd2Y/briluz.webp",
+    "description": "Site de vendas voltado para o segmento de casa e construção, com métodos de pagamento e entrega (em fase de implementação).",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "https://briluzeletrica.com.br/"
+  },
+  {
+    "id": 30,
+    "name": "Mannobra Agência - Marketing Digital",
+    "image": "https://i.postimg.cc/MKGCBNB7/mannobra.webp",
+    "description": "Site institucional com estrutura de blog, voltado à divulgação de serviços e conteúdos de uma agência de marketing digital.",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "https://mannobra.com.br/"
+  },
+  {
+    "id": 31,
+    "name": ".ArchRio Arquitetura",
+    "image": "https://i.postimg.cc/BvQ8xqqS/arch.webp",
+    "description": "Site institucional com blog, projetado para apresentar portfólio, conteúdos técnicos e atualizações de uma empresa de arquitetura(em fase de implementação).",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "https://archrio.mannobra.com.br/ "
+  },
+  {
     "id": 18,
     "name": "Haila Heloísa - Marketing Digital",
     "image": "https://i.postimg.cc/9FDrJm7n/haila.webp",
@@ -8,30 +32,31 @@
     "demo": "https://hailaheloisa.com/"
   },
   {
-    "id": 1,
-    "name": "Blog Dev",
-    "image": "https://i.postimg.cc/3r4BVDzX/blog-dev.webp",
-    "description": "Um blog de programador para programador, tratando de assuntos do universo do desenvolvimento.",
-    "tags": ["next", "node", "typescript", "react", "prismic-cms"],
-    "source_code": "https://github.com/DanielSCustodio/Blog-com-Next.js",
-    "demo": "https://blogdev-three.vercel.app/"
+    "id": 26,
+    "name": "Grupo Karl Hammes",
+    "image": "https://i.postimg.cc/nrvv3qMp/Karl.webp",
+    "description": "Site institucional do Grupo Karl Hammes destaca suas três principais áreas de expertise: Contabilidade, Imobiliária e Administração Condominial e Financeira.",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "https://karl-hammes.com.br/"
   },
   {
-    "id": 27,
-    "name": "Nova Digital Informática",
-    "image": "https://i.postimg.cc/DZ5ZNqSh/nova-digital-cover.png",
-    "description": "Site institucional onepage para empresa  Nova Digital, uma loja de informática, suprimentos de impressão e materiais de escritório",
-    "tags": ["html", "css", "wordpress", "javascript"],
-    "demo": "https://novadigitalinfo.com.br/"
+    "id": 32,
+    "name": "Edu Dubem - Política",
+    "image": "https://i.postimg.cc/25526bKr/edu.webp",
+    "description": "Plataforma digital para campanha política, conteúdo dividido por áreas de atuação, e recursos interativos para engajamento do eleitor.",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "http://vemprabemposta.com/ "
   },
+
   {
-    "id": 3,
-    "name": "App de Delivery",
-    "image": "https://i.postimg.cc/5tSGHFfY/delivery.webp",
-    "description": "Aplicação fullstack de delivery. Tem como objetivo realizar o fluxo da pessoa vendedora e do cliente.",
-    "tags": ["react", "node", "sql", "sequelize", "express", "jwt"],
-    "source_code": "https://github.com/DanielSCustodio/App-de-delivery"
+    "id": 33,
+    "name": "Rv Work - Saúde Corporativa",
+    "image": "https://i.postimg.cc/DmVM8FTW/rv-work.webp",
+    "description": "Site institucional com blog integrado, com foco na apresentação de serviços, conteúdos informativos e contato com o cliente.",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "http://rv.mannobra.com.br/"
   },
+
   {
     "id": 28,
     "name": "Grupo Quali",
@@ -41,13 +66,28 @@
     "demo": "https://grupoqualitr.com.br/"
   },
   {
-    "id": 4,
-    "name": "Git Collection",
-    "image": "https://i.postimg.cc/N08M5by6/git-collection.webp",
-    "description": "Através da API do GitHub esta aplicação faz a busca de repositórios e os detalha.",
-    "tags": ["react", "styled-components", "typescript", "axios"],
-    "source_code": "https://github.com/DanielSCustodio/GitCollection",
-    "demo": "https://appgitcollection.netlify.app/"
+    "id": 27,
+    "name": "Nova Digital Informática",
+    "image": "https://i.postimg.cc/DZ5ZNqSh/nova-digital-cover.png",
+    "description": "Site institucional onepage para empresa  Nova Digital, uma loja de informática, suprimentos de impressão e materiais de escritório.",
+    "tags": ["html", "css", "wordpress", "javascript"],
+    "demo": "https://novadigitalinfo.com.br/"
+  },
+  {
+    "id": 34,
+    "name": "Link Languages - Escola de idiomas",
+    "image": "https://i.postimg.cc/L8m38hPd/link.webp",
+    "description": "Site institucional com blog, estruturado com landing pages dedicadas para cada serviço, otimizadas para conversão e com foco em captação de leads.",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "https://linklanguages.com.br/"
+  },
+  {
+    "id": 35,
+    "name": "Professor Silvano - Política",
+    "image": "https://i.postimg.cc/zXCkNTVS/Silvano.webp",
+    "description": "Site onepage focado na apresentação direta do candidato e sua campanha política. Com divulgação de suas redes sociais",
+    "tags": ["html", "css", "wordpress"],
+    "demo": "https://professorsilvanotr.com.br/"
   },
 
   {
@@ -60,12 +100,32 @@
     "demo": "https://apptasksboard.vercel.app/"
   },
   {
-    "id": 26,
-    "name": "Karl Hammes",
-    "image": "https://i.postimg.cc/nrvv3qMp/Karl.webp",
-    "description": "Site institucional do Grupo Karl Hammes destaca suas três principais áreas de expertise: Contabilidade, Imobiliária e Administração Condominial e Financeira.",
-    "tags": ["html", "css", "wordpress"],
-    "demo": "https://karl-hammes.com.br/"
+    "id": 1,
+    "name": "Blog Dev",
+    "image": "https://i.postimg.cc/3r4BVDzX/blog-dev.webp",
+    "description": "Um blog de programador para programador, tratando de assuntos do universo do desenvolvimento.",
+    "tags": ["next", "node", "typescript", "react", "prismic-cms"],
+    "source_code": "https://github.com/DanielSCustodio/Blog-com-Next.js",
+    "demo": "https://blogdev-three.vercel.app/"
+  },
+
+  {
+    "id": 3,
+    "name": "App de Delivery",
+    "image": "https://i.postimg.cc/5tSGHFfY/delivery.webp",
+    "description": "Aplicação fullstack de delivery. Tem como objetivo realizar o fluxo da pessoa vendedora e do cliente.",
+    "tags": ["react", "node", "sql", "sequelize", "express", "jwt"],
+    "source_code": "https://github.com/DanielSCustodio/App-de-delivery"
+  },
+
+  {
+    "id": 4,
+    "name": "Git Collection",
+    "image": "https://i.postimg.cc/N08M5by6/git-collection.webp",
+    "description": "Através da API do GitHub esta aplicação faz a busca de repositórios e os detalha.",
+    "tags": ["react", "styled-components", "typescript", "axios"],
+    "source_code": "https://github.com/DanielSCustodio/GitCollection",
+    "demo": "https://appgitcollection.netlify.app/"
   },
 
   {

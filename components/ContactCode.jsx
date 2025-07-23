@@ -11,11 +11,7 @@ const contactItems = [
     link: 'danielscustodio',
     href: 'https://www.linkedin.com/in/danielscustodio/',
   },
-  {
-    social: 'twitter',
-    link: 'Dscust',
-    href: 'https://twitter.com/Dscust',
-  },
+
   {
     social: 'instagram',
     link: 'danielscustodio',
@@ -32,11 +28,7 @@ const contactItems = [
     link: '@Custodio',
     href: 'https://wakatime.com/@Custodio',
   },
-  {
-    social: 'codesandbox',
-    link: 'DanielSCustodio',
-    href: 'https://codesandbox.io/u/DanielSCustodio',
-  },
+
   {
     social: 'email',
     link: 'danielcustodio.dev@gmail.com',
