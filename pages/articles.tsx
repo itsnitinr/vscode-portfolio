@@ -37,7 +37,6 @@ export async function getStaticProps() {
   // Temporarily return empty articles to prevent build errors
   return {
     props: { title: 'Articles', articles: [] },
-    revalidate: 60,
   };
 }
 

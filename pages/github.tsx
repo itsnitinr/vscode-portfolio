@@ -103,7 +103,6 @@ export async function getStaticProps() {
 
     return {
       props: { title: 'GitHub', repos, user },
-      revalidate: 600,
     };
   } catch (error) {
     console.error('Error fetching GitHub data:', error);
@@ -119,7 +118,6 @@ export async function getStaticProps() {
           followers: 0
         } 
       },
-      revalidate: 600,
     };
   }
 }
