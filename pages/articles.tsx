@@ -34,19 +34,9 @@ const ArticlesPage = ({ articles }: ArticlesPageProps) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch(
-    'https://dev.to/api/articles/me/published?per_page=6',
-    {
-      headers: {
-        'api-key': process.env.DEV_TO_API_KEY!,
-      },
-    }
-  );
-
-  const data = await res.json();
-
+  // Temporarily return empty articles to prevent build errors
   return {
-    props: { title: 'Articles', articles: data },
+    props: { title: 'Articles', articles: [] },
     revalidate: 60,
   };
 }
