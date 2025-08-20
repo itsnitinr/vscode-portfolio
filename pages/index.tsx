@@ -14,9 +14,9 @@ export default function HomePage() {
       type: 'variable',
     },
     { code: '  const developerInfo = {', type: 'variable' },
-    { code: "    name: 'Nitin Ranganath',", type: 'array-item' },
-    { code: "    role: 'Full Stack Developer',", type: 'array-item' },
-    { code: "    bio: 'Building modern web experiences'", type: 'array-item' },
+    { code: "    name: 'John Abascal',", type: 'array-item' },
+    { code: "    role: 'PhD Student & Researcher',", type: 'array-item' },
+    { code: "    bio: 'Privacy in deep learning & machine unlearning'", type: 'array-item' },
     { code: '  };', type: 'array-end' },
     { code: '', type: 'blank' },
     { code: '  useEffect(() => {', type: 'nested-function' },
@@ -91,19 +91,20 @@ export default function HomePage() {
 
         <div className={styles.infoSection}>
           <h1 className={styles.developerName}>
-            Nitin <span className={styles.accentText}>Ranganath</span>
+            John <span className={styles.accentText}>Abascal</span>
           </h1>
 
-          <div className={styles.developerRole}>Full Stack Web Developer</div>
+          <div className={styles.developerRole}>PhD Student & Researcher</div>
 
           <p className={styles.bio}>
-            I build elegant, responsive web applications with modern
-            technologies. Focused on clean code and intuitive user experiences.
+            Fourth-year Computer Science PhD student at Northeastern University, 
+            researching privacy in deep learning, differential privacy, and 
+            adversarial machine learning.
           </p>
 
           <div className={styles.actionLinks}>
-            <Link href="/projects" className={styles.primaryLink}>
-              View Projects <VscArrowRight />
+            <Link href="/cv" className={styles.primaryLink}>
+              View CV <VscArrowRight />
             </Link>
           </div>
         </div>

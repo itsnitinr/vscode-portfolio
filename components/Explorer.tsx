@@ -17,6 +17,11 @@ const explorerItems = [
     icon: '/logos/html_icon.svg',
   },
   {
+    name: 'cv.yml',
+    path: '/cv',
+    icon: '/logos/json_icon.svg',
+  },
+  {
     name: 'contact.css',
     path: '/contact',
     icon: '/logos/css_icon.svg',

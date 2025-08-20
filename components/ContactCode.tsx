@@ -2,39 +2,29 @@ import styles from '@/styles/ContactCode.module.css';
 
 const contactItems = [
   {
-    social: 'website',
-    link: 'nitinranganath.com',
-    href: 'https://nitinranganath.com',
-  },
-  {
     social: 'email',
-    link: 'nitinranganath@gmail.com',
-    href: 'mailto:nitinranganath@gmail.com',
+    link: 'abascal.j@northeastern.edu',
+    href: 'mailto:abascal.j@northeastern.edu',
   },
   {
     social: 'github',
-    link: 'itsnitinr',
-    href: 'https://github.com/itsnitinr',
+    link: 'johnmath',
+    href: 'https://github.com/johnmath',
   },
   {
     social: 'linkedin',
-    link: 'nitinranganath',
-    href: 'https://www.linkedin.com/in/nitinranganath/',
+    link: 'johnabascal',
+    href: 'https://www.linkedin.com/in/johnabascal/',
   },
   {
-    social: 'twitter',
-    link: 'iamnitinr',
-    href: 'https://www.twitter.com/iamnitinr',
+    social: 'scholar',
+    link: '3jYQ3FsAAAAJ&hl',
+    href: 'https://scholar.google.com/citations?user=3jYQ3FsAAAAJ&hl',
   },
   {
-    social: 'telegram',
-    link: 'iamnitinr',
-    href: 'https://t.me/iamnitinr',
-  },
-  {
-    social: 'peerlist',
-    link: 'nitinranganath',
-    href: 'https://peerlist.io/nitinranganath',
+    social: 'website',
+    link: 'johnmath.github.io',
+    href: 'https://johnmath.github.io',
   },
 ];
 

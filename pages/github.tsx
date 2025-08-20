@@ -80,20 +80,46 @@ const GithubPage = ({ repos, user }: GithubPageProps) => {
 };
 
 export async function getStaticProps() {
-  const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
-  );
-  const user = await userRes.json();
+  try {
+    const userRes = await fetch(
+      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
+    );
+    
+    if (!userRes.ok) {
+      throw new Error(`GitHub API error: ${userRes.status}`);
+    }
+    
+    const user = await userRes.json();
 
-  const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`
-  );
-  const repos = await repoRes.json();
+    const repoRes = await fetch(
+      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`
+    );
+    
+    if (!repoRes.ok) {
+      throw new Error(`GitHub API error: ${repoRes.status}`);
+    }
+    
+    const repos = await repoRes.json();
 
-  return {
-    props: { title: 'GitHub', repos, user },
-    revalidate: 600,
-  };
+    return {
+      props: { title: 'GitHub', repos, user },
+    };
+  } catch (error) {
+    console.error('Error fetching GitHub data:', error);
+    // Return fallback data
+    return {
+      props: { 
+        title: 'GitHub', 
+        repos: [], 
+        user: { 
+          login: 'johnmath',
+          avatar_url: 'https://avatars.githubusercontent.com/u/placeholder',
+          public_repos: 0,
+          followers: 0
+        } 
+      },
+    };
+  }
 }
 
 export default GithubPage;
