@@ -10,20 +10,36 @@ const CustomHead = ({ title }: CustomHeadProps) => {
       <title>{title}</title>
       <meta
         name="description"
-        content="Nitin Ranganath is an avid full stack web developer building websites and applications you'd love to use"
+        content="John Abascal is a Computer Science PhD student at Northeastern University researching privacy in deep learning, differential privacy, and adversarial machine learning."
       />
       <meta
         name="keywords"
-        content="nitin ranganath, nitin, ranganath, web developer portfolio, nitin web developer, nitin developer, mern stack, nitin ranganath portfolio, vscode-portfolio"
+        content="john abascal, privacy, differential privacy, machine learning, adversarial ml, phd student, northeastern university, computer science"
       />
-      <meta property="og:title" content="Nitin Ranganath's Portfolio" />
+      <meta property="og:title" content="John Abascal's Portfolio" />
       <meta
         property="og:description"
-        content="A full-stack developer building websites that you'd like to use."
+        content="PhD student researching privacy in deep learning and machine unlearning at Northeastern University."
       />
-      <meta property="og:image" content="https://imgur.com/4zi5KkQ.png" />
-      <meta property="og:url" content="https://vscode-portfolio.vercel.app" />
+      <meta property="og:image" content="https://johnmath.github.io/me.png" />
+      <meta property="og:url" content="https://johnmath.github.io" />
       <meta name="twitter:card" content="summary_large_image" />
+      
+      {/* Google Analytics */}
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-YBQJC2ZQY4"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YBQJC2ZQY4');
+          `,
+        }}
+      />
     </Head>
   );
 };
@@ -31,5 +47,5 @@ const CustomHead = ({ title }: CustomHeadProps) => {
 export default CustomHead;
 
 CustomHead.defaultProps = {
-  title: 'Nitin Ranganath',
+  title: 'John Abascal',
 };

@@ -12,6 +12,16 @@
   align-items: center;
 }
 
+.profileSection {
+  margin-bottom: 2rem;
+}
+
+.profileImage {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+}
+
 .title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -24,6 +34,7 @@
   font-size: 1.1rem;
   color: var(--text-secondary);
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .aboutContent {
@@ -61,9 +72,36 @@
   font-weight: 500;
 }
 
+.link {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: rgba(var(--accent-color-rgb), 0.8);
+  text-decoration: underline;
+}
+
+.contact {
+  margin-top: 2rem;
+}
+
+.address {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
 @media screen and (max-width: 600px) {
   .container {
     padding: 2rem 1rem;
+  }
+
+  .profileImage {
+    width: 150px;
+    height: 150px;
   }
 
   .title {
