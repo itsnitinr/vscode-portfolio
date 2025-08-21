@@ -10,14 +10,18 @@ import {
   VscEdit,
 } from 'react-icons/vsc';
 
+import { PiLinkedinLogo } from "react-icons/pi";
+
+
 import styles from '@/styles/Sidebar.module.css';
 
 const sidebarTopItems = [
   { Icon: VscFiles, path: '/' },
-  { Icon: VscGithubAlt, path: '/github' },
   { Icon: VscBook, path: '/publications' },
-  { Icon: VscEdit, path: '/articles' },
+  // { Icon: VscEdit, path: '/articles' },
   { Icon: VscMail, path: '/contact' },
+  { Icon: VscGithubAlt, path: '/github' },
+  { Icon: PiLinkedinLogo, path: '/linkedin' },
 ];
 
 const sidebarBottomItems = [
