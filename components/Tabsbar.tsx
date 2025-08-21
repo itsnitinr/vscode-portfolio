@@ -11,8 +11,14 @@ const Tabsbar = () => {
       <Tab icon="/logos/markdown_icon.svg" filename="papers.md" path="/papers" />
       <Tab 
         icon="/logos/markdown_icon.svg" 
-        filename="github" 
+        filename="github.com" 
         path="https://github.com/johnmath" 
+        external={true} 
+      />
+      <Tab 
+        icon="/logos/markdown_icon.svg" 
+        filename="linkedin.com" 
+        path="https://www.linkedin.com/in/johnabascal/" 
         external={true} 
       />
     </div>
