@@ -14,7 +14,7 @@ interface TabProps {
 const Tab = ({ icon, filename, path, external = false }: TabProps) => {
   const router = useRouter();
   
-  const displayFilename = external ? `${filename} ↗` : filename;
+  const displayFilename = external ? `${filename} 🔗 : filename;
   const isActive = !external && router.pathname === path;
 
   if (external) {
