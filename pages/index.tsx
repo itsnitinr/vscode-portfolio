@@ -1,137 +1,73 @@
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { VscArrowRight } from 'react-icons/vsc';
+import Image from 'next/image';
+import styles from '@/styles/AboutPage.module.css';
 
-import styles from '@/styles/HomePage.module.css';
-
-export default function HomePage() {
-  const [activeLineIndex, setActiveLineIndex] = useState(0);
-
-  const codeLines = [
-    { code: 'const HomePage = () => {', type: 'function' },
-    {
-      code: '  const [isLoaded, setIsLoaded] = useState(true);',
-      type: 'variable',
-    },
-    { code: '  const developerInfo = {', type: 'variable' },
-    { code: "    name: 'John Abascal',", type: 'array-item' },
-    { code: "    role: 'PhD Student & Researcher',", type: 'array-item' },
-    { code: "    bio: 'Privacy in deep learning & machine unlearning'", type: 'array-item' },
-    { code: '  };', type: 'array-end' },
-    { code: '', type: 'blank' },
-    { code: '  useEffect(() => {', type: 'nested-function' },
-    {
-      code: '    document.title = `${developerInfo.name} | Portfolio`;',
-      type: 'return',
-    },
-    { code: '    setIsLoaded(true);', type: 'function-call' },
-    { code: '  }, []);', type: 'close' },
-    { code: '', type: 'blank' },
-    { code: '  return (', type: 'return-object' },
-    { code: '    <main className="hero-container">', type: 'object-method' },
-    { code: '      <h1>{developerInfo.name}</h1>', type: 'object-method' },
-    { code: '      <p>{developerInfo.role}</p>', type: 'object-method' },
-    { code: '      <div className="cta">', type: 'object-method' },
-    {
-      code: '        <Link href="/projects">View Projects</Link>',
-      type: 'object-method',
-    },
-    { code: '      </div>', type: 'object-method' },
-    { code: '    </main>', type: 'object-method' },
-    { code: '  );', type: 'close' },
-    { code: '};', type: 'close-function' },
-    { code: '', type: 'blank' },
-    { code: 'export default HomePage;', type: 'function-call' },
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveLineIndex((prev) => (prev + 1) % codeLines.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [codeLines.length]);
-
+const HomePage = () => {
   return (
-    <div className={styles.heroLayout}>
-      <div className={styles.container}>
-        <div className={styles.codeSection}>
-          <div className={styles.codeContainer}>
-            <div className={styles.editorContent}>
-              <div className={styles.lineNumbers}>
-                {codeLines.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.lineNumber} ${
-                      index === activeLineIndex ? styles.activeLine : ''
-                    }`}
-                  >
-                    {index + 1}
-                  </div>
-                ))}
-              </div>
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <div className={styles.profileSection}>
+          <Image
+            src="/me.png"
+            alt="John Abascal"
+            width={200}
+            height={200}
+            className={styles.profileImage}
+          />
+        </div>
+        
+        <h1 className={styles.title}>John Abascal</h1>
+        <div className={styles.subtitle}>Computer Science PhD Student at Northeastern University</div>
 
-              <div className={styles.codeEditor}>
-                {codeLines.map((line, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.codeLine} ${styles[line.type]} ${
-                      index === activeLineIndex ? styles.highlightedLine : ''
-                    }`}
-                  >
-                    {line.code}
-                  </div>
-                ))}
-              </div>
-
-              <div className={styles.overlayGlow}></div>
+        <div className={styles.aboutContent}>
+          <section className={styles.section}>
+            <p className={styles.paragraph}>
+              I am a fourth-year Computer Science PhD Student at Northeastern University, where I am 
+              advised by <a href="https://www.ccs.neu.edu/home/jullman/" target="_blank" rel="noopener noreferrer" className={styles.link}>Jonathan Ullman</a> and{' '}
+              <a href="https://www.ccs.neu.edu/home/alina/" target="_blank" rel="noopener noreferrer" className={styles.link}>Alina Oprea</a>. 
+              I completed my B.S. in Pure Mathematics at Florida State University and conducted my 
+              undergraduate honors thesis under the guidance of{' '}
+              <a href="https://www.math.fsu.edu/~kercheva/" target="_blank" rel="noopener noreferrer" className={styles.link}>Alec Kercheval</a> and{' '}
+              <a href="https://www.sc.fsu.edu/people?uid=ndc08" target="_blank" rel="noopener noreferrer" className={styles.link}>Nathan Crock</a>.
+            </p>
+            
+            <p className={styles.paragraph}>
+              My primary research interest is privacy in deep learning. More broadly, I am interested 
+              in both theoretical computer science and applied machine learning, including topics such 
+              as differential privacy, adversarial machine learning, and the trustworthiness of machine 
+              learning algorithms.
+            </p>
+            
+            <p className={styles.paragraph}>
+              I have also held industry positions in both software engineering and data science at{' '}
+              <a href="https://www.intuit.com/" target="_blank" rel="noopener noreferrer" className={styles.link}>Intuit</a> and{' '}
+              <a href="https://labs.newsci.ai/" target="_blank" rel="noopener noreferrer" className={styles.link}>NewSci Labs</a>, 
+              respectively. During the summers of 2023 and 2024, I was an Applied Research Intern on{' '}
+              <a href="https://about.linkedin.com/" target="_blank" rel="noopener noreferrer" className={styles.link}>LinkedIn&apos;s</a> Data Privacy team, 
+              where I worked on empirically measuring privacy leakage in analytics and LLMs. This semester, 
+              I am a Student Researcher at{' '}
+              <a href="https://about.google/" target="_blank" rel="noopener noreferrer" className={styles.link}>Google</a>, 
+              exploring open problems in machine unlearning 🔒
+            </p>
+          </section>
+          
+          <section className={styles.section}>
+            <div className={styles.contact}>
+              <p className={styles.address}>
+                177 Huntington<br />
+                Boston, MA 02115
+              </p>
             </div>
-          </div>
+          </section>
         </div>
-
-        <div className={styles.infoSection}>
-          <h1 className={styles.developerName}>
-            John <span className={styles.accentText}>Abascal</span>
-          </h1>
-
-          <div className={styles.developerRole}>PhD Student & Researcher</div>
-
-          <p className={styles.bio}>
-            Fourth-year Computer Science PhD student at Northeastern University, 
-            researching privacy in deep learning, differential privacy, and 
-            adversarial machine learning.
-          </p>
-
-          <div className={styles.actionLinks}>
-            <Link href="/cv" className={styles.primaryLink}>
-              View CV <VscArrowRight />
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.decorElements}>
-        <div className={styles.codeFlare}></div>
-        <div className={styles.gridLines}></div>
-        <div className={styles.codeBlock1}>{'{'}</div>
-        <div className={styles.codeBlock2}>{'}'}</div>
-        <div className={styles.codeBlock3}>{'<>'}</div>
-        <div className={styles.codeBlock4}>{'/>'}</div>
-        <div className={styles.orb1}></div>
-        <div className={styles.orb2}></div>
-        <div className={styles.orb3}></div>
-        <div className={styles.codeSymbol1}>{'()'}</div>
-        <div className={styles.codeSymbol2}>{'[]'}</div>
-        <div className={styles.codeSymbol3}>{'=>'}</div>
-        <div className={styles.dotPattern}></div>
-        <div className={styles.mobileAccent}></div>
       </div>
     </div>
   );
-}
+};
 
 export async function getStaticProps() {
   return {
     props: { title: 'Home' },
   };
 }
+
+export default HomePage;

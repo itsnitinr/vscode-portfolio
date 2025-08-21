@@ -1,22 +1,24 @@
-import ProjectCard from '@/components/ProjectCard';
-import { projects } from '@/data/projects';
-
-import styles from '@/styles/ProjectsPage.module.css';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const ProjectsPage = () => {
-  return (
-    <div className={styles.layout}>
-      <h1 className={styles.pageTitle}>My Projects</h1>
-      <p className={styles.pageSubtitle}>
-        Here&apos;s a collection of my recent work. These projects showcase my
-        skills in web development, design, and problem-solving.
-      </p>
+  const router = useRouter();
 
-      <div className={styles.container}>
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
+  useEffect(() => {
+    // Redirect to publications page
+    router.replace('/publications');
+  }, [router]);
+
+  // Show loading state while redirecting
+  return (
+    <div style={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      height: '100vh', 
+      color: 'rgba(255, 255, 255, 0.7)' 
+    }}>
+      Redirecting to Publications...
     </div>
   );
 };
