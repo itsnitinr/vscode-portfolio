@@ -1,42 +1,31 @@
-import ArticleCard from '@/components/ArticleCard';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-import { Article } from '@/types';
+const ArticlesPage = () => {
+  const router = useRouter();
 
-import styles from '@/styles/ArticlesPage.module.css';
+  useEffect(() => {
+    // Redirect to home page since articles section has been removed
+    router.replace('/');
+  }, [router]);
 
-interface ArticlesPageProps {
-  articles: Article[];
-}
-
-const ArticlesPage = ({ articles }: ArticlesPageProps) => {
+  // Show loading state while redirecting
   return (
-    <div className={styles.layout}>
-      <h1 className={styles.pageTitle}>My Articles</h1>
-      <p className={styles.pageSubtitle}>
-        Recent posts from{' '}
-        <a
-          href="https://dev.to/itsnitinr"
-          target="_blank"
-          rel="noopener"
-          className={styles.underline}
-        >
-          dev.to
-        </a>{' '}
-        where I share insights and tutorials about web development.
-      </p>
-      <div className={styles.container}>
-        {articles.map((article) => (
-          <ArticleCard key={article.id} article={article} />
-        ))}
-      </div>
+    <div style={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      height: '100vh', 
+      color: 'rgba(255, 255, 255, 0.7)' 
+    }}>
+      Redirecting...
     </div>
   );
 };
 
 export async function getStaticProps() {
-  // Temporarily return empty articles to prevent build errors
   return {
-    props: { title: 'Articles', articles: [] },
+    props: { title: 'Articles' },
   };
 }
 

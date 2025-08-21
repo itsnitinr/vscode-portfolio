@@ -12,6 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     const theme = localStorage.getItem('theme');
     if (theme) {
       document.documentElement.setAttribute('data-theme', theme);
+    } else {
+      // Default to Dracula theme
+      document.documentElement.setAttribute('data-theme', 'dracula');
     }
   }, []);
 
