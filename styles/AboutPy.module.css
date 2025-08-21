@@ -1,0 +1,156 @@
+.container {
+  max-width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  color: var(--text-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileSection {
+  margin-bottom: 2rem;
+}
+
+.profileImage {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-color);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.aboutContent {
+  width: 100%;
+}
+
+.bioSection {
+  margin-bottom: 2.5rem;
+}
+
+.researchSection {
+  margin-bottom: 2.5rem;
+}
+
+.contactSection {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.paragraph {
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.interestsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.interestItem {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.interestItem::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.interestItem:last-child {
+  margin-bottom: 0;
+}
+
+.link {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: rgba(var(--accent-color-rgb), 0.8);
+  text-decoration: underline;
+}
+
+.contact {
+  margin-top: 2rem;
+}
+
+.address {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .profileImage {
+    width: 150px;
+    height: 150px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .paragraph {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .interestItem {
+    font-size: 0.95rem;
+  }
+}
