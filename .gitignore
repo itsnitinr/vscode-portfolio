@@ -35,3 +35,6 @@ yarn-error.log*
 
 # cursor
 .cursor
+
+# auto-generated publications data
+/data/publications.json

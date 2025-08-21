@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "privacy-preserving-machine-learning-survey",
+    "title": "Privacy-Preserving Machine Learning: A Comprehensive Survey",
+    "authors": "John Abascal, Jonathan Ullman, Alina Oprea",
+    "venue": "Journal of Machine Learning Research",
+    "year": 2024,
+    "link": "https://scholar.google.com/example",
+    "abstract": "This survey provides a comprehensive overview of privacy-preserving techniques in machine learning, covering differential privacy, federated learning, and secure multiparty computation approaches.",
+    "featured": true,
+    "pdf_url": "",
+    "video_url": "",
+    "code_url": "",
+    "custom_order": 100
+  },
+  {
+    "slug": "differential-privacy-deep-learning",
+    "title": "Differential Privacy in Deep Learning: Challenges and Solutions",
+    "authors": "John Abascal, Research Team",
+    "venue": "NeurIPS Conference",
+    "year": 2023,
+    "link": "https://scholar.google.com/example2",
+    "abstract": "We explore the challenges of implementing differential privacy in deep learning systems and propose novel solutions for maintaining model utility while preserving privacy guarantees.",
+    "featured": false,
+    "pdf_url": "",
+    "video_url": "",
+    "code_url": "",
+    "custom_order": 0
+  }
+]

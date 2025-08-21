@@ -27,9 +27,9 @@ const explorerItems = [
     icon: '/logos/css_icon.svg',
   },
   {
-    name: 'projects.js',
-    path: '/projects',
-    icon: '/logos/js_icon.svg',
+    name: 'publications.md',
+    path: '/publications',
+    icon: '/logos/markdown_icon.svg',
   },
   {
     name: 'articles.json',

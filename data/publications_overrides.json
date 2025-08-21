@@ -1,0 +1,15 @@
+{
+  "_comment": "Manual overrides for publications. Fields: slug (required), pdf_url, video_url, code_url, custom_title, custom_venue, abstract, featured (boolean), custom_order (number - higher floats to top).",
+  "_instructions": "The slug should match part of the publication title (used for matching). Add entries here to provide additional links, custom abstracts, featured status, or custom ordering.",
+  "overrides": [
+    {
+      "slug": "example-publication",
+      "featured": true,
+      "custom_order": 100,
+      "pdf_url": "https://example.com/paper.pdf",
+      "video_url": "https://youtube.com/watch?v=example",
+      "code_url": "https://github.com/username/repo",
+      "abstract": "This is a custom abstract that will be shown instead of the scraped one. It supports basic HTML for formatting."
+    }
+  ]
+}
