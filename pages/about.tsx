@@ -5,7 +5,7 @@ const AboutPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect to home page
+    // Redirect to home page since about content is now at root
     router.replace('/');
   }, [router]);
 
@@ -18,7 +18,7 @@ const AboutPage = () => {
       height: '100vh', 
       color: 'rgba(255, 255, 255, 0.7)' 
     }}>
-      Redirecting...
+      Redirecting to about content...
     </div>
   );
 };
