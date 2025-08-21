@@ -7,16 +7,13 @@ import {
   VscGithubAlt,
   VscBook,
   VscFiles,
-  VscEdit,
 } from 'react-icons/vsc';
 
 import styles from '@/styles/Sidebar.module.css';
 
 const sidebarTopItems = [
   { Icon: VscFiles, path: '/' },
-  { Icon: VscGithubAlt, path: '/github' },
   { Icon: VscBook, path: '/publications' },
-  { Icon: VscEdit, path: '/articles' },
   { Icon: VscMail, path: '/contact' },
 ];
 
@@ -50,6 +47,19 @@ const Sidebar = () => {
             </div>
           </Link>
         ))}
+        {/* GitHub external link */}
+        <a 
+          href="https://github.com/johnmath" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.iconContainer}
+        >
+          <VscGithubAlt
+            size={16}
+            fill="rgb(106, 115, 125)"
+            className={styles.icon}
+          />
+        </a>
       </div>
       <div className={styles.sidebarBottom}>
         {sidebarBottomItems.map(({ Icon, path }) => (

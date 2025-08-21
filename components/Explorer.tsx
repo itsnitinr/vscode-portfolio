@@ -9,7 +9,7 @@ const explorerItems = [
   {
     name: 'about.py',
     path: '/',
-    icon: '/logos/react_icon.svg',
+    icon: '/logos/python_icon.svg',
   },
   {
     name: 'contact.css',
@@ -25,11 +25,6 @@ const explorerItems = [
     name: 'papers.md',
     path: '/papers',
     icon: '/logos/markdown_icon.svg',
-  },
-  {
-    name: 'articles.json',
-    path: '/articles',
-    icon: '/logos/json_icon.svg',
   },
 ];
 
