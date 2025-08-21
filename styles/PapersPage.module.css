@@ -1,0 +1,153 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  height: 100%;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.papersSection {
+  width: 100%;
+}
+
+.papersList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.paperItem {
+  width: 100%;
+}
+
+.paper {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.2s ease;
+}
+
+.paper:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.paperHeader {
+  margin-bottom: 1.5rem;
+}
+
+.paperTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.paperMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.authors {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.venue {
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+}
+
+.year {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+}
+
+.badgesContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.typeBadge {
+  background: var(--badge-accent-bg);
+  border-color: rgba(255, 179, 71, 0.3);
+}
+
+.keywordBadge {
+  background: var(--badge-bg);
+  border-color: var(--badge-border);
+}
+
+.linkBadge {
+  background: rgba(100, 149, 237, 0.1);
+  border-color: rgba(100, 149, 237, 0.3);
+  color: rgba(100, 149, 237, 0.9);
+}
+
+.linkBadge:hover {
+  background: rgba(100, 149, 237, 0.2);
+  border-color: rgba(100, 149, 237, 0.5);
+  color: rgba(100, 149, 237, 1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .paper {
+    padding: 1.5rem;
+  }
+
+  .paperTitle {
+    font-size: 1.2rem;
+  }
+
+  .paperMeta {
+    font-size: 0.85rem;
+  }
+
+  .badgesContainer {
+    gap: 0.4rem;
+  }
+}

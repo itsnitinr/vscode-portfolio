@@ -11,3 +11,34 @@
 a {
   text-decoration: none;
 }
+
+.badge {
+  --badge-bg: rgba(255,255,255,0.04);
+  --badge-border: rgba(255,255,255,0.15);
+  --badge-hover: rgba(255,255,255,0.12);
+  --badge-accent-bg: linear-gradient(90deg,#ffb34722,#ffcc3322);
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .28rem .6rem;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  border: 1px solid var(--badge-border);
+  border-radius: 999px;
+  background: var(--badge-bg);
+  color: inherit;
+  text-decoration: none;
+  transition: background .15s ease, border-color .15s ease;
+  cursor: default;
+}
+
+.badge[href] {
+  cursor: pointer;
+}
+
+.badge:hover {
+  background: var(--badge-hover);
+  border-color: rgba(255,255,255,0.3);
+}

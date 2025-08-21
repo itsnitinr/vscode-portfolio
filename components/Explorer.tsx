@@ -7,19 +7,9 @@ import styles from '@/styles/Explorer.module.css';
 
 const explorerItems = [
   {
-    name: 'home.tsx',
+    name: 'about.py',
     path: '/',
     icon: '/logos/react_icon.svg',
-  },
-  {
-    name: 'about.html',
-    path: '/about',
-    icon: '/logos/html_icon.svg',
-  },
-  {
-    name: 'cv.yml',
-    path: '/cv',
-    icon: '/logos/json_icon.svg',
   },
   {
     name: 'contact.css',
@@ -27,19 +17,19 @@ const explorerItems = [
     icon: '/logos/css_icon.svg',
   },
   {
-    name: 'publications.md',
-    path: '/publications',
+    name: 'cv.yml',
+    path: '/cv',
+    icon: '/logos/json_icon.svg',
+  },
+  {
+    name: 'papers.md',
+    path: '/papers',
     icon: '/logos/markdown_icon.svg',
   },
   {
     name: 'articles.json',
     path: '/articles',
     icon: '/logos/json_icon.svg',
-  },
-  {
-    name: 'github.md',
-    path: '/github',
-    icon: '/logos/markdown_icon.svg',
   },
 ];
 
