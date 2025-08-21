@@ -10,13 +10,13 @@ const Tabsbar = () => {
       <Tab icon="/logos/json_icon.svg" filename="cv.yml" path="/cv" />
       <Tab icon="/logos/markdown_icon.svg" filename="papers.md" path="/papers" />
       <Tab 
-        icon="/logos/markdown_icon.svg" 
+        icon="/logos/github_icon.svg" 
         filename="github.com" 
         path="https://github.com/johnmath" 
         external={true} 
       />
       <Tab 
-        icon="/logos/markdown_icon.svg" 
+        icon="/logos/linkedin_icon.svg" 
         filename="linkedin.com" 
         path="https://www.linkedin.com/in/johnabascal/" 
         external={true} 
