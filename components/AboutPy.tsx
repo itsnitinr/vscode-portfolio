@@ -3,12 +3,10 @@ import styles from '@/styles/AboutPy.module.css';
 
 // Research interests as exportable array for easy editing
 export const researchInterests = [
-  'Privacy in deep learning',
-  'Differential privacy',
-  'Adversarial machine learning',
-  'Trustworthiness of machine learning algorithms',
-  'Theoretical computer science',
-  'Applied machine learning'
+  'Privacy in Machine Learning',
+  'Adversarial Machine Learning',
+  'Differential Privacy',
+  'LLM Security and Safety'
 ];
 
 const AboutPy = () => {
@@ -27,7 +25,14 @@ const AboutPy = () => {
         
         <h1 className={styles.title}>John Abascal</h1>
         <p className={styles.subtitle}>Computer Science PhD Student at Northeastern University</p>
-
+        <section className={styles.contactSection}>
+            <div className={styles.contact}>
+              <p className={styles.address}>
+                177 Huntington<br />
+                Boston, MA 02115
+              </p>
+            </div>
+        </section>
         <div className={styles.aboutContent}>
           <section className={styles.bioSection}>
             <p className={styles.paragraph}>
@@ -60,15 +65,6 @@ const AboutPy = () => {
                 <li key={index} className={styles.interestItem}>{interest}</li>
               ))}
             </ul>
-          </section>
-          
-          <section className={styles.contactSection}>
-            <div className={styles.contact}>
-              <p className={styles.address}>
-                177 Huntington<br />
-                Boston, MA 02115
-              </p>
-            </div>
           </section>
         </div>
       </div>
