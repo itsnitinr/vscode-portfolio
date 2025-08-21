@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/fetch_publications.mjs",
     "build": "next build",
     "start": "next start",
     "export": "next build",
     "lint": "next lint"
   },
   "dependencies": {
+    "cheerio": "^1.1.2",
     "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
