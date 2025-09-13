@@ -50,11 +50,11 @@
 
   {
     "id": 33,
-    "name": "Rv Work - Saúde Corporativa",
-    "image": "https://i.postimg.cc/DmVM8FTW/rv-work.webp",
-    "description": "Site institucional com blog integrado, com foco na apresentação de serviços, conteúdos informativos e contato com o cliente.",
+    "name": "Juarez da Saúde",
+    "image": "https://i.postimg.cc/fTwtxgP0/77.webp",
+    "description": "Desenvolvimento de site One Page direcionado à apresentação institucional do candidato, com foco em sua trajetória, propostas e plano de governo.",
     "tags": ["html", "css", "wordpress"],
-    "demo": "http://rv.mannobra.com.br/"
+    "demo": "https://juarezdasaude.com.br/"
   },
 
   {
@@ -65,14 +65,7 @@
     "tags": ["html", "css", "wordpress"],
     "demo": "https://grupoqualitr.com.br/"
   },
-  {
-    "id": 27,
-    "name": "Nova Digital Informática",
-    "image": "https://i.postimg.cc/DZ5ZNqSh/nova-digital-cover.png",
-    "description": "Site institucional onepage para empresa  Nova Digital, uma loja de informática, suprimentos de impressão e materiais de escritório.",
-    "tags": ["html", "css", "wordpress", "javascript"],
-    "demo": "https://novadigitalinfo.com.br/"
-  },
+
   {
     "id": 34,
     "name": "Link Languages - Escola de idiomas",
