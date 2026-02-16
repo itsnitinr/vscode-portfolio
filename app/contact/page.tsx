@@ -1,6 +1,12 @@
+import { Metadata } from 'next';
+
 import ContactCode from '@/components/ContactCode';
 
 import styles from '@/styles/ContactPage.module.css';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+};
 
 const ContactPage = () => {
   return (
@@ -18,11 +24,5 @@ const ContactPage = () => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  return {
-    props: { title: 'Contact' },
-  };
-}
 
 export default ContactPage;

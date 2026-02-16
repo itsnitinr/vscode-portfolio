@@ -1,6 +1,12 @@
+import { Metadata } from 'next';
+
 import ThemeInfo from '@/components/ThemeInfo';
 
 import styles from '@/styles/SettingsPage.module.css';
+
+export const metadata: Metadata = {
+  title: 'Settings',
+};
 
 const SettingsPage = () => {
   return (
@@ -46,11 +52,5 @@ const SettingsPage = () => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  return {
-    props: { title: 'Settings' },
-  };
-}
 
 export default SettingsPage;
