@@ -18,11 +18,17 @@ async function getGithubData() {
   const userRes = await fetch(
     `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
   );
+  if (!userRes.ok) {
+    throw new Error(`Failed to fetch user: ${userRes.status}`);
+  }
   const user: User = await userRes.json();
 
   const repoRes = await fetch(
     `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`
   );
+  if (!repoRes.ok) {
+    throw new Error(`Failed to fetch repos: ${repoRes.status}`);
+  }
   const repos: Repo[] = await repoRes.json();
 
   return { user, repos };
