@@ -1,7 +1,13 @@
+import { Metadata } from 'next';
+
 import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/data/projects';
 
 import styles from '@/styles/ProjectsPage.module.css';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+};
 
 const ProjectsPage = () => {
   return (
@@ -20,11 +26,5 @@ const ProjectsPage = () => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  return {
-    props: { title: 'Projects' },
-  };
-}
 
 export default ProjectsPage;

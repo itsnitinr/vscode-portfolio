@@ -1,5 +1,7 @@
+'use client';
+
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import {
   VscAccount,
   VscSettings,
@@ -26,7 +28,7 @@ const sidebarBottomItems = [
 ];
 
 const Sidebar = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <aside className={styles.sidebar}>
@@ -35,13 +37,13 @@ const Sidebar = () => {
           <Link href={path} key={path}>
             <div
               className={`${styles.iconContainer} ${
-                router.pathname === path && styles.active
+                pathname === path && styles.active
               }`}
             >
               <Icon
                 size={16}
                 fill={
-                  router.pathname === path
+                  pathname === path
                     ? 'rgb(225, 228, 232)'
                     : 'rgb(106, 115, 125)'
                 }
@@ -57,7 +59,7 @@ const Sidebar = () => {
             <Link href={path}>
               <Icon
                 fill={
-                  router.pathname === path
+                  pathname === path
                     ? 'rgb(225, 228, 232)'
                     : 'rgb(106, 115, 125)'
                 }

@@ -1,4 +1,10 @@
+import { Metadata } from 'next';
+
 import styles from '@/styles/AboutPage.module.css';
+
+export const metadata: Metadata = {
+  title: 'About',
+};
 
 const AboutPage = () => {
   return (
@@ -59,11 +65,5 @@ const AboutPage = () => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  return {
-    props: { title: 'About' },
-  };
-}
 
 export default AboutPage;

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { VscArrowRight } from 'react-icons/vsc';
@@ -127,10 +129,4 @@ export default function HomePage() {
       </div>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: { title: 'Home' },
-  };
 }
