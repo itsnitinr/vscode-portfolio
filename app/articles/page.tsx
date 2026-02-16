@@ -22,6 +22,11 @@ async function getArticles(): Promise<Article[]> {
     }
   );
 
+  if (!res.ok) {
+    console.error(`Failed to fetch articles: ${res.status} ${res.statusText}`);
+    return [];
+  }
+
   return res.json();
 }
 
