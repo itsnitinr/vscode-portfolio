@@ -1,131 +1,67 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { VscArrowRight } from 'react-icons/vsc';
+import { VscArrowRight, VscGithub, VscMail, VscCode } from 'react-icons/vsc';
 
 import styles from '@/styles/HomePage.module.css';
 
 export default function HomePage() {
-  const [activeLineIndex, setActiveLineIndex] = useState(0);
-
-  const codeLines = [
-    { code: 'const HomePage = () => {', type: 'function' },
-    {
-      code: '  const [isLoaded, setIsLoaded] = useState(true);',
-      type: 'variable',
-    },
-    { code: '  const developerInfo = {', type: 'variable' },
-    { code: "    name: 'Nitin Ranganath',", type: 'array-item' },
-    { code: "    role: 'Full Stack Developer',", type: 'array-item' },
-    { code: "    bio: 'Building modern web experiences'", type: 'array-item' },
-    { code: '  };', type: 'array-end' },
-    { code: '', type: 'blank' },
-    { code: '  useEffect(() => {', type: 'nested-function' },
-    {
-      code: '    document.title = `${developerInfo.name} | Portfolio`;',
-      type: 'return',
-    },
-    { code: '    setIsLoaded(true);', type: 'function-call' },
-    { code: '  }, []);', type: 'close' },
-    { code: '', type: 'blank' },
-    { code: '  return (', type: 'return-object' },
-    { code: '    <main className="hero-container">', type: 'object-method' },
-    { code: '      <h1>{developerInfo.name}</h1>', type: 'object-method' },
-    { code: '      <p>{developerInfo.role}</p>', type: 'object-method' },
-    { code: '      <div className="cta">', type: 'object-method' },
-    {
-      code: '        <Link href="/projects">View Projects</Link>',
-      type: 'object-method',
-    },
-    { code: '      </div>', type: 'object-method' },
-    { code: '    </main>', type: 'object-method' },
-    { code: '  );', type: 'close' },
-    { code: '};', type: 'close-function' },
-    { code: '', type: 'blank' },
-    { code: 'export default HomePage;', type: 'function-call' },
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveLineIndex((prev) => (prev + 1) % codeLines.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [codeLines.length]);
-
   return (
-    <div className={styles.heroLayout}>
+    <div className={styles.page}>
       <div className={styles.container}>
-        <div className={styles.codeSection}>
-          <div className={styles.codeContainer}>
-            <div className={styles.editorContent}>
-              <div className={styles.lineNumbers}>
-                {codeLines.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.lineNumber} ${
-                      index === activeLineIndex ? styles.activeLine : ''
-                    }`}
-                  >
-                    {index + 1}
-                  </div>
-                ))}
-              </div>
-
-              <div className={styles.codeEditor}>
-                {codeLines.map((line, index) => (
-                  <div
-                    key={index}
-                    className={`${styles.codeLine} ${styles[line.type]} ${
-                      index === activeLineIndex ? styles.highlightedLine : ''
-                    }`}
-                  >
-                    {line.code}
-                  </div>
-                ))}
-              </div>
-
-              <div className={styles.overlayGlow}></div>
+        <div className={styles.content}>
+          <div className={styles.header}>
+            <div className={styles.icon}>
+              <VscCode size={32} />
             </div>
           </div>
-        </div>
 
-        <div className={styles.infoSection}>
-          <h1 className={styles.developerName}>
-            Nitin <span className={styles.accentText}>Ranganath</span>
-          </h1>
+          <div className={styles.intro}>
+            <p className={styles.greeting}>Hello, I&apos;m</p>
+            
+            <h1 className={styles.name}>Nitin Ranganath</h1>
+            
+            <p className={styles.role}>Full Stack Developer</p>
+            
+            <div className={styles.divider} />
+            
+            <p className={styles.description}>
+              I craft clean, performant web applications with modern technologies. 
+              Specialized in TypeScript, React, Node.js, and building products 
+              that users love.
+            </p>
+          </div>
 
-          <div className={styles.developerRole}>Full Stack Web Developer</div>
+          <div className={styles.actions}>
+            <Link href="/projects" className={styles.primaryAction}>
+              <span>View Projects</span>
+              <VscArrowRight size={18} />
+            </Link>
+            
+            <Link href="/about" className={styles.secondaryAction}>
+              <span>Learn More</span>
+            </Link>
+          </div>
 
-          <p className={styles.bio}>
-            I build elegant, responsive web applications with modern
-            technologies. Focused on clean code and intuitive user experiences.
-          </p>
-
-          <div className={styles.actionLinks}>
-            <Link href="/projects" className={styles.primaryLink}>
-              View Projects <VscArrowRight />
+          <div className={styles.links}>
+            <a 
+              href="https://github.com/itsnitinr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
+              <VscGithub size={16} />
+              <span>GitHub</span>
+            </a>
+            
+            <span className={styles.linkSeparator}>/</span>
+            
+            <Link href="/contact" className={styles.link}>
+              <VscMail size={16} />
+              <span>Contact</span>
             </Link>
           </div>
         </div>
-      </div>
-
-      <div className={styles.decorElements}>
-        <div className={styles.codeFlare}></div>
-        <div className={styles.gridLines}></div>
-        <div className={styles.codeBlock1}>{'{'}</div>
-        <div className={styles.codeBlock2}>{'}'}</div>
-        <div className={styles.codeBlock3}>{'<>'}</div>
-        <div className={styles.codeBlock4}>{'/>'}</div>
-        <div className={styles.orb1}></div>
-        <div className={styles.orb2}></div>
-        <div className={styles.orb3}></div>
-        <div className={styles.codeSymbol1}>{'()'}</div>
-        <div className={styles.codeSymbol2}>{'[]'}</div>
-        <div className={styles.codeSymbol3}>{'=>'}</div>
-        <div className={styles.dotPattern}></div>
-        <div className={styles.mobileAccent}></div>
       </div>
     </div>
   );
