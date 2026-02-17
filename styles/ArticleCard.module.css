@@ -1,118 +1,171 @@
-.container {
+/* Article Card - 10x Design */
+
+.card {
   display: flex;
-  flex-direction: column;
-  background: var(--article-bg);
-  border-radius: 16px;
-  overflow: hidden;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
   text-decoration: none;
-  color: white;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  height: 100%;
-  position: relative;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.card:first-child {
+  padding-top: 0;
+}
+
+.card:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--explorer-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.card:hover .number {
+  background: rgba(var(--accent-color-rgb), 0.1);
+  border-color: rgba(var(--accent-color-rgb), 0.3);
+  color: var(--accent-color);
 }
 
 .imageWrapper {
   position: relative;
-  width: 100%;
-  height: 200px;
+  width: 120px;
+  height: 80px;
+  border-radius: 8px;
   overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .image {
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
-.container:hover .image {
+.card:hover .image {
   transform: scale(1.08);
 }
 
-.viewsBadge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 10;
-}
-
 .content {
-  padding: 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 12px;
+  min-width: 0;
+  padding: 2px 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .title {
-  color: var(--accent-color);
-  font-size: 1rem;
-  line-height: 1.4;
-  font-weight: 700;
   margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card:hover .title {
+  color: var(--accent-color);
 }
 
 .description {
-  font-size: 0.85rem;
-  line-height: 1.6;
-  opacity: 0.85;
   margin: 0;
-  flex: 1;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 
 .stats {
   display: flex;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.75);
-  gap: 1.25rem;
+  gap: 16px;
 }
 
 .stat {
   display: flex;
   align-items: center;
-  font-weight: 500;
-  gap: 0.35rem;
+  gap: 5px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.2s ease;
 }
 
-.icon {
+.stat svg {
   color: var(--accent-color);
-  height: 18px;
-  width: 18px;
+  opacity: 0.6;
 }
 
-.readMore {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent-color);
-  padding: 6px 12px;
-  border: 1px solid currentColor;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.card:hover .stat {
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.container:hover .readMore {
-  background-color: var(--accent-color);
-  color: var(--article-bg);
+/* Responsive */
+@media (max-width: 640px) {
+  .card {
+    gap: 12px;
+    padding: 16px 0;
+  }
+
+  .number {
+    display: none;
+  }
+
+  .imageWrapper {
+    width: 80px;
+    height: 60px;
+  }
+
+  .title {
+    font-size: 14px;
+    -webkit-line-clamp: 2;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .stats {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageWrapper {
+    width: 70px;
+    height: 50px;
+  }
 }

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { VscBook, VscLinkExternal, VscGlobe } from 'react-icons/vsc';
 
 import ArticleCard from '@/components/ArticleCard';
 
@@ -32,26 +33,59 @@ async function getArticles(): Promise<Article[]> {
 
 export default async function ArticlesPage() {
   const articles = await getArticles();
+  const totalViews = articles.reduce((sum, article) => sum + article.page_views_count, 0);
 
   return (
-    <div className={styles.layout}>
-      <h1 className={styles.pageTitle}>My Articles</h1>
-      <p className={styles.pageSubtitle}>
-        Recent posts from{' '}
-        <a
-          href="https://dev.to/itsnitinr"
-          target="_blank"
-          rel="noopener"
-          className={styles.underline}
-        >
-          dev.to
-        </a>{' '}
-        where I share insights and tutorials about web development.
-      </p>
+    <div className={styles.page}>
       <div className={styles.container}>
-        {articles.map((article) => (
-          <ArticleCard key={article.id} article={article} />
-        ))}
+        <header className={styles.header}>
+          <div className={styles.headerMain}>
+            <div className={styles.iconWrapper}>
+              <VscBook className={styles.icon} size={24} />
+            </div>
+            
+            <div className={styles.headerContent}>
+              <div className={styles.headerTop}>
+                <h1 className={styles.title}>Articles</h1>
+                <div className={styles.stats}>
+                  <div className={styles.stat}>
+                    <VscGlobe size={14} />
+                    <span>{articles.length} posts</span>
+                  </div>
+                  <div className={styles.divider} />
+                  <div className={styles.stat}>
+                    <span>{totalViews.toLocaleString()} views</span>
+                  </div>
+                </div>
+              </div>
+              
+              <p className={styles.subtitle}>
+                Technical writing on web development. Sharing insights, 
+                tutorials, and lessons learned from building real-world applications.
+              </p>
+            </div>
+          </div>
+
+          <a 
+            href="https://dev.to/itsnitinr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.profileLink}
+          >
+            <span>DEV.to</span>
+            <VscLinkExternal size={14} />
+          </a>
+        </header>
+
+        <div className={styles.articlesList}>
+          {articles.map((article, index) => (
+            <ArticleCard 
+              key={article.id} 
+              article={article}
+              index={index + 1}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
