@@ -1,33 +1,101 @@
-.layout {
-  height: 100%;
+/* Settings Page - Clean Design */
+
+.page {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  background: var(--main-bg);
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+  max-width: 640px;
   width: 100%;
-  border-radius: 8px;
-  padding: 1rem;
+  margin: 0 auto;
+  padding: 48px 32px;
 }
 
-@media screen and (max-width: 768px) {
-  .container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.875rem;
-  }
+/* Header */
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--explorer-border);
 }
 
-@media screen and (max-width: 480px) {
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(var(--accent-color-rgb), 0.15), rgba(var(--accent-color-rgb), 0.05));
+  border: 1px solid rgba(var(--accent-color-rgb), 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon {
+  color: var(--accent-color);
+}
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 480px;
+}
+
+/* Section */
+.section {
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  margin: 0 0 24px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Themes Grid */
+.themesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
   .container {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 0.75rem;
+    padding: 32px 24px;
   }
 
-  .settingsContainer {
-    padding: 0.5rem;
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .themesGrid {
+    grid-template-columns: 1fr;
   }
 }

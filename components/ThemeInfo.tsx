@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { VscCheck } from 'react-icons/vsc';
 
 import styles from '@/styles/ThemeInfo.module.css';
 
@@ -9,33 +10,36 @@ interface ThemeInfoProps {
   name: string;
   publisher: string;
   theme: string;
+  isActive: boolean;
+  onSelect: (theme: string) => void;
 }
 
-const ThemeInfo = ({ icon, name, publisher, theme }: ThemeInfoProps) => {
-  const setTheme = (theme: string) => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  };
-
+const ThemeInfo = ({ icon, name, publisher, theme, isActive, onSelect }: ThemeInfoProps) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.imageWrapper}>
+    <button 
+      className={`${styles.card} ${isActive ? styles.active : ''}`}
+      onClick={() => onSelect(theme)}
+    >
+      <div className={styles.preview}>
         <Image
           src={icon}
           alt={name}
-          height={80}
-          width={80}
-          className={styles.themeImage}
+          height={40}
+          width={40}
+          className={styles.icon}
         />
+        {isActive && (
+          <div className={styles.check}>
+            <VscCheck size={14} />
+          </div>
+        )}
       </div>
+      
       <div className={styles.info}>
-        <div>
-          <h3>{name}</h3>
-          <h5>{publisher}</h5>
-        </div>
-        <button onClick={() => setTheme(theme)}>Set Color Theme</button>
+        <h3 className={styles.name}>{name}</h3>
+        <p className={styles.publisher}>{publisher}</p>
       </div>
-    </div>
+    </button>
   );
 };
 

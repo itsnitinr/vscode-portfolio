@@ -1,74 +1,102 @@
-.container {
+/* Theme Card - Clean Design */
+
+.card {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 0.5rem 0;
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--explorer-bg);
-  border-radius: 4px;
-  border: 1px solid transparent;
-  position: relative;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--explorer-border);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 0.2s ease;
 }
 
-.imageWrapper {
-  width: 80px;
-  height: 80px;
+.card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.card.active {
+  background: rgba(var(--accent-color-rgb), 0.08);
+  border-color: rgba(var(--accent-color-rgb), 0.4);
+}
+
+.preview {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.25rem;
-  margin-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
-.themeImage {
+.icon {
   object-fit: contain;
+  border-radius: 4px;
+}
+
+.check {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .info {
-  margin-top: 0.75rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
 }
 
-.info h3 {
-  font-size: 0.95rem;
-  margin: 0 0 0.15rem 0;
-  color: var(--text-color);
-}
-
-.info h5 {
-  font-size: 0.75rem;
-  margin: 0 0 0.75rem 0;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 400;
-}
-
-.info button {
-  margin-top: 0.5rem;
-  border: none;
-  background: var(--button-bg);
-  color: var(--button-text);
-  padding: 0.35rem 0.5rem;
+.name {
+  margin: 0;
+  font-size: 15px;
   font-weight: 600;
-  cursor: pointer;
-  border-radius: 2px;
-  width: 100%;
-  font-size: 0.8rem;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.info button:focus {
-  outline: 1px solid var(--accent-color);
+.publisher {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-@media screen and (max-width: 768px) {
-  .container {
-    padding: 0.75rem;
+/* Responsive */
+@media (max-width: 640px) {
+  .card {
+    padding: 14px;
   }
 
-  .info h3 {
-    font-size: 0.9rem;
+  .preview {
+    width: 44px;
+    height: 44px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .publisher {
+    font-size: 11px;
   }
 }

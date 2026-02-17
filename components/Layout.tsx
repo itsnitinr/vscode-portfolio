@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 import Titlebar from '@/components/Titlebar';
@@ -17,13 +17,6 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const pathname = usePathname();
-
-  useLayoutEffect(() => {
-    const theme = localStorage.getItem('theme');
-    if (theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-    }
-  }, []);
 
   useEffect(() => {
     const main = document.getElementById('main-editor');
