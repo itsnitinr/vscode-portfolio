@@ -2,9 +2,7 @@ import {
   VscEye,
   VscRepoForked,
   VscStarEmpty,
-  VscGithubAlt,
   VscLinkExternal,
-  VscTypeHierarchy,
 } from 'react-icons/vsc';
 
 import { Repo } from '@/types';
@@ -16,55 +14,68 @@ interface RepoCardProps {
 }
 
 const RepoCard = ({ repo }: RepoCardProps) => {
+  const languageColors: Record<string, string> = {
+    TypeScript: '#3178c6',
+    JavaScript: '#f1e05a',
+    Python: '#3572A5',
+    Java: '#b07219',
+    Go: '#00ADD8',
+    Rust: '#dea584',
+    'C++': '#f34b7d',
+    C: '#555555',
+    HTML: '#e34c26',
+    CSS: '#563d7c',
+    Shell: '#89e051',
+    Ruby: '#701516',
+    PHP: '#4F5D95',
+    Swift: '#ffac45',
+    Kotlin: '#A97BFF',
+  };
+
+  const getLanguageColor = (lang: string) => {
+    return languageColors[lang] || '#8b949e';
+  };
+
   return (
-    <div className={styles.card}>
+    <a 
+      href={repo.html_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.card}
+    >
       <div className={styles.cardHeader}>
         <h3 className={styles.title}>{repo.name}</h3>
-        {repo.language && (
-          <div className={styles.language}>
-            <VscTypeHierarchy className={styles.languageIcon} />
-            <span>{repo.language}</span>
-          </div>
-        )}
+        <VscLinkExternal className={styles.externalIcon} size={14} />
       </div>
-      <p>{repo.description || 'No description provided'}</p>
-      <div className={styles.stats}>
-        <div>
-          <div>
-            <VscStarEmpty className={styles.icon} />
-            {repo.stargazers_count}
-          </div>
-          <div>
-            <VscRepoForked className={styles.icon} />
-            {repo.forks}
-          </div>
-          <div>
-            <VscEye className={styles.icon} />
-            {repo.watchers}
-          </div>
-        </div>
-        <div>
-          <a
-            href={repo.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="View Repository"
-          >
-            <VscGithubAlt className={styles.icon} />
-          </a>
-          {repo.homepage && (
-            <a
-              href={repo.homepage}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Visit Live Site"
-            >
-              <VscLinkExternal className={styles.icon} />
-            </a>
+      
+      <p className={styles.description}>
+        {repo.description || 'No description'}
+      </p>
+      
+      <div className={styles.cardFooter}>
+        <div className={styles.meta}>
+          {repo.language && (
+            <span className={styles.language}>
+              <span 
+                className={styles.languageDot}
+                style={{ backgroundColor: getLanguageColor(repo.language) }}
+              />
+              {repo.language}
+            </span>
           )}
+          
+          <div className={styles.stat}>
+            <VscStarEmpty size={12} />
+            <span>{repo.stargazers_count}</span>
+          </div>
+          
+          <div className={styles.stat}>
+            <VscRepoForked size={12} />
+            <span>{repo.forks}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
