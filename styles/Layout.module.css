@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .main {
   display: flex;
+  flex: 1;
   background: var(--main-bg);
   overflow-x: hidden;
+  min-height: 0;
 }
 
 .content {
@@ -11,12 +19,9 @@
   color: var(--text-color);
   font-family: 'JetBrains Mono', monospace;
   flex: 1;
-  height: 85vh;
   overflow-y: auto;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  display: flex;
-  align-items: center;
 }
 
 .content {

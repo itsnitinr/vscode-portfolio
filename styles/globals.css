@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap');
 
+html,
+body {
+  height: 100%;
+}
+
 *,
 *::before,
 *::after {

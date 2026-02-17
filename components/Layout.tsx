@@ -33,12 +33,12 @@ const Layout = ({ children }: LayoutProps) => {
   }, [pathname]);
 
   return (
-    <>
+    <div className={styles.layout}>
       <Titlebar />
       <div className={styles.main}>
         <Sidebar />
         <Explorer />
-        <div style={{ width: '100%' }}>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
           <Tabsbar />
           <main id="main-editor" className={styles.content}>
             {children}
@@ -46,7 +46,7 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       </div>
       <Bottombar />
-    </>
+    </div>
   );
 };
 
