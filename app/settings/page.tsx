@@ -3,48 +3,10 @@
 import { useState, useEffect } from 'react';
 import { VscColorMode } from 'react-icons/vsc';
 
+import { THEMES } from '@/lib/themes';
 import ThemeInfo from '@/components/ThemeInfo';
 
 import styles from '@/styles/SettingsPage.module.css';
-
-const themes = [
-  {
-    name: 'GitHub Dark',
-    icon: '/themes/github-dark.png',
-    publisher: 'GitHub',
-    theme: 'github-dark',
-  },
-  {
-    name: 'Dracula',
-    icon: '/themes/dracula.png',
-    publisher: 'Dracula Theme',
-    theme: 'dracula',
-  },
-  {
-    name: 'Ayu Dark',
-    icon: '/themes/ayu.png',
-    publisher: 'teabyii',
-    theme: 'ayu-dark',
-  },
-  {
-    name: 'Ayu Mirage',
-    icon: '/themes/ayu.png',
-    publisher: 'teabyii',
-    theme: 'ayu-mirage',
-  },
-  {
-    name: 'Nord',
-    icon: '/themes/nord.png',
-    publisher: 'arcticicestudio',
-    theme: 'nord',
-  },
-  {
-    name: 'Night Owl',
-    icon: '/themes/night-owl.png',
-    publisher: 'sarah.drasner',
-    theme: 'night-owl',
-  },
-];
 
 const SettingsPage = () => {
   const [activeTheme, setActiveTheme] = useState('github-dark');
@@ -86,7 +48,7 @@ const SettingsPage = () => {
           <h2 className={styles.sectionTitle}>Color Theme</h2>
           
           <div className={styles.themesGrid}>
-            {themes.map((theme) => (
+            {THEMES.map((theme) => (
               <ThemeInfo
                 key={theme.theme}
                 icon={theme.icon}

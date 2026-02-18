@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { VscTerminal, VscClose } from 'react-icons/vsc';
 
+import { THEME_KEYS } from '@/lib/themes';
 import styles from '@/styles/Terminal.module.css';
 
 interface TerminalLine {
@@ -59,12 +60,7 @@ const commands: Record<string, () => string[]> = {
   ],
   themes: () => [
     'Available themes:',
-    '  github-dark  (default)',
-    '  dracula',
-    '  ayu-dark',
-    '  ayu-mirage',
-    '  nord',
-    '  night-owl',
+    ...THEME_KEYS.map((theme, i) => `  ${theme}${i === 0 ? '  (default)' : ''}`),
     '',
     'Use "theme <name>" to change theme.',
   ],
@@ -91,8 +87,7 @@ const processCommand = (input: string): TerminalLine[] => {
   }
 
   if (cmd === 'theme' && args[0]) {
-    const validThemes = ['github-dark', 'dracula', 'ayu-dark', 'ayu-mirage', 'nord', 'night-owl'];
-    if (validThemes.includes(args[0])) {
+    if ((THEME_KEYS as string[]).includes(args[0])) {
       document.documentElement.setAttribute('data-theme', args[0]);
       localStorage.setItem('theme', args[0]);
       lines.push({ type: 'output', content: `Theme changed to ${args[0]}` });
