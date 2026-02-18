@@ -97,6 +97,11 @@ const processCommand = (input: string): TerminalLine[] => {
     return lines;
   }
 
+  if (cmd === 'theme') {
+    lines.push({ type: 'error', content: 'Usage: theme <name>. Type "themes" for available options.' });
+    return lines;
+  }
+
   if (cmd === 'echo') {
     lines.push({ type: 'output', content: args.join(' ') });
     return lines;
