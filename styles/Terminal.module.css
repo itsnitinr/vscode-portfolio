@@ -1,0 +1,130 @@
+.terminal {
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  min-height: 150px;
+  background: var(--terminal-bg, var(--main-bg));
+  border-top: 1px solid var(--terminal-border, var(--bottombar-border));
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+  height: 32px;
+  background: var(--terminal-header-bg, var(--tabs-bg));
+  border-bottom: 1px solid var(--terminal-border, var(--bottombar-border));
+  color: var(--text-color);
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.terminalIcon {
+  color: var(--accent-color);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.headerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0;
+}
+
+.headerBtn:hover {
+  background: var(--bottombar-hover-bg);
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.body::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-bg);
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+}
+
+.line {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.line.input {
+  color: var(--accent-color);
+}
+
+.line.error {
+  color: #f85149;
+}
+
+.inputLine {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prompt {
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: inherit;
+  caret-color: var(--accent-color);
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (max-width: 600px) {
+  .terminal {
+    height: 30vh;
+  }
+
+  .header {
+    font-size: 0.75rem;
+  }
+
+  .body {
+    font-size: 0.7rem;
+  }
+}
