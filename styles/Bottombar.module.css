@@ -38,6 +38,14 @@
   background: var(--bottombar-hover-bg);
 }
 
+.section.active {
+  background: var(--bottombar-hover-bg);
+}
+
+.section.active .icon {
+  color: var(--accent-color);
+}
+
 @media screen and (max-width: 600px) {
   .bottomBar {
     font-size: 0.6rem;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 
 import Titlebar from '@/components/Titlebar';
@@ -8,6 +8,7 @@ import Sidebar from '@/components/Sidebar';
 import Explorer from '@/components/Explorer';
 import Bottombar from '@/components/Bottombar';
 import Tabsbar from '@/components/Tabsbar';
+import Terminal from '@/components/Terminal';
 
 import styles from '@/styles/Layout.module.css';
 
@@ -17,6 +18,11 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const pathname = usePathname();
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+
+  const toggleTerminal = useCallback(() => {
+    setIsTerminalOpen(prev => !prev);
+  }, []);
 
   useEffect(() => {
     const main = document.getElementById('main-editor');
@@ -25,20 +31,35 @@ const Layout = ({ children }: LayoutProps) => {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === '`') {
+        e.preventDefault();
+        toggleTerminal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [toggleTerminal]);
+
   return (
     <div className={styles.layout}>
       <Titlebar />
       <div className={styles.main}>
         <Sidebar />
         <Explorer />
-        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
+        <div className={styles.editorContainer}>
           <Tabsbar />
-          <main id="main-editor" className={styles.content}>
-            {children}
-          </main>
+          <div className={styles.editorWithTerminal}>
+            <main id="main-editor" className={styles.content}>
+              {children}
+            </main>
+            {isTerminalOpen && <Terminal onToggle={toggleTerminal} />}
+          </div>
         </div>
       </div>
-      <Bottombar />
+      <Bottombar onTerminalToggle={toggleTerminal} isTerminalOpen={isTerminalOpen} />
     </div>
   );
 };

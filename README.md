@@ -13,7 +13,7 @@ A Visual Studio Code themed developer portfolio website built with Next.js and d
   - [x] Dracula
   - [x] Ayu
   - [x] Nord
-- [ ] Interactive custom terminal
+- [x] Interactive custom terminal
 
 For other features and themes suggestions, please open an issue.
 

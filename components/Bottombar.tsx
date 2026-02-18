@@ -4,12 +4,18 @@ import {
   VscError,
   VscWarning,
   VscSourceControl,
+  VscTerminal,
 } from 'react-icons/vsc';
 import { SiNextdotjs } from 'react-icons/si';
 
 import styles from '@/styles/Bottombar.module.css';
 
-const Bottombar = () => {
+interface BottombarProps {
+  onTerminalToggle: () => void;
+  isTerminalOpen: boolean;
+}
+
+const Bottombar = ({ onTerminalToggle, isTerminalOpen }: BottombarProps) => {
   return (
     <footer className={styles.bottomBar}>
       <div className={styles.container}>
@@ -30,6 +36,13 @@ const Bottombar = () => {
         </div>
       </div>
       <div className={styles.container}>
+        <div
+          className={`${styles.section} ${isTerminalOpen ? styles.active : ''}`}
+          onClick={onTerminalToggle}
+          title="Toggle Terminal (Ctrl+`)"
+        >
+          <VscTerminal className={styles.icon} />
+        </div>
         <div className={styles.section}>
           <SiNextdotjs className={styles.icon} />
           <p>Powered by Next.js</p>
