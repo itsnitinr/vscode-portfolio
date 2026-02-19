@@ -1,0 +1,207 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
+  z-index: 1000;
+  animation: fadeIn 0.1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  width: 600px;
+  max-width: 90vw;
+  background: var(--command-palette-bg, var(--sidebar-bg));
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px var(--command-palette-border, var(--border-color)),
+              0 4px 16px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: slideDown 0.15s ease-out;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--command-palette-border, var(--border-color));
+  gap: 12px;
+}
+
+.inputIcon {
+  color: var(--text-color-muted, #6e7681);
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.input::placeholder {
+  color: var(--text-color-muted, #6e7681);
+}
+
+.clearButton {
+  background: none;
+  border: none;
+  color: var(--text-color-muted, #6e7681);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 4px;
+  line-height: 1;
+  border-radius: 3px;
+}
+
+.clearButton:hover {
+  background: var(--hover-bg, rgba(255, 255, 255, 0.1));
+  color: var(--text-color);
+}
+
+.results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.category {
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-color-muted, #6e7681);
+  background: var(--command-palette-bg, var(--sidebar-bg));
+  letter-spacing: 0.5px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.item:hover,
+.item.selected {
+  background: var(--command-palette-active, var(--hover-bg, rgba(255, 255, 255, 0.1)));
+}
+
+.itemIcon {
+  color: var(--text-color-muted, #6e7681);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.itemContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itemLabel {
+  font-size: 13px;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemDescription {
+  font-size: 11px;
+  color: var(--text-color-muted, #6e7681);
+}
+
+.shortcut {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  color: var(--text-color-muted, #6e7681);
+}
+
+.key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  background: var(--key-bg, rgba(255, 255, 255, 0.1));
+  border: 1px solid var(--key-border, rgba(255, 255, 255, 0.2));
+  border-radius: 3px;
+  font-size: 11px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text-color-muted, #6e7681);
+  min-width: 20px;
+}
+
+.noResults {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--text-color-muted, #6e7681);
+  font-size: 13px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+  background: var(--command-palette-bg, var(--sidebar-bg));
+  border-top: 1px solid var(--command-palette-border, var(--border-color));
+  font-size: 11px;
+  color: var(--text-color-muted, #6e7681);
+}
+
+.footerItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+    max-width: calc(100vw - 32px);
+    margin: 0 16px;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
