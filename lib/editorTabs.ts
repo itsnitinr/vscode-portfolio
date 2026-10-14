@@ -20,6 +20,7 @@ interface TabsState {
 }
 
 const STORAGE_KEY = 'openTabs';
+const STORAGE_VERSION = 1;
 const DEFAULT_TABS: OpenTab[] = fileRoutes.map(route => ({
   path: route.path,
   preview: false,
@@ -51,19 +52,37 @@ export const getRoute = (path: string): Route | undefined => {
 let state: TabsState | null = null;
 const listeners = new Set<() => void>();
 
+const save = (tabs: OpenTab[]) => {
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ version: STORAGE_VERSION, tabs })
+    );
+  } catch {
+    // Keep the in-memory editor usable when browser storage is unavailable.
+  }
+};
+
 const load = (): TabsState => {
   try {
     const saved: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
-    if (Array.isArray(saved)) {
-      const savedTabs = saved.filter(
+    const migrated =
+      typeof saved === 'object' && saved !== null &&
+      'version' in saved && saved.version === STORAGE_VERSION &&
+      'tabs' in saved && Array.isArray(saved.tabs);
+    const storedTabs = migrated ? saved.tabs : saved;
+
+    if (Array.isArray(storedTabs)) {
+      const savedTabs = storedTabs.filter(
         (tab): tab is OpenTab =>
           typeof tab?.path === 'string' &&
           typeof tab?.preview === 'boolean' &&
           getRoute(tab.path) !== undefined
       );
-      // Start every session with the portfolio pages available, including for
-      // visitors whose older saved state contains only the pages they visited.
-      // Keep saved ordering and extension tabs; page tabs are always kept tabs.
+      // Only migrate old array-based storage once. Subsequent loads preserve
+      // deliberate closures, including an entirely empty editor.
+      if (migrated) return { tabs: savedTabs, hydrated: true };
+
       const tabs = savedTabs.map(tab =>
         fileRoutes.some(route => route.path === tab.path)
           ? { ...tab, preview: false }
@@ -71,11 +90,13 @@ const load = (): TabsState => {
       );
       const savedPaths = new Set(tabs.map(tab => tab.path));
       tabs.push(...DEFAULT_TABS.filter(tab => !savedPaths.has(tab.path)));
+      save(tabs);
       return { tabs, hydrated: true };
     }
   } catch {
     // Ignore malformed saved state and start fresh
   }
+  save(DEFAULT_TABS);
   return { tabs: DEFAULT_TABS, hydrated: true };
 };
 
@@ -93,7 +114,7 @@ const subscribe = (listener: () => void) => {
 
 const setTabs = (tabs: OpenTab[]) => {
   state = { tabs, hydrated: true };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(tabs));
+  save(tabs);
   listeners.forEach(listener => listener());
 };
 
@@ -131,6 +152,12 @@ export const openTab = (path: string, { pin = false, after }: OpenTabOptions = {
   const afterIndex = after ? tabs.findIndex(tab => tab.path === after) : -1;
   const insertAt = afterIndex === -1 ? tabs.length : afterIndex + 1;
   setTabs([...tabs.slice(0, insertAt), newTab, ...tabs.slice(insertAt)]);
+};
+
+// The initial URL gets a tab unless the visitor intentionally saved an empty
+// editor. Later explicit navigation still opens tabs normally.
+export const restoreActiveTab = (path: string) => {
+  if (getSnapshot().tabs.length > 0) openTab(path, { pin: true });
 };
 
 export const pinTab = (path: string) => openTab(path, { pin: true });
