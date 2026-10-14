@@ -19,9 +19,11 @@ const Tabsbar = () => {
   const { tabs, hydrated } = useEditorTabs();
   const { close } = useEditorActions();
 
-  // Saved tabs are only readable on the client, so the server renders just
-  // the current page's tab
-  const visibleTabs = hydrated ? tabs : [{ path: pathname, preview: false }];
+  // Render all portfolio page tabs before hydration too, so they don't flash
+  // in after load. A direct extension/settings link also gets its current tab.
+  const visibleTabs = hydrated || tabs.some(tab => tab.path === pathname)
+    ? tabs
+    : [...tabs, { path: pathname, preview: false }];
 
   return (
     <div className={styles.tabs} role="tablist" aria-label="Open editors">

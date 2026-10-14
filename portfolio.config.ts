@@ -4,7 +4,7 @@ import {
   VscCode,
   VscEdit,
   VscGithubAlt,
-  VscHome,
+  VscFiles,
   VscMail,
   VscSettings,
   VscVscode,
@@ -360,7 +360,8 @@ export const routes: Route[] = [
   {
     path: '/',
     label: 'Home',
-    icon: VscHome,
+    icon: VscFiles,
+    activityBar: 'top',
     shortcut: 'h',
     file: { name: 'home.tsx', icon: '/logos/react_icon.svg' },
   },

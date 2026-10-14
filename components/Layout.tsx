@@ -190,14 +190,21 @@ const Layout = ({ children }: LayoutProps) => {
   }, [toggleTerminal, openCommandPalette, chordKey, editor, paletteMode, resetChord, showPanel, toggleSidebar]);
 
   const showEmptyEditor = hydrated && tabs.length === 0;
+  const activePath =
+    !hydrated || tabs.some(tab => tab.path === pathname) ? pathname : null;
 
   return (
     <div className={styles.layout}>
       <Titlebar onOpenCommandPalette={() => openCommandPalette('commands')} />
       <div className={styles.main}>
-        <Sidebar activePanel={activePanel} onPanelSelect={selectPanel} />
-        {activePanel === 'explorer' && <Explorer />}
-        {activePanel === 'extensions' && <ExtensionsPanel />}
+        <Sidebar
+          activePath={activePath}
+          activePanel={activePanel}
+          onPanelSelect={selectPanel}
+        />
+        {/* Keep panel state (tree, search and categories) when hiding or switching. */}
+        <Explorer hidden={activePanel !== 'explorer'} />
+        <ExtensionsPanel hidden={activePanel !== 'extensions'} />
         <div className={styles.editorContainer}>
           <Tabsbar />
           {!showEmptyEditor && <Breadcrumbs />}

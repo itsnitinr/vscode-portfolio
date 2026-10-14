@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useSyncExternalStore } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { routes, Route, getExtension } from '@/portfolio.config';
+import { routes, fileRoutes, Route, getExtension } from '@/portfolio.config';
 
 // Open editor tabs live in a small external store so the tabs bar, explorer,
 // command palette and keyboard shortcuts all share one source of truth. The
@@ -20,7 +20,11 @@ interface TabsState {
 }
 
 const STORAGE_KEY = 'openTabs';
-const SERVER_STATE: TabsState = { tabs: [], hydrated: false };
+const DEFAULT_TABS: OpenTab[] = fileRoutes.map(route => ({
+  path: route.path,
+  preview: false,
+}));
+const SERVER_STATE: TabsState = { tabs: DEFAULT_TABS, hydrated: false };
 
 const routesByPath = new Map(routes.map(route => [route.path, route]));
 
@@ -51,18 +55,28 @@ const load = (): TabsState => {
   try {
     const saved: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
     if (Array.isArray(saved)) {
-      const tabs = saved.filter(
+      const savedTabs = saved.filter(
         (tab): tab is OpenTab =>
           typeof tab?.path === 'string' &&
           typeof tab?.preview === 'boolean' &&
           getRoute(tab.path) !== undefined
       );
+      // Start every session with the portfolio pages available, including for
+      // visitors whose older saved state contains only the pages they visited.
+      // Keep saved ordering and extension tabs; page tabs are always kept tabs.
+      const tabs = savedTabs.map(tab =>
+        fileRoutes.some(route => route.path === tab.path)
+          ? { ...tab, preview: false }
+          : tab
+      );
+      const savedPaths = new Set(tabs.map(tab => tab.path));
+      tabs.push(...DEFAULT_TABS.filter(tab => !savedPaths.has(tab.path)));
       return { tabs, hydrated: true };
     }
   } catch {
     // Ignore malformed saved state and start fresh
   }
-  return { tabs: [], hydrated: true };
+  return { tabs: DEFAULT_TABS, hydrated: true };
 };
 
 const getSnapshot = () => {
