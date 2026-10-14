@@ -1,9 +1,19 @@
 import { VscGithub, VscMail, VscLinkExternal } from 'react-icons/vsc';
 import Link from 'next/link';
 
+import {
+  profile,
+  experience,
+  skills,
+  writing,
+  getSocial,
+} from '@/portfolio.config';
+
 import styles from '@/styles/AboutPage.module.css';
 
 const AboutPage = () => {
+  const github = getSocial('github');
+
   return (
     <div className={styles.page}>
       <div className={styles.container}>
@@ -11,24 +21,27 @@ const AboutPage = () => {
         <header className={styles.header}>
           <div className={styles.headerContent}>
             <div className={styles.headerText}>
-              <h1 className={styles.name}>Nitin Ranganath</h1>
-              <p className={styles.role}>Software Engineer at Tessact</p>
+              <h1 className={styles.name}>{profile.name}</h1>
+              <p className={styles.role}>{profile.currentPosition}</p>
               <div className={styles.location}>
                 <span className={styles.dot} />
-                Mumbai, India
+                {profile.location}
               </div>
             </div>
           </div>
           
           <div className={styles.headerActions}>
-            <a 
-              href="https://github.com/itsnitinr" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.iconButton}
-            >
-              <VscGithub size={20} />
-            </a>
+            {github && (
+              <a
+                href={github.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.iconButton}
+                aria-label="GitHub"
+              >
+                <VscGithub size={20} />
+              </a>
+            )}
             <Link href="/contact" className={styles.iconButton}>
               <VscMail size={20} />
             </Link>
@@ -44,17 +57,11 @@ const AboutPage = () => {
             </div>
             
             <div className={styles.sectionBody}>
-              <p className={styles.paragraph}>
-                I&apos;m a software engineer passionate about crafting beautiful, performant 
-                web experiences. I primarily work with the JavaScript/TypeScript ecosystem 
-                and React, building products that people love to use.
-              </p>
-              
-              <p className={styles.paragraph}>
-                While I specialize in frontend development, I enjoy working across the 
-                stack with Node.js, MongoDB, and Express to bring full-stack applications 
-                to life.
-              </p>
+              {profile.bio.map((paragraph) => (
+                <p key={paragraph} className={styles.paragraph}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </section>
 
@@ -66,30 +73,27 @@ const AboutPage = () => {
             </div>
             
             <div className={styles.sectionBody}>
-              <div className={styles.experienceCard}>
-                <div className={styles.expMeta}>
-                  <span className={styles.expPeriod}>Present</span>
+              {experience.map((exp) => (
+                <div key={`${exp.role}-${exp.period}`} className={styles.experienceCard}>
+                  <div className={styles.expMeta}>
+                    <span className={styles.expPeriod}>{exp.period}</span>
+                  </div>
+                  <h3 className={styles.expRole}>{exp.role}</h3>
+                  {exp.company && (
+                    <p className={styles.expCompany}>{exp.company}</p>
+                  )}
+                  {exp.highlights && (
+                    <ul className={styles.expList}>
+                      {exp.highlights.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {exp.description && (
+                    <p className={styles.expDesc}>{exp.description}</p>
+                  )}
                 </div>
-                <h3 className={styles.expRole}>Software Engineer 2</h3>
-                <p className={styles.expCompany}>Tessact</p>
-                <ul className={styles.expList}>
-                  <li>Leading frontend development with a lean team of 4 engineers</li>
-                  <li>Building a next-gen video creation suite for professionals</li>
-                  <li>Implemented collaborative video reviewing and editing features</li>
-                  <li>Maintaining in-house component library, icon library and website</li>
-                </ul>
-              </div>
-
-              <div className={styles.experienceCard}>
-                <div className={styles.expMeta}>
-                  <span className={styles.expPeriod}>Freelance</span>
-                </div>
-                <h3 className={styles.expRole}>Technical Writer</h3>
-                <p className={styles.expDesc}>
-                  Contributing to publications like <strong>100ms Blog</strong>, 
-                  <strong>LogRocket Blog</strong>, and <strong>DEV.to</strong>.
-                </p>
-              </div>
+              ))}
             </div>
           </section>
 
@@ -102,41 +106,18 @@ const AboutPage = () => {
             
             <div className={styles.sectionBody}>
               <div className={styles.skillsGrid}>
-                <div className={styles.skillCategory}>
-                  <h4 className={styles.skillTitle}>Languages</h4>
-                  <div className={styles.skillTags}>
-                    <span className={styles.skillTag}>JavaScript</span>
-                    <span className={styles.skillTag}>TypeScript</span>
-                    <span className={styles.skillTag}>HTML/CSS</span>
+                {Object.entries(skills).map(([category, items]) => (
+                  <div key={category} className={styles.skillCategory}>
+                    <h4 className={styles.skillTitle}>{category}</h4>
+                    <div className={styles.skillTags}>
+                      {items.map((skill) => (
+                        <span key={skill} className={styles.skillTag}>
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-                
-                <div className={styles.skillCategory}>
-                  <h4 className={styles.skillTitle}>Frontend</h4>
-                  <div className={styles.skillTags}>
-                    <span className={styles.skillTag}>React</span>
-                    <span className={styles.skillTag}>Next.js</span>
-                    <span className={styles.skillTag}>Tailwind CSS</span>
-                  </div>
-                </div>
-                
-                <div className={styles.skillCategory}>
-                  <h4 className={styles.skillTitle}>Backend</h4>
-                  <div className={styles.skillTags}>
-                    <span className={styles.skillTag}>Node.js</span>
-                    <span className={styles.skillTag}>Express</span>
-                    <span className={styles.skillTag}>MongoDB</span>
-                  </div>
-                </div>
-                
-                <div className={styles.skillCategory}>
-                  <h4 className={styles.skillTitle}>Tools</h4>
-                  <div className={styles.skillTags}>
-                    <span className={styles.skillTag}>Git</span>
-                    <span className={styles.skillTag}>VS Code</span>
-                    <span className={styles.skillTag}>Figma</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </section>
@@ -155,35 +136,18 @@ const AboutPage = () => {
               </p>
               
               <div className={styles.writingLinks}>
-                <a 
-                  href="https://www.100ms.live/blog/author/nitin" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>100ms Blog</span>
-                  <VscLinkExternal size={14} />
-                </a>
-                
-                <a 
-                  href="https://blog.logrocket.com/author/nitinranganath/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>LogRocket Blog</span>
-                  <VscLinkExternal size={14} />
-                </a>
-                
-                <a 
-                  href="https://dev.to/itsnitinr" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>DEV.to</span>
-                  <VscLinkExternal size={14} />
-                </a>
+                {writing.map((publication) => (
+                  <a
+                    key={publication.href}
+                    href={publication.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.writingLink}
+                  >
+                    <span>{publication.name}</span>
+                    <VscLinkExternal size={14} />
+                  </a>
+                ))}
               </div>
             </div>
           </section>
@@ -196,10 +160,7 @@ const AboutPage = () => {
             </div>
             
             <div className={styles.sectionBody}>
-              <p className={styles.paragraph}>
-                Aside from programming and writing, I enjoy reading dystopian novels, 
-                listening to calm piano music, or just enjoying some downtime.
-              </p>
+              <p className={styles.paragraph}>{profile.beyondCode}</p>
             </div>
           </section>
         </div>

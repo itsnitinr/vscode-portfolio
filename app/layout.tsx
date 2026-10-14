@@ -1,34 +1,23 @@
 import type { Metadata } from 'next';
 
 import Layout from '@/components/Layout';
+import { profile } from '@/portfolio.config';
 
 import '@/styles/globals.css';
 import '@/styles/themes.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Nitin Ranganath | Portfolio',
-    template: 'Nitin Ranganath | %s',
+    default: `${profile.name} | Portfolio`,
+    template: `${profile.name} | %s`,
   },
-  description:
-    "Nitin Ranganath is an avid full stack web developer building websites and applications you'd love to use",
-  keywords: [
-    'nitin ranganath',
-    'nitin',
-    'ranganath',
-    'web developer portfolio',
-    'nitin web developer',
-    'nitin developer',
-    'mern stack',
-    'nitin ranganath portfolio',
-    'vscode-portfolio',
-  ],
+  description: profile.metaDescription,
+  keywords: profile.keywords,
   openGraph: {
-    title: "Nitin Ranganath's Portfolio",
-    description:
-      "A full-stack developer building websites that you'd like to use.",
-    images: ['https://imgur.com/4zi5KkQ.png'],
-    url: 'https://vscode-portfolio.vercel.app',
+    title: `${profile.name}'s Portfolio`,
+    description: profile.ogDescription,
+    images: [profile.ogImage],
+    url: profile.siteUrl,
   },
   twitter: {
     card: 'summary_large_image',

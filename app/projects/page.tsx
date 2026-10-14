@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { VscFolderOpened, VscGithub, VscLinkExternal } from 'react-icons/vsc';
 
 import ProjectCard from '@/components/ProjectCard';
-import { projects } from '@/data/projects';
+import { projects, getSocial } from '@/portfolio.config';
 
 import styles from '@/styles/ProjectsPage.module.css';
 
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const ProjectsPage = () => {
   const totalProjects = projects.length;
+  const github = getSocial('github');
 
   return (
     <div className={styles.page}>
@@ -45,19 +46,21 @@ const ProjectsPage = () => {
           ))}
         </div>
 
-        <footer className={styles.footer}>
-          <div className={styles.footerLine} />
-          <a 
-            href="https://github.com/itsnitinr?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.footerLink}
-          >
-            <VscGithub size={18} />
-            <span>Explore more on GitHub</span>
-            <VscLinkExternal size={14} />
-          </a>
-        </footer>
+        {github && (
+          <footer className={styles.footer}>
+            <div className={styles.footerLine} />
+            <a
+              href={`${github.href}?tab=repositories`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footerLink}
+            >
+              <VscGithub size={18} />
+              <span>Explore more on GitHub</span>
+              <VscLinkExternal size={14} />
+            </a>
+          </footer>
+        )}
       </div>
     </div>
   );
