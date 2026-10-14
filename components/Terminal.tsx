@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { VscTerminal, VscClose } from 'react-icons/vsc';
 
 import { THEME_KEYS } from '@/lib/themes';
-import { profile, skills, projects, socials } from '@/portfolio.config';
+import { profile, skills, projects, socials, fileRoutes } from '@/portfolio.config';
 import styles from '@/styles/Terminal.module.css';
 
 interface TerminalLine {
@@ -65,7 +65,7 @@ const commands: Record<string, () => string[]> = {
   ],
   date: () => [new Date().toString()],
   whoami: () => ['visitor@portfolio ~ exploring awesome projects'],
-  ls: () => ['about/', 'projects/', 'skills/', 'contact/', 'README.md'],
+  ls: () => [fileRoutes.map(route => route.file.name).join('  ')],
   pwd: () => ['/home/visitor/portfolio'],
 };
 

@@ -10,6 +10,7 @@ import Bottombar from '@/components/Bottombar';
 import Tabsbar from '@/components/Tabsbar';
 import Terminal from '@/components/Terminal';
 import CommandPalette from '@/components/CommandPalette';
+import { routes } from '@/portfolio.config';
 
 import styles from '@/styles/Layout.module.css';
 
@@ -61,15 +62,9 @@ const Layout = ({ children }: LayoutProps) => {
   }, [pathname]);
 
   useEffect(() => {
-    const navigationRoutes: Record<string, string> = {
-      'h': '/',
-      'a': '/about',
-      'p': '/projects',
-      'r': '/articles',
-      'c': '/contact',
-      'g': '/github',
-      's': '/settings',
-    };
+    const navigationRoutes = Object.fromEntries(
+      routes.map(route => [route.shortcut, route.path])
+    );
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isCommandPaletteOpen) return;

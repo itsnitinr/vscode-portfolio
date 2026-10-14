@@ -1,3 +1,14 @@
+import type { IconType } from 'react-icons';
+import {
+  VscAccount,
+  VscCode,
+  VscEdit,
+  VscFiles,
+  VscGithubAlt,
+  VscMail,
+  VscSettings,
+} from 'react-icons/vsc';
+
 import { Project } from '@/types';
 
 // Everything personal about the portfolio lives here. Edit this file to make
@@ -165,3 +176,81 @@ export const projects: Project[] = [
     slug: 'coolify-vscode-extension',
   },
 ];
+
+export interface Route {
+  path: string;
+  label: string;
+  // Activity bar and command palette icon
+  icon: IconType;
+  activityBar: 'top' | 'bottom';
+  // Second key of the "G <key>" navigation chord
+  shortcut: string;
+  // Routes with a file appear in the explorer and tabs bar
+  file?: {
+    name: string;
+    icon: string;
+  };
+}
+
+export const routes: Route[] = [
+  {
+    path: '/',
+    label: 'Home',
+    icon: VscFiles,
+    activityBar: 'top',
+    shortcut: 'h',
+    file: { name: 'home.tsx', icon: '/logos/react_icon.svg' },
+  },
+  {
+    path: '/about',
+    label: 'About',
+    icon: VscAccount,
+    activityBar: 'bottom',
+    shortcut: 'a',
+    file: { name: 'about.html', icon: '/logos/html_icon.svg' },
+  },
+  {
+    path: '/contact',
+    label: 'Contact',
+    icon: VscMail,
+    activityBar: 'top',
+    shortcut: 'c',
+    file: { name: 'contact.css', icon: '/logos/css_icon.svg' },
+  },
+  {
+    path: '/projects',
+    label: 'Projects',
+    icon: VscCode,
+    activityBar: 'top',
+    shortcut: 'p',
+    file: { name: 'projects.js', icon: '/logos/js_icon.svg' },
+  },
+  {
+    path: '/articles',
+    label: 'Articles',
+    icon: VscEdit,
+    activityBar: 'top',
+    shortcut: 'r',
+    file: { name: 'articles.json', icon: '/logos/json_icon.svg' },
+  },
+  {
+    path: '/github',
+    label: 'GitHub',
+    icon: VscGithubAlt,
+    activityBar: 'top',
+    shortcut: 'g',
+    file: { name: 'github.md', icon: '/logos/markdown_icon.svg' },
+  },
+  {
+    path: '/settings',
+    label: 'Settings',
+    icon: VscSettings,
+    activityBar: 'bottom',
+    shortcut: 's',
+  },
+];
+
+export const fileRoutes = routes.filter(
+  (route): route is Route & { file: NonNullable<Route['file']> } =>
+    route.file !== undefined
+);
