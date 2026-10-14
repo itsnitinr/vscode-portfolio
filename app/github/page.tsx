@@ -14,31 +14,75 @@ export const metadata: Metadata = {
   title: 'GitHub',
 };
 
+function githubHeaders(): HeadersInit {
+  return process.env.GITHUB_API_KEY
+    ? { Authorization: `Bearer ${process.env.GITHUB_API_KEY}` }
+    : {};
+}
+
 async function getGithubData() {
   'use cache';
-  cacheLife({ stale: 300, revalidate: 600, expire: 86400 });
 
-  const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
-  );
-  if (!userRes.ok) {
-    throw new Error(`Failed to fetch user: ${userRes.status}`);
+  try {
+    const userRes = await fetch(
+      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
+      { headers: githubHeaders() }
+    );
+    if (!userRes.ok) {
+      throw new Error(`Failed to fetch user: ${userRes.status}`);
+    }
+    const user: User = await userRes.json();
+
+    const repoRes = await fetch(
+      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`,
+      { headers: githubHeaders() }
+    );
+    if (!repoRes.ok) {
+      throw new Error(`Failed to fetch repos: ${repoRes.status}`);
+    }
+    const repos: Repo[] = await repoRes.json();
+
+    cacheLife({ stale: 300, revalidate: 600, expire: 86400 });
+    return { user, repos };
+  } catch (error) {
+    console.error('Failed to fetch GitHub data:', error);
+    // Cache the failure briefly so the page retries soon without hammering the API
+    cacheLife('minutes');
+    return null;
   }
-  const user: User = await userRes.json();
-
-  const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`
-  );
-  if (!repoRes.ok) {
-    throw new Error(`Failed to fetch repos: ${repoRes.status}`);
-  }
-  const repos: Repo[] = await repoRes.json();
-
-  return { user, repos };
 }
 
 export default async function GithubPage() {
-  const { user, repos } = await getGithubData();
+  const data = await getGithubData();
+
+  if (!data) {
+    return (
+      <div className={styles.page}>
+        <div className={styles.container}>
+          <div className={styles.error}>
+            <VscGithub size={32} className={styles.errorIcon} />
+            <p className={styles.errorTitle}>Couldn&apos;t load GitHub data</p>
+            <p className={styles.errorText}>
+              The GitHub API didn&apos;t respond as expected. Please try again
+              in a few minutes.
+            </p>
+            <a
+              href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME ?? ''}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.profileLink}
+            >
+              <VscGithub size={18} />
+              <span>View on GitHub</span>
+              <VscLinkExternal size={14} />
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const { user, repos } = data;
 
   return (
     <div className={styles.page}>
