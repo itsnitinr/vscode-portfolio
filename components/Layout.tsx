@@ -4,8 +4,9 @@ import { useEffect, useState, useCallback, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 import Titlebar from '@/components/Titlebar';
-import Sidebar from '@/components/Sidebar';
+import Sidebar, { SidePanel } from '@/components/Sidebar';
 import Explorer from '@/components/Explorer';
+import ExtensionsPanel from '@/components/ExtensionsPanel';
 import Bottombar from '@/components/Bottombar';
 import Tabsbar from '@/components/Tabsbar';
 import Terminal from '@/components/Terminal';
@@ -29,11 +30,28 @@ const Layout = ({ children }: LayoutProps) => {
   const scrollPositionsRef = useRef(new Map<string, number>());
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [activePanel, setActivePanel] = useState<SidePanel | null>('explorer');
+  const lastPanelRef = useRef<SidePanel>('explorer');
   const [chordKey, setChordKey] = useState<string | null>(null);
   const chordTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const toggleTerminal = useCallback(() => {
     setIsTerminalOpen(prev => !prev);
+  }, []);
+
+  // Selecting the visible panel again collapses the side bar, like VS Code
+  const selectPanel = useCallback((panel: SidePanel) => {
+    lastPanelRef.current = panel;
+    setActivePanel(current => (current === panel ? null : panel));
+  }, []);
+
+  const showPanel = useCallback((panel: SidePanel) => {
+    lastPanelRef.current = panel;
+    setActivePanel(panel);
+  }, []);
+
+  const toggleSidebar = useCallback(() => {
+    setActivePanel(current => (current ? null : lastPanelRef.current));
   }, []);
 
   const openCommandPalette = useCallback(() => {
@@ -80,7 +98,9 @@ const Layout = ({ children }: LayoutProps) => {
 
   useEffect(() => {
     const navigationRoutes = Object.fromEntries(
-      routes.map(route => [route.shortcut, route.path])
+      routes
+        .filter(route => route.shortcut)
+        .map(route => [route.shortcut, route.path])
     );
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -95,6 +115,24 @@ const Layout = ({ children }: LayoutProps) => {
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'p') {
         e.preventDefault();
         openCommandPalette();
+        return;
+      }
+
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === 'KeyE') {
+        e.preventDefault();
+        showPanel('explorer');
+        return;
+      }
+
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.code === 'KeyX') {
+        e.preventDefault();
+        showPanel('extensions');
+        return;
+      }
+
+      if ((e.ctrlKey || e.metaKey) && !e.shiftKey && e.code === 'KeyB') {
+        e.preventDefault();
+        toggleSidebar();
         return;
       }
 
@@ -147,7 +185,7 @@ const Layout = ({ children }: LayoutProps) => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [toggleTerminal, openCommandPalette, chordKey, editor, isCommandPaletteOpen, resetChord]);
+  }, [toggleTerminal, openCommandPalette, chordKey, editor, isCommandPaletteOpen, resetChord, showPanel, toggleSidebar]);
 
   const showEmptyEditor = hydrated && tabs.length === 0;
 
@@ -155,8 +193,9 @@ const Layout = ({ children }: LayoutProps) => {
     <div className={styles.layout}>
       <Titlebar onOpenCommandPalette={openCommandPalette} />
       <div className={styles.main}>
-        <Sidebar />
-        <Explorer />
+        <Sidebar activePanel={activePanel} onPanelSelect={selectPanel} />
+        {activePanel === 'explorer' && <Explorer />}
+        {activePanel === 'extensions' && <ExtensionsPanel />}
         <div className={styles.editorContainer}>
           <Tabsbar />
           {!showEmptyEditor && <Breadcrumbs />}
@@ -180,6 +219,8 @@ const Layout = ({ children }: LayoutProps) => {
         onClose={closeCommandPalette}
         onToggleTerminal={toggleTerminal}
         isTerminalOpen={isTerminalOpen}
+        onShowPanel={showPanel}
+        onToggleSidebar={toggleSidebar}
       />
     </div>
   );

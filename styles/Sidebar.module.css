@@ -33,3 +33,19 @@
 [aria-current='page'] .icon {
   opacity: 1;
 }
+
+.panelButton {
+  display: block;
+  padding: 0;
+  border: none;
+  border-left: 2px solid transparent;
+  background: none;
+}
+
+.panelButton.active {
+  border-left-color: var(--accent-color);
+}
+
+.panelButton[aria-pressed='true'] .icon {
+  opacity: 1;
+}

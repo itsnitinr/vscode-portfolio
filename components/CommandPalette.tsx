@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { VscSymbolColor, VscTerminal, VscGoToFile, VscColorMode, VscClose, VscCloseAll } from 'react-icons/vsc';
+import { VscSymbolColor, VscTerminal, VscGoToFile, VscColorMode, VscClose, VscCloseAll, VscFiles, VscExtensions, VscLayoutSidebarLeft } from 'react-icons/vsc';
 import { MdNavigateNext } from 'react-icons/md';
 
 import { THEMES, THEME_CHANGE_EVENT } from '@/lib/themes';
 import { routes } from '@/portfolio.config';
 import { useEditorActions } from '@/lib/editorTabs';
+import type { SidePanel } from '@/components/Sidebar';
 import styles from '@/styles/CommandPalette.module.css';
 
 interface Command {
@@ -23,9 +24,11 @@ interface CommandPaletteProps {
   onClose: () => void;
   onToggleTerminal: () => void;
   isTerminalOpen: boolean;
+  onShowPanel: (panel: SidePanel) => void;
+  onToggleSidebar: () => void;
 }
 
-const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: CommandPaletteProps) => {
+const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen, onShowPanel, onToggleSidebar }: CommandPaletteProps) => {
   const editor = useEditorActions();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -39,10 +42,34 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
         id: `go-${label.toLowerCase()}`,
         label: `Go to ${label}`,
         category: 'Navigation',
-        shortcut: `G ${shortcut.toUpperCase()}`,
+        shortcut: shortcut && `G ${shortcut.toUpperCase()}`,
         icon: <Icon size={16} />,
         action: () => editor.open(path),
       })),
+      {
+        id: 'show-explorer',
+        label: 'Show Explorer',
+        category: 'View',
+        shortcut: 'Ctrl+Shift+E',
+        icon: <VscFiles size={16} />,
+        action: () => onShowPanel('explorer'),
+      },
+      {
+        id: 'show-extensions',
+        label: 'Show Extensions',
+        category: 'View',
+        shortcut: 'Ctrl+Shift+X',
+        icon: <VscExtensions size={16} />,
+        action: () => onShowPanel('extensions'),
+      },
+      {
+        id: 'toggle-sidebar',
+        label: 'Toggle Side Bar',
+        category: 'View',
+        shortcut: 'Ctrl+B',
+        icon: <VscLayoutSidebarLeft size={16} />,
+        action: onToggleSidebar,
+      },
       {
         id: 'close-editor',
         label: 'Close Editor',
@@ -87,7 +114,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
     ];
 
     return baseCommands;
-  }, [editor, onToggleTerminal, isTerminalOpen]);
+  }, [editor, onToggleTerminal, isTerminalOpen, onShowPanel, onToggleSidebar]);
 
   const commands = getCommands();
 
