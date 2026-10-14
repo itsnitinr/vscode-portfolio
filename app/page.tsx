@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { VscArrowRight, VscGithub, VscMail, VscCode } from 'react-icons/vsc';
 

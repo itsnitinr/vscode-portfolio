@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { VscSymbolColor, VscTerminal, VscFiles, VscGoToFile, VscGear, VscColorMode, VscHome, VscAccount, VscCode, VscBook, VscMail, VscGithubAlt } from 'react-icons/vsc';
 import { MdNavigateNext } from 'react-icons/md';
 
-import { THEMES } from '@/lib/themes';
+import { THEMES, THEME_CHANGE_EVENT } from '@/lib/themes';
 import styles from '@/styles/CommandPalette.module.css';
 
 interface Command {
@@ -104,7 +104,10 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
         category: 'Preferences',
         shortcut: 'K T',
         icon: <VscSymbolColor size={16} />,
-        action: () => setShowThemePicker(true),
+        action: () => {
+          setShowThemePicker(true);
+          setSelectedIndex(0);
+        },
       },
     ];
 
@@ -130,6 +133,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
           const theme = filteredThemes[index];
           document.documentElement.setAttribute('data-theme', theme.theme);
           localStorage.setItem('theme', theme.theme);
+          window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
           onClose();
         }
       } else {
@@ -190,10 +194,6 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
   }, [isOpen]);
 
   useEffect(() => {
-    setSelectedIndex(0);
-  }, [searchQuery, showThemePicker]);
-
-  useEffect(() => {
     if (listRef.current && selectedIndex >= 0) {
       const selectedElement = listRef.current.children[selectedIndex] as HTMLElement;
       if (selectedElement) {
@@ -213,7 +213,10 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
             ref={inputRef}
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              setSelectedIndex(0);
+            }}
             placeholder={showThemePicker ? 'Select color theme' : 'Type a command or search...'}
             className={styles.input}
             spellCheck={false}
@@ -224,6 +227,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
               className={styles.clearButton}
               onClick={() => {
                 setSearchQuery('');
+                setSelectedIndex(0);
                 inputRef.current?.focus();
               }}
             >

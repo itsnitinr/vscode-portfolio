@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { cacheLife } from 'next/cache';
 import { VscBook, VscLinkExternal, VscGlobe } from 'react-icons/vsc';
 
 import ArticleCard from '@/components/ArticleCard';
@@ -11,9 +12,10 @@ export const metadata: Metadata = {
   title: 'Articles',
 };
 
-export const revalidate = 60;
-
 async function getArticles(): Promise<Article[]> {
+  'use cache';
+  cacheLife('minutes');
+
   const res = await fetch(
     'https://dev.to/api/articles/me/published?per_page=6',
     {

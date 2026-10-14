@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
+import { cacheLife } from 'next/cache';
 import Image from 'next/image';
+import { Suspense } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import { VscRepo, VscPerson, VscStarEmpty, VscRepoForked, VscLinkExternal, VscGithub } from 'react-icons/vsc';
 
@@ -12,9 +14,10 @@ export const metadata: Metadata = {
   title: 'GitHub',
 };
 
-export const revalidate = 600;
-
 async function getGithubData() {
+  'use cache';
+  cacheLife({ stale: 300, revalidate: 600, expire: 86400 });
+
   const userRes = await fetch(
     `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
   );
@@ -120,19 +123,22 @@ export default async function GithubPage() {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Contribution Activity</h2>
           <div className={styles.contributions}>
-            <GitHubCalendar
-              username={process.env.NEXT_PUBLIC_GITHUB_USERNAME!}
-              hideColorLegend
-              hideMonthLabels
-              colorScheme="dark"
-              theme={{
-                dark: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-                light: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-              }}
-              style={{
-                width: '100%',
-              }}
-            />
+            {/* The calendar reads the current date, so it renders at request time */}
+            <Suspense fallback={<div className={styles.calendarFallback} />}>
+              <GitHubCalendar
+                username={process.env.NEXT_PUBLIC_GITHUB_USERNAME!}
+                hideColorLegend
+                hideMonthLabels
+                colorScheme="dark"
+                theme={{
+                  dark: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+                  light: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+                }}
+                style={{
+                  width: '100%',
+                }}
+              />
+            </Suspense>
           </div>
         </section>
 
