@@ -33,17 +33,28 @@ async function getGithubData() {
     }
     const user: User = await userRes.json();
 
-    const repoRes = await fetch(
-      `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`,
-      { headers: githubHeaders() }
-    );
-    if (!repoRes.ok) {
-      throw new Error(`Failed to fetch repos: ${repoRes.status}`);
+    // Fetch every public repo so the star and fork totals cover all of them
+    const allRepos: Repo[] = [];
+    for (let page = 1; ; page++) {
+      const repoRes = await fetch(
+        `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=100&page=${page}`,
+        { headers: githubHeaders() }
+      );
+      if (!repoRes.ok) {
+        throw new Error(`Failed to fetch repos: ${repoRes.status}`);
+      }
+      const pageRepos: Repo[] = await repoRes.json();
+      allRepos.push(...pageRepos);
+      if (pageRepos.length < 100) break;
     }
-    const repos: Repo[] = await repoRes.json();
 
     cacheLife({ stale: 300, revalidate: 600, expire: 86400 });
-    return { user, repos };
+    return {
+      user,
+      repos: allRepos.slice(0, 6),
+      totalStars: allRepos.reduce((acc, repo) => acc + repo.stargazers_count, 0),
+      totalForks: allRepos.reduce((acc, repo) => acc + repo.forks, 0),
+    };
   } catch (error) {
     console.error('Failed to fetch GitHub data:', error);
     // Cache the failure briefly so the page retries soon without hammering the API
@@ -82,7 +93,7 @@ export default async function GithubPage() {
     );
   }
 
-  const { user, repos } = data;
+  const { user, repos, totalStars, totalForks } = data;
 
   return (
     <div className={styles.page}>
@@ -143,9 +154,7 @@ export default async function GithubPage() {
               <VscStarEmpty size={20} />
             </div>
             <div className={styles.statInfo}>
-              <span className={styles.statValue}>
-                {repos.reduce((acc, repo) => acc + repo.stargazers_count, 0)}
-              </span>
+              <span className={styles.statValue}>{totalStars}</span>
               <span className={styles.statLabel}>Total Stars</span>
             </div>
           </div>
@@ -155,9 +164,7 @@ export default async function GithubPage() {
               <VscRepoForked size={20} />
             </div>
             <div className={styles.statInfo}>
-              <span className={styles.statValue}>
-                {repos.reduce((acc, repo) => acc + repo.forks, 0)}
-              </span>
+              <span className={styles.statValue}>{totalForks}</span>
               <span className={styles.statLabel}>Total Forks</span>
             </div>
           </div>
