@@ -11,27 +11,32 @@ A Visual Studio Code themed developer portfolio website built with Next.js and d
   - [x] GitHub Dark (default)
   - [ ] One Dark Pro
   - [x] Dracula
-  - [x] Ayu
+  - [x] Ayu Dark
+  - [x] Ayu Mirage
   - [x] Nord
+  - [x] Night Owl
 - [x] Interactive custom terminal
 
 For other features and themes suggestions, please open an issue.
 
 ## Environment Variables
 
-For fetching your articles from dev.to, create an `.env.local` file inside the project directory. Check the `.env.local.example` file for more information.
+Copy `.env.example` to `.env.local` inside the project directory and fill in the values:
+
+- `DEV_TO_API_KEY`: your dev.to API key, used to fetch your articles.
+- `GITHUB_API_KEY`: optional GitHub token. When set, GitHub API requests are authenticated, which raises the rate limit above 60 requests per hour.
+- `NEXT_PUBLIC_GITHUB_USERNAME`: the GitHub username shown on the GitHub page.
 
 ## Running Development Server
 
 ```bash
-npm run dev
-# or
-yarn dev
+bun install
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-All VSCode related components can be found in the `components` folder. To change the content of the portfolio, check out the `pages` folder. To add or remove pages, modify `components/Sidebar.jsx` and `components/Tabsbar.jsx`.
+All VSCode related components can be found in the `components` folder. The site uses the Next.js App Router, so to change the content of the portfolio, check out the `app` folder, where each page lives in `app/<route>/page.tsx`. To add or remove pages, modify `components/Sidebar.tsx`, `components/Explorer.tsx` and `components/Tabsbar.tsx`.
 
 ## Next.js Resources
 
