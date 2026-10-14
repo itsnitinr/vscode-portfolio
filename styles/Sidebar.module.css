@@ -26,4 +26,10 @@
   padding: 0.65rem 0;
   display: block;
   margin: 0 auto;
+  color: var(--text-color);
+  opacity: 0.4;
+}
+
+[aria-current='page'] .icon {
+  opacity: 1;
 }
