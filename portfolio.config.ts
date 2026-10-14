@@ -3,11 +3,25 @@ import {
   VscAccount,
   VscCode,
   VscEdit,
-  VscFiles,
   VscGithubAlt,
+  VscHome,
   VscMail,
   VscSettings,
+  VscVscode,
 } from 'react-icons/vsc';
+import {
+  SiExpress,
+  SiFigma,
+  SiGit,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
 
 import { Project } from '@/types';
 
@@ -126,12 +140,161 @@ export const experience: Experience[] = [
   },
 ];
 
-export const skills: Record<string, string[]> = {
-  Languages: ['JavaScript', 'TypeScript', 'HTML/CSS'],
-  Frontend: ['React', 'Next.js', 'Tailwind CSS'],
-  Backend: ['Node.js', 'Express', 'MongoDB'],
-  Tools: ['Git', 'VS Code', 'Figma'],
-};
+// Your skills, shown as installed extensions in the Extensions view. Each one
+// gets a detail page at /extensions/<id>.
+export interface Extension {
+  id: string;
+  name: string;
+  publisher: string;
+  category: string;
+  icon: IconType;
+  // Brand color for the icon
+  color: string;
+  // One-liner shown in the extensions list
+  description: string;
+  // Longer write-up shown on the extension's detail page
+  details?: string;
+  // Shown where VS Code shows the version, e.g. "4 years"
+  experience?: string;
+}
+
+export const extensions: Extension[] = [
+  {
+    id: 'javascript',
+    name: 'JavaScript',
+    publisher: 'Ecma International',
+    category: 'Languages',
+    icon: SiJavascript,
+    color: '#f7df1e',
+    description: 'The language I started with and still write every day.',
+    experience: '5 years',
+  },
+  {
+    id: 'typescript',
+    name: 'TypeScript',
+    publisher: 'Microsoft',
+    category: 'Languages',
+    icon: SiTypescript,
+    color: '#3178c6',
+    description: 'My default for anything beyond a quick script.',
+    details:
+      'I reach for TypeScript on every project, from component libraries to backend services. Strict mode on, types as documentation.',
+    experience: '4 years',
+  },
+  {
+    id: 'html-css',
+    name: 'HTML/CSS',
+    publisher: 'W3C',
+    category: 'Languages',
+    icon: SiHtml5,
+    color: '#e34f26',
+    description: 'Semantic markup and layouts that hold up on every screen.',
+    experience: '5 years',
+  },
+  {
+    id: 'react',
+    name: 'React',
+    publisher: 'Meta',
+    category: 'Frontend',
+    icon: SiReact,
+    color: '#61dafb',
+    description: 'Building interactive UIs, from video editors to portfolios.',
+    details:
+      'React is where I spend most of my time. At Tessact I build collaborative video reviewing and editing features with it, and maintain our in-house component library.',
+    experience: '4 years',
+  },
+  {
+    id: 'nextjs',
+    name: 'Next.js',
+    publisher: 'Vercel',
+    category: 'Frontend',
+    icon: SiNextdotjs,
+    color: '#ffffff',
+    description: 'Full-stack React apps, including this portfolio.',
+    experience: '3 years',
+  },
+  {
+    id: 'tailwind-css',
+    name: 'Tailwind CSS',
+    publisher: 'Tailwind Labs',
+    category: 'Frontend',
+    icon: SiTailwindcss,
+    color: '#06b6d4',
+    description: 'Utility-first styling for shipping UI quickly.',
+    experience: '3 years',
+  },
+  {
+    id: 'nodejs',
+    name: 'Node.js',
+    publisher: 'OpenJS Foundation',
+    category: 'Backend',
+    icon: SiNodedotjs,
+    color: '#5fa04e',
+    description: 'APIs and tooling on the server side of the stack.',
+    experience: '4 years',
+  },
+  {
+    id: 'express',
+    name: 'Express',
+    publisher: 'OpenJS Foundation',
+    category: 'Backend',
+    icon: SiExpress,
+    color: '#ffffff',
+    description: 'Minimal, unopinionated REST APIs.',
+    experience: '4 years',
+  },
+  {
+    id: 'mongodb',
+    name: 'MongoDB',
+    publisher: 'MongoDB Inc.',
+    category: 'Backend',
+    icon: SiMongodb,
+    color: '#47a248',
+    description: 'Document storage for MERN stack apps.',
+    experience: '3 years',
+  },
+  {
+    id: 'git',
+    name: 'Git',
+    publisher: 'Software Freedom Conservancy',
+    category: 'Tools',
+    icon: SiGit,
+    color: '#f05032',
+    description: 'Version control, rebases and all.',
+    experience: '5 years',
+  },
+  {
+    id: 'vscode',
+    name: 'VS Code',
+    publisher: 'Microsoft',
+    category: 'Tools',
+    icon: VscVscode,
+    color: '#0098ff',
+    description: 'Where I spend my days, hence this portfolio.',
+    experience: '5 years',
+  },
+  {
+    id: 'figma',
+    name: 'Figma',
+    publisher: 'Figma',
+    category: 'Tools',
+    icon: SiFigma,
+    color: '#f24e1e',
+    description: 'Reading designs and occasionally making them.',
+    experience: '3 years',
+  },
+];
+
+export const getExtension = (id: string) => extensions.find(e => e.id === id);
+
+// Extension names grouped by category, in the order they're listed above
+export const skills = extensions.reduce<Record<string, string[]>>(
+  (groups, { category, name }) => {
+    (groups[category] ??= []).push(name);
+    return groups;
+  },
+  {}
+);
 
 export const writing = [
   { name: '100ms Blog', href: 'https://www.100ms.live/blog/author/nitin' },
@@ -182,9 +345,10 @@ export interface Route {
   label: string;
   // Activity bar and command palette icon
   icon: IconType;
-  activityBar: 'top' | 'bottom';
+  // Where the route's icon sits in the activity bar, if at all
+  activityBar?: 'top' | 'bottom';
   // Second key of the "G <key>" navigation chord
-  shortcut: string;
+  shortcut?: string;
   // Routes with a file appear in the explorer and tabs bar
   file?: {
     name: string;
@@ -196,8 +360,7 @@ export const routes: Route[] = [
   {
     path: '/',
     label: 'Home',
-    icon: VscFiles,
-    activityBar: 'top',
+    icon: VscHome,
     shortcut: 'h',
     file: { name: 'home.tsx', icon: '/logos/react_icon.svg' },
   },

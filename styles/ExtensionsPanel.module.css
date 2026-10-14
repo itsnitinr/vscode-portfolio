@@ -1,0 +1,164 @@
+.panel {
+  background: var(--explorer-bg);
+  width: 18vw;
+  /* Extension entries need more room than file names */
+  min-width: 250px;
+  flex-shrink: 0;
+  color: rgb(225, 228, 232);
+  font-family: 'Source Sans Pro', sans-serif;
+  border-right: 1px solid var(--explorer-border);
+  overflow-y: auto;
+}
+
+.title {
+  padding: 0.5rem 0.75rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.search {
+  padding: 0 0.75rem 0.75rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background: var(--main-bg);
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.categoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+  border: none;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.chevron {
+  transition: transform 0.2s;
+}
+
+.count {
+  margin-left: auto;
+  min-width: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.7rem;
+  font-weight: normal;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.list {
+  margin: 0;
+  padding: 0.25rem 0 0.5rem;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.4rem 0.75rem 0.4rem 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.item:hover,
+.active {
+  background: var(--explorer-hover-bg);
+}
+
+.itemBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.experience {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding-left: 0.5rem;
+}
+
+.description,
+.publisher {
+  margin: 0;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.75;
+}
+
+.publisher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.publisherName {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.verified {
+  flex-shrink: 0;
+  color: #3794ff;
+}
+
+.empty {
+  padding: 0 0.75rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+@media screen and (min-width: 2000px) {
+  .panel {
+    width: 10vw;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .panel {
+    width: 20vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .panel {
+    display: none;
+  }
+}

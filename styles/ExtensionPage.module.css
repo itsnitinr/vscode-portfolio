@@ -1,0 +1,142 @@
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.header {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.headerInfo {
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.publisher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.verified {
+  color: #3794ff;
+}
+
+.separator {
+  opacity: 0.4;
+}
+
+.description {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+}
+
+.installed {
+  opacity: 0.7;
+}
+
+.uninstall {
+  padding: 0.2rem 0.75rem;
+  border: none;
+  border-radius: 2px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+
+.uninstall:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.tabs {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.activeTab {
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.body {
+  padding-top: 1.5rem;
+}
+
+.details {
+  margin: 0 0 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.relatedTitle {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relatedItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.35rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.relatedItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+  }
+}

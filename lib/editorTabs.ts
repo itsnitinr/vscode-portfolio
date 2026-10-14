@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useSyncExternalStore } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
-import { routes, Route } from '@/portfolio.config';
+import { routes, Route, getExtension } from '@/portfolio.config';
 
 // Open editor tabs live in a small external store so the tabs bar, explorer,
 // command palette and keyboard shortcuts all share one source of truth. The
@@ -24,8 +24,25 @@ const SERVER_STATE: TabsState = { tabs: [], hydrated: false };
 
 const routesByPath = new Map(routes.map(route => [route.path, route]));
 
-export const getRoute = (path: string): Route | undefined =>
-  routesByPath.get(path);
+export const EXTENSION_PATH_PREFIX = '/extensions/';
+
+// Static routes come from the config; extension detail pages are derived from
+// the extensions list so they can open in tabs too
+export const getRoute = (path: string): Route | undefined => {
+  const route = routesByPath.get(path);
+  if (route) return route;
+
+  if (path.startsWith(EXTENSION_PATH_PREFIX)) {
+    const extension = getExtension(path.slice(EXTENSION_PATH_PREFIX.length));
+    if (extension) {
+      return {
+        path,
+        label: `Extension: ${extension.name}`,
+        icon: extension.icon,
+      };
+    }
+  }
+};
 
 let state: TabsState | null = null;
 const listeners = new Set<() => void>();
@@ -38,7 +55,7 @@ const load = (): TabsState => {
         (tab): tab is OpenTab =>
           typeof tab?.path === 'string' &&
           typeof tab?.preview === 'boolean' &&
-          routesByPath.has(tab.path)
+          getRoute(tab.path) !== undefined
       );
       return { tabs, hydrated: true };
     }
@@ -77,7 +94,7 @@ interface OpenTabOptions {
 }
 
 export const openTab = (path: string, { pin = false, after }: OpenTabOptions = {}) => {
-  if (!routesByPath.has(path)) return;
+  if (!getRoute(path)) return;
 
   const { tabs } = getSnapshot();
   const existing = tabs.findIndex(tab => tab.path === path);

@@ -42,9 +42,10 @@ Your personal details live in `portfolio.config.ts` at the project root. Edit it
 
 - `profile`: your name, role, location, bio, site URL and SEO metadata.
 - `socials`: the links shown on the Contact page and in the terminal's `contact` command.
-- `experience`, `skills` and `writing`: the sections of the About page.
+- `experience` and `writing`: sections of the About page.
+- `extensions`: your skills, shown as installed extensions in the Extensions view (Ctrl+Shift+X), each with its own detail page. The About page's skills section and the terminal's `skills` command are generated from this list.
 - `projects`: the cards on the Projects page.
-- `routes`: the pages of the site. Each route sets its activity bar icon, its `G <key>` keyboard shortcut and, optionally, the file name and icon it shows in the explorer and tabs bar.
+- `routes`: the pages of the site. Each route sets its icon and, optionally, where it sits in the activity bar, its `G <key>` keyboard shortcut, and the file name and icon it shows in the explorer and tabs bar.
 
 To add a page, create `app/<route>/page.tsx` and add an entry to `routes`. The explorer, tabs, activity bar, command palette and terminal pick it up automatically.
 
