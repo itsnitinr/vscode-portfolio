@@ -1,3 +1,5 @@
+export const THEME_CHANGE_EVENT = 'themechange';
+
 export interface ThemeInfo {
   name: string;
   theme: string;
