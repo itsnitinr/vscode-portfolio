@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useRouter } from 'next/navigation';
-import { VscSymbolColor, VscTerminal, VscGoToFile, VscColorMode } from 'react-icons/vsc';
+import { VscSymbolColor, VscTerminal, VscGoToFile, VscColorMode, VscClose, VscCloseAll } from 'react-icons/vsc';
 import { MdNavigateNext } from 'react-icons/md';
 
 import { THEMES, THEME_CHANGE_EVENT } from '@/lib/themes';
 import { routes } from '@/portfolio.config';
+import { useEditorActions } from '@/lib/editorTabs';
 import styles from '@/styles/CommandPalette.module.css';
 
 interface Command {
@@ -26,7 +26,7 @@ interface CommandPaletteProps {
 }
 
 const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: CommandPaletteProps) => {
-  const router = useRouter();
+  const editor = useEditorActions();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [showThemePicker, setShowThemePicker] = useState(false);
@@ -41,8 +41,30 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
         category: 'Navigation',
         shortcut: `G ${shortcut.toUpperCase()}`,
         icon: <Icon size={16} />,
-        action: () => router.push(path),
+        action: () => editor.open(path),
       })),
+      {
+        id: 'close-editor',
+        label: 'Close Editor',
+        category: 'View',
+        shortcut: 'Alt+W',
+        icon: <VscClose size={16} />,
+        action: editor.closeActive,
+      },
+      {
+        id: 'close-other-editors',
+        label: 'Close Other Editors',
+        category: 'View',
+        icon: <VscCloseAll size={16} />,
+        action: editor.closeOthers,
+      },
+      {
+        id: 'close-all-editors',
+        label: 'Close All Editors',
+        category: 'View',
+        icon: <VscCloseAll size={16} />,
+        action: editor.closeAll,
+      },
       {
         id: 'toggle-terminal',
         label: isTerminalOpen ? 'Close Terminal' : 'Open Terminal',
@@ -65,7 +87,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
     ];
 
     return baseCommands;
-  }, [router, onToggleTerminal, isTerminalOpen]);
+  }, [editor, onToggleTerminal, isTerminalOpen]);
 
   const commands = getCommands();
 

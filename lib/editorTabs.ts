@@ -1,0 +1,168 @@
+import { useCallback, useMemo, useSyncExternalStore } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+
+import { routes, Route } from '@/portfolio.config';
+
+// Open editor tabs live in a small external store so the tabs bar, explorer,
+// command palette and keyboard shortcuts all share one source of truth. The
+// list is persisted to localStorage, which means it's only known on the client.
+
+export interface OpenTab {
+  path: string;
+  // Preview tabs (shown in italics) get replaced by the next file you open,
+  // just like single-clicking a file in VS Code
+  preview: boolean;
+}
+
+interface TabsState {
+  tabs: OpenTab[];
+  hydrated: boolean;
+}
+
+const STORAGE_KEY = 'openTabs';
+const SERVER_STATE: TabsState = { tabs: [], hydrated: false };
+
+const routesByPath = new Map(routes.map(route => [route.path, route]));
+
+export const getRoute = (path: string): Route | undefined =>
+  routesByPath.get(path);
+
+let state: TabsState | null = null;
+const listeners = new Set<() => void>();
+
+const load = (): TabsState => {
+  try {
+    const saved: unknown = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]');
+    if (Array.isArray(saved)) {
+      const tabs = saved.filter(
+        (tab): tab is OpenTab =>
+          typeof tab?.path === 'string' &&
+          typeof tab?.preview === 'boolean' &&
+          routesByPath.has(tab.path)
+      );
+      return { tabs, hydrated: true };
+    }
+  } catch {
+    // Ignore malformed saved state and start fresh
+  }
+  return { tabs: [], hydrated: true };
+};
+
+const getSnapshot = () => {
+  if (!state) state = load();
+  return state;
+};
+
+const getServerSnapshot = () => SERVER_STATE;
+
+const subscribe = (listener: () => void) => {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+};
+
+const setTabs = (tabs: OpenTab[]) => {
+  state = { tabs, hydrated: true };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(tabs));
+  listeners.forEach(listener => listener());
+};
+
+export const useEditorTabs = () =>
+  useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+interface OpenTabOptions {
+  // Open as a regular tab instead of a preview, or pin it if already open
+  pin?: boolean;
+  // New tabs are inserted to the right of this one, usually the active tab
+  after?: string | null;
+}
+
+export const openTab = (path: string, { pin = false, after }: OpenTabOptions = {}) => {
+  if (!routesByPath.has(path)) return;
+
+  const { tabs } = getSnapshot();
+  const existing = tabs.findIndex(tab => tab.path === path);
+
+  if (existing !== -1) {
+    if (pin && tabs[existing].preview) {
+      setTabs(tabs.map(tab => (tab.path === path ? { ...tab, preview: false } : tab)));
+    }
+    return;
+  }
+
+  const newTab = { path, preview: !pin };
+  const previewIndex = tabs.findIndex(tab => tab.preview);
+
+  if (!pin && previewIndex !== -1) {
+    setTabs(tabs.map((tab, i) => (i === previewIndex ? newTab : tab)));
+    return;
+  }
+
+  const afterIndex = after ? tabs.findIndex(tab => tab.path === after) : -1;
+  const insertAt = afterIndex === -1 ? tabs.length : afterIndex + 1;
+  setTabs([...tabs.slice(0, insertAt), newTab, ...tabs.slice(insertAt)]);
+};
+
+export const pinTab = (path: string) => openTab(path, { pin: true });
+
+// Closes a tab and returns the path of the tab that should become active if
+// the closed one was active: its right neighbour, else its left, else null
+export const closeTab = (path: string): string | null => {
+  const { tabs } = getSnapshot();
+  const index = tabs.findIndex(tab => tab.path === path);
+  if (index === -1) return null;
+
+  const remaining = tabs.filter(tab => tab.path !== path);
+  setTabs(remaining);
+  return remaining[Math.min(index, remaining.length - 1)]?.path ?? null;
+};
+
+export const closeAllTabs = () => setTabs([]);
+
+export const closeOtherTabs = (path: string) =>
+  setTabs(getSnapshot().tabs.filter(tab => tab.path === path));
+
+export const moveTab = (fromPath: string, toPath: string) => {
+  const { tabs } = getSnapshot();
+  const from = tabs.findIndex(tab => tab.path === fromPath);
+  const to = tabs.findIndex(tab => tab.path === toPath);
+  if (from === -1 || to === -1 || from === to) return;
+
+  const reordered = [...tabs];
+  const [moved] = reordered.splice(from, 1);
+  reordered.splice(to, 0, moved);
+  setTabs(reordered);
+};
+
+// Tab operations that also navigate: opening a tab goes to its page, and
+// closing the active tab moves to its neighbour
+export const useEditorActions = () => {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const open = useCallback(
+    (path: string, options: Omit<OpenTabOptions, 'after'> = {}) => {
+      openTab(path, { ...options, after: pathname });
+      router.push(path);
+    },
+    [pathname, router]
+  );
+
+  const close = useCallback(
+    (path: string) => {
+      const next = closeTab(path);
+      if (path === pathname && next) router.push(next);
+    },
+    [pathname, router]
+  );
+
+  return useMemo(
+    () => ({
+      open,
+      close,
+      closeActive: () => close(pathname),
+      closeAll: closeAllTabs,
+      closeOthers: () => closeOtherTabs(pathname),
+    }),
+    [open, close, pathname]
+  );
+};

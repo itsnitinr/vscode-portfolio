@@ -1,14 +1,24 @@
+'use client';
+
 import Link from 'next/link';
-import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { VscChevronRight } from 'react-icons/vsc';
 
+import FileIcon from '@/components/FileIcon';
+import { openTab, pinTab, useEditorTabs } from '@/lib/editorTabs';
 import { fileRoutes } from '@/portfolio.config';
 
 import styles from '@/styles/Explorer.module.css';
 
 const Explorer = () => {
+  const pathname = usePathname();
+  const { tabs, hydrated } = useEditorTabs();
   const [portfolioOpen, setPortfolioOpen] = useState(true);
+
+  // Only highlight the current file while its tab is open
+  const activePath =
+    !hydrated || tabs.some(tab => tab.path === pathname) ? pathname : null;
 
   return (
     <div className={styles.explorer}>
@@ -32,12 +42,19 @@ const Explorer = () => {
           className={styles.files}
           style={portfolioOpen ? { display: 'block' } : { display: 'none' }}
         >
-          {fileRoutes.map(({ path, file }) => (
-            <Link href={path} key={path}>
-              <div className={styles.file}>
-                <Image src={file.icon} alt={file.name} height={18} width={18} />{' '}
-                <p>{file.name}</p>
-              </div>
+          {fileRoutes.map(route => (
+            <Link
+              href={route.path}
+              key={route.path}
+              className={`${styles.file} ${
+                route.path === activePath ? styles.activeFile : ''
+              }`}
+              // Single click previews the file, double click keeps it open
+              onClick={() => openTab(route.path, { after: pathname })}
+              onDoubleClick={() => pinTab(route.path)}
+            >
+              <FileIcon route={route} />
+              <p>{route.file.name}</p>
             </Link>
           ))}
         </div>
