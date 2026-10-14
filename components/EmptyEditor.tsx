@@ -4,6 +4,7 @@ import styles from '@/styles/EmptyEditor.module.css';
 
 const shortcuts = [
   { label: 'Show All Commands', keys: ['Ctrl', 'Shift', 'P'] },
+  { label: 'Go to File', keys: ['Ctrl', 'P'] },
   { label: 'Go to Home', keys: ['G', 'H'] },
   { label: 'Toggle Terminal', keys: ['Ctrl', '`'] },
   { label: 'Change Color Theme', keys: ['K', 'T'] },
