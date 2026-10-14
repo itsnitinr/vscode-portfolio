@@ -3,40 +3,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { VscChevronRight } from 'react-icons/vsc';
 
-import styles from '@/styles/Explorer.module.css';
+import { fileRoutes } from '@/portfolio.config';
 
-const explorerItems = [
-  {
-    name: 'home.tsx',
-    path: '/',
-    icon: '/logos/react_icon.svg',
-  },
-  {
-    name: 'about.html',
-    path: '/about',
-    icon: '/logos/html_icon.svg',
-  },
-  {
-    name: 'contact.css',
-    path: '/contact',
-    icon: '/logos/css_icon.svg',
-  },
-  {
-    name: 'projects.js',
-    path: '/projects',
-    icon: '/logos/js_icon.svg',
-  },
-  {
-    name: 'articles.json',
-    path: '/articles',
-    icon: '/logos/json_icon.svg',
-  },
-  {
-    name: 'github.md',
-    path: '/github',
-    icon: '/logos/markdown_icon.svg',
-  },
-];
+import styles from '@/styles/Explorer.module.css';
 
 const Explorer = () => {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
@@ -63,11 +32,11 @@ const Explorer = () => {
           className={styles.files}
           style={portfolioOpen ? { display: 'block' } : { display: 'none' }}
         >
-          {explorerItems.map((item) => (
-            <Link href={item.path} key={item.name}>
+          {fileRoutes.map(({ path, file }) => (
+            <Link href={path} key={path}>
               <div className={styles.file}>
-                <Image src={item.icon} alt={item.name} height={18} width={18} />{' '}
-                <p>{item.name}</p>
+                <Image src={file.icon} alt={file.name} height={18} width={18} />{' '}
+                <p>{file.name}</p>
               </div>
             </Link>
           ))}

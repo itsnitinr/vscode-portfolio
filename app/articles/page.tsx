@@ -4,6 +4,7 @@ import { VscBook, VscLinkExternal, VscGlobe } from 'react-icons/vsc';
 
 import ArticleCard from '@/components/ArticleCard';
 
+import { getSocial } from '@/portfolio.config';
 import { Article } from '@/types';
 
 import styles from '@/styles/ArticlesPage.module.css';
@@ -36,6 +37,7 @@ async function getArticles(): Promise<Article[]> {
 export default async function ArticlesPage() {
   const articles = await getArticles();
   const totalViews = articles.reduce((sum, article) => sum + article.page_views_count, 0);
+  const devto = getSocial('devto');
 
   return (
     <div className={styles.page}>
@@ -68,15 +70,17 @@ export default async function ArticlesPage() {
             </div>
           </div>
 
-          <a 
-            href="https://dev.to/itsnitinr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.profileLink}
-          >
-            <span>DEV.to</span>
-            <VscLinkExternal size={14} />
-          </a>
+          {devto && (
+            <a
+              href={devto.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.profileLink}
+            >
+              <span>DEV.to</span>
+              <VscLinkExternal size={14} />
+            </a>
+          )}
         </header>
 
         <div className={styles.articlesList}>

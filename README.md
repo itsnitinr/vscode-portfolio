@@ -36,7 +36,19 @@ bun run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-All VSCode related components can be found in the `components` folder. The site uses the Next.js App Router, so to change the content of the portfolio, check out the `app` folder, where each page lives in `app/<route>/page.tsx`. To add or remove pages, modify `components/Sidebar.tsx`, `components/Explorer.tsx` and `components/Tabsbar.tsx`.
+## Making It Your Own
+
+Your personal details live in `portfolio.config.ts` at the project root. Edit it to change:
+
+- `profile`: your name, role, location, bio, site URL and SEO metadata.
+- `socials`: the links shown on the Contact page and in the terminal's `contact` command.
+- `experience`, `skills` and `writing`: the sections of the About page.
+- `projects`: the cards on the Projects page.
+- `routes`: the pages of the site. Each route sets its activity bar icon, its `G <key>` keyboard shortcut and, optionally, the file name and icon it shows in the explorer and tabs bar.
+
+To add a page, create `app/<route>/page.tsx` and add an entry to `routes`. The explorer, tabs, activity bar, command palette and terminal pick it up automatically.
+
+All VS Code related components can be found in the `components` folder.
 
 ## Next.js Resources
 

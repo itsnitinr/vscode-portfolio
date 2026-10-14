@@ -1,42 +1,6 @@
-import styles from '@/styles/ContactCode.module.css';
+import { socials } from '@/portfolio.config';
 
-const contactItems = [
-  {
-    social: 'website',
-    link: 'nitinranganath.com',
-    href: 'https://nitinranganath.com',
-  },
-  {
-    social: 'email',
-    link: 'nitinranganath@gmail.com',
-    href: 'mailto:nitinranganath@gmail.com',
-  },
-  {
-    social: 'github',
-    link: 'itsnitinr',
-    href: 'https://github.com/itsnitinr',
-  },
-  {
-    social: 'linkedin',
-    link: 'nitinranganath',
-    href: 'https://www.linkedin.com/in/nitinranganath/',
-  },
-  {
-    social: 'twitter',
-    link: 'iamnitinr',
-    href: 'https://www.twitter.com/iamnitinr',
-  },
-  {
-    social: 'telegram',
-    link: 'iamnitinr',
-    href: 'https://t.me/iamnitinr',
-  },
-  {
-    social: 'peerlist',
-    link: 'nitinranganath',
-    href: 'https://peerlist.io/nitinranganath',
-  },
-];
+import styles from '@/styles/ContactCode.module.css';
 
 const ContactCode = () => {
   return (
@@ -44,11 +8,11 @@ const ContactCode = () => {
       <p className={styles.line}>
         <span className={styles.className}>.socials</span> &#123;
       </p>
-      {contactItems.map((item, index) => (
-        <p className={styles.line} key={index}>
-          &nbsp;&nbsp;&nbsp;{item.social}:{' '}
+      {socials.map((item) => (
+        <p className={styles.line} key={item.id}>
+          &nbsp;&nbsp;&nbsp;{item.id}:{' '}
           <a href={item.href} target="_blank" rel="noopener">
-            {item.link}
+            {item.handle}
           </a>
           ;
         </p>

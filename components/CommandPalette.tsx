@@ -2,10 +2,11 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import { VscSymbolColor, VscTerminal, VscFiles, VscGoToFile, VscGear, VscColorMode, VscHome, VscAccount, VscCode, VscBook, VscMail, VscGithubAlt } from 'react-icons/vsc';
+import { VscSymbolColor, VscTerminal, VscGoToFile, VscColorMode } from 'react-icons/vsc';
 import { MdNavigateNext } from 'react-icons/md';
 
 import { THEMES, THEME_CHANGE_EVENT } from '@/lib/themes';
+import { routes } from '@/portfolio.config';
 import styles from '@/styles/CommandPalette.module.css';
 
 interface Command {
@@ -34,62 +35,14 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen }: C
 
   const getCommands = useCallback((): Command[] => {
     const baseCommands: Command[] = [
-      {
-        id: 'go-home',
-        label: 'Go to Home',
+      ...routes.map(({ path, label, icon: Icon, shortcut }) => ({
+        id: `go-${label.toLowerCase()}`,
+        label: `Go to ${label}`,
         category: 'Navigation',
-        shortcut: 'G H',
-        icon: <VscHome size={16} />,
-        action: () => router.push('/'),
-      },
-      {
-        id: 'go-about',
-        label: 'Go to About',
-        category: 'Navigation',
-        shortcut: 'G A',
-        icon: <VscAccount size={16} />,
-        action: () => router.push('/about'),
-      },
-      {
-        id: 'go-projects',
-        label: 'Go to Projects',
-        category: 'Navigation',
-        shortcut: 'G P',
-        icon: <VscCode size={16} />,
-        action: () => router.push('/projects'),
-      },
-      {
-        id: 'go-articles',
-        label: 'Go to Articles',
-        category: 'Navigation',
-        shortcut: 'G R',
-        icon: <VscBook size={16} />,
-        action: () => router.push('/articles'),
-      },
-      {
-        id: 'go-contact',
-        label: 'Go to Contact',
-        category: 'Navigation',
-        shortcut: 'G C',
-        icon: <VscMail size={16} />,
-        action: () => router.push('/contact'),
-      },
-      {
-        id: 'go-github',
-        label: 'Go to GitHub',
-        category: 'Navigation',
-        shortcut: 'G G',
-        icon: <VscGithubAlt size={16} />,
-        action: () => router.push('/github'),
-      },
-      {
-        id: 'go-settings',
-        label: 'Go to Settings',
-        category: 'Navigation',
-        shortcut: 'G S',
-        icon: <VscGear size={16} />,
-        action: () => router.push('/settings'),
-      },
+        shortcut: `G ${shortcut.toUpperCase()}`,
+        icon: <Icon size={16} />,
+        action: () => router.push(path),
+      })),
       {
         id: 'toggle-terminal',
         label: isTerminalOpen ? 'Close Terminal' : 'Open Terminal',
