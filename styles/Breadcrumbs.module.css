@@ -1,0 +1,22 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0.25rem 1rem;
+  background: var(--main-bg);
+  color: var(--text-color);
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  user-select: none;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.separator {
+  flex-shrink: 0;
+}

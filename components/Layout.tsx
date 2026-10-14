@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useCallback, useRef } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 import Titlebar from '@/components/Titlebar';
 import Sidebar from '@/components/Sidebar';
@@ -10,7 +10,10 @@ import Bottombar from '@/components/Bottombar';
 import Tabsbar from '@/components/Tabsbar';
 import Terminal from '@/components/Terminal';
 import CommandPalette from '@/components/CommandPalette';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import EmptyEditor from '@/components/EmptyEditor';
 import { routes } from '@/portfolio.config';
+import { openTab, useEditorActions, useEditorTabs } from '@/lib/editorTabs';
 
 import styles from '@/styles/Layout.module.css';
 
@@ -20,7 +23,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   const pathname = usePathname();
-  const router = useRouter();
+  const { tabs, hydrated } = useEditorTabs();
+  const editor = useEditorActions();
+  const previousPathRef = useRef<string | null>(null);
+  const scrollPositionsRef = useRef(new Map<string, number>());
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [chordKey, setChordKey] = useState<string | null>(null);
@@ -54,10 +60,21 @@ const Layout = ({ children }: LayoutProps) => {
     };
   }, []);
 
+  // Every page you land on gets a tab, however you got there (links inside
+  // pages, back/forward). The first tab of a session is opened pinned.
+  useEffect(() => {
+    openTab(pathname, {
+      pin: previousPathRef.current === null,
+      after: previousPathRef.current,
+    });
+    previousPathRef.current = pathname;
+  }, [pathname]);
+
+  // Each tab remembers its own scroll position
   useEffect(() => {
     const main = document.getElementById('main-editor');
     if (main) {
-      main.scrollTop = 0;
+      main.scrollTop = scrollPositionsRef.current.get(pathname) ?? 0;
     }
   }, [pathname]);
 
@@ -81,6 +98,13 @@ const Layout = ({ children }: LayoutProps) => {
         return;
       }
 
+      // Ctrl+W closes the browser tab, so closing an editor uses Alt+W
+      if (e.altKey && !e.ctrlKey && !e.metaKey && e.code === 'KeyW') {
+        e.preventDefault();
+        editor.closeActive();
+        return;
+      }
+
       // Chords are plain keys only, and never fire while the user is typing
       if (e.ctrlKey || e.metaKey || e.altKey) return;
 
@@ -97,7 +121,7 @@ const Layout = ({ children }: LayoutProps) => {
 
       if (chordKey === 'g' && navigationRoutes[key]) {
         e.preventDefault();
-        router.push(navigationRoutes[key]);
+        editor.open(navigationRoutes[key]);
         resetChord();
         return;
       }
@@ -123,7 +147,9 @@ const Layout = ({ children }: LayoutProps) => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [toggleTerminal, openCommandPalette, chordKey, router, isCommandPaletteOpen, resetChord]);
+  }, [toggleTerminal, openCommandPalette, chordKey, editor, isCommandPaletteOpen, resetChord]);
+
+  const showEmptyEditor = hydrated && tabs.length === 0;
 
   return (
     <div className={styles.layout}>
@@ -133,9 +159,16 @@ const Layout = ({ children }: LayoutProps) => {
         <Explorer />
         <div className={styles.editorContainer}>
           <Tabsbar />
+          {!showEmptyEditor && <Breadcrumbs />}
           <div className={styles.editorWithTerminal}>
-            <main id="main-editor" className={styles.content}>
-              {children}
+            <main
+              id="main-editor"
+              className={styles.content}
+              onScroll={e =>
+                scrollPositionsRef.current.set(pathname, e.currentTarget.scrollTop)
+              }
+            >
+              {showEmptyEditor ? <EmptyEditor /> : children}
             </main>
             {isTerminalOpen && <Terminal onToggle={toggleTerminal} />}
           </div>

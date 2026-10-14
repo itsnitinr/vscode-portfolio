@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { openTab } from '@/lib/editorTabs';
 import { routes } from '@/portfolio.config';
 
 import styles from '@/styles/Sidebar.module.css';
@@ -23,6 +24,7 @@ const Sidebar = () => {
             key={path}
             aria-label={label}
             aria-current={pathname === path ? 'page' : undefined}
+            onClick={() => openTab(path, { after: pathname })}
           >
             <div
               className={`${styles.iconContainer} ${
@@ -41,6 +43,7 @@ const Sidebar = () => {
               href={path}
               aria-label={label}
               aria-current={pathname === path ? 'page' : undefined}
+              onClick={() => openTab(path, { after: pathname })}
             >
               <Icon className={styles.icon} />
             </Link>
