@@ -131,8 +131,7 @@ export default async function GithubPage() {
                 hideMonthLabels
                 colorScheme="dark"
                 theme={{
-                  dark: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
-                  light: ['#161B22', '#0e4429', '#006d32', '#26a641', '#39d353'],
+                  dark: ['var(--calendar-empty)', 'var(--accent-color)'],
                 }}
                 style={{
                   width: '100%',
