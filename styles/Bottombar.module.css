@@ -34,6 +34,13 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+button.section {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+}
+
 .section:hover {
   background: var(--bottombar-hover-bg);
 }

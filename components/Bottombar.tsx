@@ -36,13 +36,16 @@ const Bottombar = ({ onTerminalToggle, isTerminalOpen }: BottombarProps) => {
         </div>
       </div>
       <div className={styles.container}>
-        <div
+        <button
+          type="button"
           className={`${styles.section} ${isTerminalOpen ? styles.active : ''}`}
           onClick={onTerminalToggle}
           title="Toggle Terminal (Ctrl+`)"
+          aria-label="Toggle Terminal"
+          aria-pressed={isTerminalOpen}
         >
           <VscTerminal className={styles.icon} />
-        </div>
+        </button>
         <div className={styles.section}>
           <SiNextdotjs className={styles.icon} />
           <p>Powered by Next.js</p>

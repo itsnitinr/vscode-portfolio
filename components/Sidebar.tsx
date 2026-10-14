@@ -15,16 +15,16 @@ import {
 import styles from '@/styles/Sidebar.module.css';
 
 const sidebarTopItems = [
-  { Icon: VscFiles, path: '/' },
-  { Icon: VscGithubAlt, path: '/github' },
-  { Icon: VscCode, path: '/projects' },
-  { Icon: VscEdit, path: '/articles' },
-  { Icon: VscMail, path: '/contact' },
+  { Icon: VscFiles, path: '/', label: 'Home' },
+  { Icon: VscGithubAlt, path: '/github', label: 'GitHub' },
+  { Icon: VscCode, path: '/projects', label: 'Projects' },
+  { Icon: VscEdit, path: '/articles', label: 'Articles' },
+  { Icon: VscMail, path: '/contact', label: 'Contact' },
 ];
 
 const sidebarBottomItems = [
-  { Icon: VscAccount, path: '/about' },
-  { Icon: VscSettings, path: '/settings' },
+  { Icon: VscAccount, path: '/about', label: 'About' },
+  { Icon: VscSettings, path: '/settings', label: 'Settings' },
 ];
 
 const Sidebar = () => {
@@ -33,10 +33,11 @@ const Sidebar = () => {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.sidebarTop}>
-        {sidebarTopItems.map(({ Icon, path }) => (
+        {sidebarTopItems.map(({ Icon, path, label }) => (
           <Link
             href={path}
             key={path}
+            aria-label={label}
             aria-current={pathname === path ? 'page' : undefined}
           >
             <div
@@ -50,10 +51,11 @@ const Sidebar = () => {
         ))}
       </div>
       <div className={styles.sidebarBottom}>
-        {sidebarBottomItems.map(({ Icon, path }) => (
+        {sidebarBottomItems.map(({ Icon, path, label }) => (
           <div className={styles.iconContainer} key={path}>
             <Link
               href={path}
+              aria-label={label}
               aria-current={pathname === path ? 'page' : undefined}
             >
               <Icon className={styles.icon} />
