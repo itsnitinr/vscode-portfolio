@@ -10,7 +10,7 @@ import ExtensionsPanel from '@/components/ExtensionsPanel';
 import Bottombar from '@/components/Bottombar';
 import Tabsbar from '@/components/Tabsbar';
 import Terminal from '@/components/Terminal';
-import CommandPalette from '@/components/CommandPalette';
+import CommandPalette, { PaletteMode } from '@/components/CommandPalette';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import EmptyEditor from '@/components/EmptyEditor';
 import { routes } from '@/portfolio.config';
@@ -29,7 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
   const previousPathRef = useRef<string | null>(null);
   const scrollPositionsRef = useRef(new Map<string, number>());
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [paletteMode, setPaletteMode] = useState<PaletteMode | null>(null);
   const [activePanel, setActivePanel] = useState<SidePanel | null>('explorer');
   const lastPanelRef = useRef<SidePanel>('explorer');
   const [chordKey, setChordKey] = useState<string | null>(null);
@@ -54,12 +54,12 @@ const Layout = ({ children }: LayoutProps) => {
     setActivePanel(current => (current ? null : lastPanelRef.current));
   }, []);
 
-  const openCommandPalette = useCallback(() => {
-    setIsCommandPaletteOpen(true);
+  const openCommandPalette = useCallback((mode: PaletteMode = 'commands') => {
+    setPaletteMode(mode);
   }, []);
 
   const closeCommandPalette = useCallback(() => {
-    setIsCommandPaletteOpen(false);
+    setPaletteMode(null);
   }, []);
 
   const resetChord = useCallback(() => {
@@ -104,7 +104,7 @@ const Layout = ({ children }: LayoutProps) => {
     );
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (isCommandPaletteOpen) return;
+      if (paletteMode) return;
 
       if ((e.ctrlKey || e.metaKey) && e.key === '`') {
         e.preventDefault();
@@ -112,9 +112,11 @@ const Layout = ({ children }: LayoutProps) => {
         return;
       }
 
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'p') {
+      // Ctrl+P opens Quick Open (taking over the browser's print shortcut),
+      // Ctrl+Shift+P opens the command list
+      if ((e.ctrlKey || e.metaKey) && e.code === 'KeyP') {
         e.preventDefault();
-        openCommandPalette();
+        openCommandPalette(e.shiftKey ? 'commands' : 'files');
         return;
       }
 
@@ -166,7 +168,7 @@ const Layout = ({ children }: LayoutProps) => {
 
       if (chordKey === 'k' && key === 't') {
         e.preventDefault();
-        openCommandPalette();
+        openCommandPalette('themes');
         resetChord();
         return;
       }
@@ -185,13 +187,13 @@ const Layout = ({ children }: LayoutProps) => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [toggleTerminal, openCommandPalette, chordKey, editor, isCommandPaletteOpen, resetChord, showPanel, toggleSidebar]);
+  }, [toggleTerminal, openCommandPalette, chordKey, editor, paletteMode, resetChord, showPanel, toggleSidebar]);
 
   const showEmptyEditor = hydrated && tabs.length === 0;
 
   return (
     <div className={styles.layout}>
-      <Titlebar onOpenCommandPalette={openCommandPalette} />
+      <Titlebar onOpenCommandPalette={() => openCommandPalette('commands')} />
       <div className={styles.main}>
         <Sidebar activePanel={activePanel} onPanelSelect={selectPanel} />
         {activePanel === 'explorer' && <Explorer />}
@@ -214,14 +216,16 @@ const Layout = ({ children }: LayoutProps) => {
         </div>
       </div>
       <Bottombar onTerminalToggle={toggleTerminal} isTerminalOpen={isTerminalOpen} />
-      <CommandPalette
-        isOpen={isCommandPaletteOpen}
-        onClose={closeCommandPalette}
-        onToggleTerminal={toggleTerminal}
-        isTerminalOpen={isTerminalOpen}
-        onShowPanel={showPanel}
-        onToggleSidebar={toggleSidebar}
-      />
+      {paletteMode && (
+        <CommandPalette
+          initialMode={paletteMode}
+          onClose={closeCommandPalette}
+          onToggleTerminal={toggleTerminal}
+          isTerminalOpen={isTerminalOpen}
+          onShowPanel={showPanel}
+          onToggleSidebar={toggleSidebar}
+        />
+      )}
     </div>
   );
 };

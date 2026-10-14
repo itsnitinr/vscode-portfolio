@@ -1,26 +1,105 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { VscSymbolColor, VscTerminal, VscGoToFile, VscColorMode, VscClose, VscCloseAll, VscFiles, VscExtensions, VscLayoutSidebarLeft } from 'react-icons/vsc';
+import Image from 'next/image';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import {
+  VscSymbolColor,
+  VscTerminal,
+  VscGoToFile,
+  VscColorMode,
+  VscClose,
+  VscCloseAll,
+  VscFiles,
+  VscExtensions,
+  VscLayoutSidebarLeft,
+  VscSymbolClass,
+  VscSymbolMethod,
+  VscSymbolField,
+} from 'react-icons/vsc';
 import { MdNavigateNext } from 'react-icons/md';
 
-import { THEMES, THEME_CHANGE_EVENT } from '@/lib/themes';
-import { routes } from '@/portfolio.config';
-import { useEditorActions } from '@/lib/editorTabs';
+import ExtensionIcon from '@/components/ExtensionIcon';
+import FileIcon, { getTabTitle } from '@/components/FileIcon';
 import type { SidePanel } from '@/components/Sidebar';
+import { EXTENSION_PATH_PREFIX, useEditorActions } from '@/lib/editorTabs';
+import { fuzzyMatch } from '@/lib/fuzzy';
+import { THEMES, THEME_CHANGE_EVENT } from '@/lib/themes';
+import { extensions, projects, routes } from '@/portfolio.config';
+
 import styles from '@/styles/CommandPalette.module.css';
 
-interface Command {
+export type PaletteMode = 'files' | 'commands' | 'themes';
+
+interface PaletteItem {
   id: string;
   label: string;
+  // Group heading shown when nothing has been typed yet
   category: string;
+  // Secondary text after the label, also searched when the label doesn't match
+  description?: string;
   shortcut?: string;
   icon: React.ReactNode;
-  action: () => void;
+  // Commands that open a sub-picker keep the palette open
+  keepOpen?: boolean;
+  // `pin` is set when the item is opened with Ctrl/Cmd+Enter
+  run: (options: { pin: boolean }) => void;
 }
 
+interface Result {
+  item: PaletteItem;
+  indices: number[];
+}
+
+const COMMAND_PREFIX = '>';
+const SYMBOL_PREFIX = '@';
+
+const HEADING_ICONS: Record<string, React.ReactNode> = {
+  H1: <VscSymbolClass size={16} />,
+  H2: <VscSymbolMethod size={16} />,
+  H3: <VscSymbolField size={16} />,
+};
+
+// Fuzzy-filters items by label. Descriptions are long enough that fuzzy
+// matching them turns up noise, so they only match on an exact substring and
+// rank below label matches. With no query, items keep their original order.
+const search = (items: PaletteItem[], query: string): Result[] => {
+  if (!query) return items.map(item => ({ item, indices: [] }));
+
+  return items
+    .flatMap(item => {
+      const labelMatch = fuzzyMatch(query, item.label);
+      if (labelMatch) return [{ item, ...labelMatch }];
+
+      const inDescription = item.description
+        ?.toLowerCase()
+        .includes(query.toLowerCase());
+      return inDescription ? [{ item, score: -1, indices: [] }] : [];
+    })
+    .sort((a, b) => b.score - a.score)
+    .map(({ item, indices }) => ({ item, indices }));
+};
+
+const Highlight = ({ text, indices }: { text: string; indices: number[] }) => {
+  if (indices.length === 0) return <>{text}</>;
+
+  const matched = new Set(indices);
+  return (
+    <>
+      {[...text].map((char, i) =>
+        matched.has(i) ? (
+          <mark key={i} className={styles.match}>
+            {char}
+          </mark>
+        ) : (
+          char
+        )
+      )}
+    </>
+  );
+};
+
 interface CommandPaletteProps {
-  isOpen: boolean;
+  initialMode: PaletteMode;
   onClose: () => void;
   onToggleTerminal: () => void;
   isTerminalOpen: boolean;
@@ -28,31 +107,106 @@ interface CommandPaletteProps {
   onToggleSidebar: () => void;
 }
 
-const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen, onShowPanel, onToggleSidebar }: CommandPaletteProps) => {
+const CommandPalette = ({
+  initialMode,
+  onClose,
+  onToggleTerminal,
+  isTerminalOpen,
+  onShowPanel,
+  onToggleSidebar,
+}: CommandPaletteProps) => {
   const editor = useEditorActions();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [query, setQuery] = useState(
+    initialMode === 'commands' ? COMMAND_PREFIX : ''
+  );
+  const [showThemePicker, setShowThemePicker] = useState(
+    initialMode === 'themes'
+  );
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [showThemePicker, setShowThemePicker] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
-  const getCommands = useCallback((): Command[] => {
-    const baseCommands: Command[] = [
+  const mode = showThemePicker
+    ? 'themes'
+    : query.startsWith(COMMAND_PREFIX)
+      ? 'commands'
+      : query.startsWith(SYMBOL_PREFIX)
+        ? 'symbols'
+        : 'files';
+  const searchText = (
+    mode === 'commands' || mode === 'symbols' ? query.slice(1) : query
+  ).trim();
+
+  const updateQuery = useCallback((value: string) => {
+    setQuery(value);
+    setSelectedIndex(0);
+  }, []);
+
+  const fileItems = useMemo<PaletteItem[]>(
+    () => [
+      ...routes.map(route => ({
+        id: `file-${route.path}`,
+        label: getTabTitle(route),
+        category: 'Files',
+        description: route.file ? 'portfolio' : 'Preferences',
+        icon: <FileIcon route={route} size={16} />,
+        run: ({ pin }: { pin: boolean }) => editor.open(route.path, { pin }),
+      })),
+      ...extensions.map(extension => ({
+        id: `extension-${extension.id}`,
+        label: extension.name,
+        category: 'Extensions',
+        description: `Extension · ${extension.publisher}`,
+        icon: <ExtensionIcon extension={extension} size={18} />,
+        run: ({ pin }: { pin: boolean }) =>
+          editor.open(`${EXTENSION_PATH_PREFIX}${extension.id}`, { pin }),
+      })),
+      ...projects.map(project => ({
+        id: `project-${project.slug}`,
+        label: project.title,
+        category: 'Projects',
+        description: `Project · ${project.description}`,
+        icon: <Image src={project.logo} alt="" width={16} height={16} />,
+        run: () => window.open(project.link, '_blank', 'noopener,noreferrer'),
+      })),
+    ],
+    [editor]
+  );
+
+  const commandItems = useMemo<PaletteItem[]>(
+    () => [
       ...routes.map(({ path, label, icon: Icon, shortcut }) => ({
         id: `go-${label.toLowerCase()}`,
         label: `Go to ${label}`,
         category: 'Navigation',
         shortcut: shortcut && `G ${shortcut.toUpperCase()}`,
         icon: <Icon size={16} />,
-        action: () => editor.open(path),
+        run: () => editor.open(path),
       })),
+      {
+        id: 'quick-open',
+        label: 'Go to File...',
+        category: 'Navigation',
+        shortcut: 'Ctrl+P',
+        icon: <VscGoToFile size={16} />,
+        keepOpen: true,
+        run: () => updateQuery(''),
+      },
+      {
+        id: 'go-to-symbol',
+        label: 'Go to Symbol in Editor...',
+        category: 'Navigation',
+        icon: <VscSymbolMethod size={16} />,
+        keepOpen: true,
+        run: () => updateQuery(SYMBOL_PREFIX),
+      },
       {
         id: 'show-explorer',
         label: 'Show Explorer',
         category: 'View',
         shortcut: 'Ctrl+Shift+E',
         icon: <VscFiles size={16} />,
-        action: () => onShowPanel('explorer'),
+        run: () => onShowPanel('explorer'),
       },
       {
         id: 'show-extensions',
@@ -60,7 +214,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen, onS
         category: 'View',
         shortcut: 'Ctrl+Shift+X',
         icon: <VscExtensions size={16} />,
-        action: () => onShowPanel('extensions'),
+        run: () => onShowPanel('extensions'),
       },
       {
         id: 'toggle-sidebar',
@@ -68,7 +222,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen, onS
         category: 'View',
         shortcut: 'Ctrl+B',
         icon: <VscLayoutSidebarLeft size={16} />,
-        action: onToggleSidebar,
+        run: onToggleSidebar,
       },
       {
         id: 'close-editor',
@@ -76,21 +230,21 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen, onS
         category: 'View',
         shortcut: 'Alt+W',
         icon: <VscClose size={16} />,
-        action: editor.closeActive,
+        run: editor.closeActive,
       },
       {
         id: 'close-other-editors',
         label: 'Close Other Editors',
         category: 'View',
         icon: <VscCloseAll size={16} />,
-        action: editor.closeOthers,
+        run: editor.closeOthers,
       },
       {
         id: 'close-all-editors',
         label: 'Close All Editors',
         category: 'View',
         icon: <VscCloseAll size={16} />,
-        action: editor.closeAll,
+        run: editor.closeAll,
       },
       {
         id: 'toggle-terminal',
@@ -98,7 +252,7 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen, onS
         category: 'Terminal',
         shortcut: 'Ctrl+`',
         icon: <VscTerminal size={16} />,
-        action: onToggleTerminal,
+        run: onToggleTerminal,
       },
       {
         id: 'change-theme',
@@ -106,209 +260,229 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen, onS
         category: 'Preferences',
         shortcut: 'K T',
         icon: <VscSymbolColor size={16} />,
-        action: () => {
+        keepOpen: true,
+        run: () => {
           setShowThemePicker(true);
-          setSelectedIndex(0);
+          updateQuery('');
         },
       },
-    ];
-
-    return baseCommands;
-  }, [editor, onToggleTerminal, isTerminalOpen, onShowPanel, onToggleSidebar]);
-
-  const commands = getCommands();
-
-  const filteredCommands = commands.filter(
-    (cmd) =>
-      cmd.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      cmd.category.toLowerCase().includes(searchQuery.toLowerCase())
+    ],
+    [editor, onToggleTerminal, isTerminalOpen, onShowPanel, onToggleSidebar, updateQuery]
   );
 
-  const filteredThemes = THEMES.filter((theme) =>
-    theme.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const handleSelect = useCallback(
-    (index: number) => {
-      if (showThemePicker) {
-        if (index < filteredThemes.length) {
-          const theme = filteredThemes[index];
+  const themeItems = useMemo<PaletteItem[]>(
+    () =>
+      THEMES.map(theme => ({
+        id: `theme-${theme.theme}`,
+        label: theme.name,
+        category: 'Color Theme',
+        description: theme.publisher,
+        icon: <VscColorMode size={16} />,
+        run: () => {
           document.documentElement.setAttribute('data-theme', theme.theme);
           localStorage.setItem('theme', theme.theme);
           window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
-          onClose();
-        }
-      } else {
-        if (index < filteredCommands.length) {
-          filteredCommands[index].action();
-          if (filteredCommands[index].id !== 'change-theme') {
-            onClose();
-          }
-        }
-      }
-    },
-    [filteredCommands, filteredThemes, onClose, showThemePicker]
+        },
+      })),
+    []
   );
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (!isOpen) return;
+  // Headings on the current page, read from the DOM when symbol mode starts.
+  // Previously visited pages stay mounted but hidden, so skip invisible ones.
+  const symbolItems = useMemo<PaletteItem[]>(() => {
+    if (mode !== 'symbols') return [];
 
-      if (e.key === 'Escape') {
-        if (showThemePicker) {
-          setShowThemePicker(false);
-          setSearchQuery('');
-          setSelectedIndex(0);
-        } else {
-          onClose();
-        }
-        return;
-      }
+    const headings = document.querySelectorAll<HTMLElement>(
+      '#main-editor h1, #main-editor h2, #main-editor h3'
+    );
+    return [...headings]
+      .filter(heading => heading.textContent?.trim() && heading.checkVisibility())
+      .map((heading, i) => ({
+        id: `symbol-${i}`,
+        label: heading.textContent!.trim(),
+        category: 'Symbols',
+        icon: HEADING_ICONS[heading.tagName],
+        run: () => heading.scrollIntoView({ block: 'start' }),
+      }));
+  }, [mode]);
 
-      const items = showThemePicker ? filteredThemes : filteredCommands;
+  const items = {
+    files: fileItems,
+    commands: commandItems,
+    themes: themeItems,
+    symbols: symbolItems,
+  }[mode];
+  const results = search(items, searchText);
+  const showCategories = !searchText && mode !== 'symbols';
 
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        setSelectedIndex((prev) => (prev + 1) % items.length);
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        setSelectedIndex((prev) => (prev - 1 + items.length) % items.length);
-      } else if (e.key === 'Enter') {
-        e.preventDefault();
-        handleSelect(selectedIndex);
-      }
-    },
-    [isOpen, onClose, filteredCommands, filteredThemes, selectedIndex, handleSelect, showThemePicker]
-  );
+  const runResult = (index: number, pin = false) => {
+    const result = results[index];
+    if (!result) return;
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
-
-  useEffect(() => {
-    if (isOpen && inputRef.current) {
-      inputRef.current.focus();
-      setSearchQuery('');
-      setSelectedIndex(0);
-      setShowThemePicker(false);
-    }
-  }, [isOpen]);
+    result.item.run({ pin });
+    if (!result.item.keepOpen) onClose();
+    else inputRef.current?.focus();
+  };
 
   useEffect(() => {
-    if (listRef.current && selectedIndex >= 0) {
-      const selectedElement = listRef.current.children[selectedIndex] as HTMLElement;
-      if (selectedElement) {
-        selectedElement.scrollIntoView({ block: 'nearest' });
-      }
-    }
+    inputRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    listRef.current
+      ?.querySelector(`[data-index="${selectedIndex}"]`)
+      ?.scrollIntoView({ block: 'nearest' });
   }, [selectedIndex]);
 
-  if (!isOpen) return null;
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      if (showThemePicker) {
+        setShowThemePicker(false);
+        updateQuery(COMMAND_PREFIX);
+      } else {
+        onClose();
+      }
+      return;
+    }
+
+    // Ctrl+P and Ctrl+Shift+P switch modes instead of printing
+    if ((e.ctrlKey || e.metaKey) && e.code === 'KeyP') {
+      e.preventDefault();
+      setShowThemePicker(false);
+      updateQuery(e.shiftKey ? COMMAND_PREFIX : '');
+      return;
+    }
+
+    if (results.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedIndex(prev => (prev + 1) % results.length);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedIndex(prev => (prev - 1 + results.length) % results.length);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      runResult(selectedIndex, e.ctrlKey || e.metaKey);
+    }
+  };
+
+  const placeholder = {
+    files: 'Search files by name (type > for commands, @ for symbols)',
+    commands: 'Type a command',
+    symbols: 'Go to a heading on this page',
+    themes: 'Select color theme',
+  }[mode];
+
+  const emptyMessage = {
+    files: 'No matching files',
+    commands: 'No matching commands',
+    symbols: 'No headings on this page',
+    themes: 'No matching themes',
+  }[mode];
 
   return (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.container} onClick={(e) => e.stopPropagation()}>
+      <div
+        className={styles.container}
+        onClick={e => e.stopPropagation()}
+        role="dialog"
+        aria-label="Command palette"
+      >
         <div className={styles.inputWrapper}>
           <VscGoToFile size={20} className={styles.inputIcon} />
           <input
             ref={inputRef}
             type="text"
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setSelectedIndex(0);
-            }}
-            placeholder={showThemePicker ? 'Select color theme' : 'Type a command or search...'}
+            value={query}
+            onChange={e => updateQuery(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder={placeholder}
             className={styles.input}
             spellCheck={false}
             autoComplete="off"
+            role="combobox"
+            aria-expanded="true"
+            aria-controls="command-palette-results"
+            aria-activedescendant={
+              results[selectedIndex] ? `palette-item-${selectedIndex}` : undefined
+            }
           />
-          {searchQuery && (
+          {query && (
             <button
               className={styles.clearButton}
               onClick={() => {
-                setSearchQuery('');
-                setSelectedIndex(0);
+                updateQuery('');
                 inputRef.current?.focus();
               }}
+              aria-label="Clear"
             >
               ×
             </button>
           )}
         </div>
 
-        <div className={styles.results} ref={listRef}>
-          {showThemePicker ? (
-            filteredThemes.length === 0 ? (
-              <div className={styles.noResults}>No matching themes</div>
-            ) : (
-              <>
-                <div className={styles.category}>Color Theme</div>
-                {filteredThemes.map((theme, index) => (
+        <div
+          className={styles.results}
+          ref={listRef}
+          id="command-palette-results"
+          role="listbox"
+        >
+          {results.length === 0 ? (
+            <div className={styles.noResults}>{emptyMessage}</div>
+          ) : (
+            results.map(({ item, indices }, index) => {
+              const showCategory =
+                showCategories &&
+                (index === 0 || results[index - 1].item.category !== item.category);
+
+              return (
+                <div key={item.id}>
+                  {showCategory && (
+                    <div className={styles.category}>{item.category}</div>
+                  )}
                   <div
-                    key={theme.theme}
+                    id={`palette-item-${index}`}
+                    data-index={index}
+                    role="option"
+                    aria-selected={selectedIndex === index}
                     className={`${styles.item} ${
                       selectedIndex === index ? styles.selected : ''
                     }`}
-                    onClick={() => handleSelect(index)}
+                    onClick={e => runResult(index, e.ctrlKey || e.metaKey)}
                     onMouseEnter={() => setSelectedIndex(index)}
                   >
-                    <div className={styles.itemIcon}>
-                      <VscColorMode size={16} />
-                    </div>
+                    <div className={styles.itemIcon}>{item.icon}</div>
                     <div className={styles.itemContent}>
-                      <span className={styles.itemLabel}>{theme.name}</span>
-                      <span className={styles.itemDescription}>{theme.publisher}</span>
+                      <span className={styles.itemLabel}>
+                        <Highlight text={item.label} indices={indices} />
+                        {item.description && (
+                          <span className={styles.itemDescription}>
+                            {item.description}
+                          </span>
+                        )}
+                      </span>
                     </div>
-                  </div>
-                ))}
-              </>
-            )
-          ) : filteredCommands.length === 0 ? (
-            <div className={styles.noResults}>No matching commands</div>
-          ) : (
-            (() => {
-              let lastCategory = '';
-              let itemIndex = 0;
-              return filteredCommands.map((cmd, index) => {
-                const showCategory = cmd.category !== lastCategory;
-                lastCategory = cmd.category;
-                const currentIndex = itemIndex++;
-                return (
-                  <div key={cmd.id}>
-                    {showCategory && (
-                      <div className={styles.category}>{cmd.category}</div>
-                    )}
-                    <div
-                      className={`${styles.item} ${
-                        selectedIndex === currentIndex ? styles.selected : ''
-                      }`}
-                      onClick={() => handleSelect(currentIndex)}
-                      onMouseEnter={() => setSelectedIndex(currentIndex)}
-                    >
-                      <div className={styles.itemIcon}>{cmd.icon}</div>
-                      <div className={styles.itemContent}>
-                        <span className={styles.itemLabel}>{cmd.label}</span>
+                    {item.id === 'change-theme' ? (
+                      <div className={styles.shortcut}>
+                        <MdNavigateNext size={16} />
                       </div>
-                      {cmd.shortcut && (
+                    ) : (
+                      item.shortcut && (
                         <div className={styles.shortcut}>
-                          {cmd.id === 'change-theme' ? (
-                            <MdNavigateNext size={16} />
-                          ) : (
-                            cmd.shortcut.split(' ').map((key, i) => (
-                              <span key={i} className={styles.key}>
-                                {key}
-                              </span>
-                            ))
-                          )}
+                          {item.shortcut.split(' ').map((key, i) => (
+                            <span key={i} className={styles.key}>
+                              {key}
+                            </span>
+                          ))}
                         </div>
-                      )}
-                    </div>
+                      )
+                    )}
                   </div>
-                );
-              });
-            })()
+                </div>
+              );
+            })
           )}
         </div>
 
@@ -319,6 +493,11 @@ const CommandPalette = ({ isOpen, onClose, onToggleTerminal, isTerminalOpen, onS
           <div className={styles.footerItem}>
             <span className={styles.key}>↵</span> to select
           </div>
+          {mode === 'files' && (
+            <div className={styles.footerItem}>
+              <span className={styles.key}>Ctrl+↵</span> to keep open
+            </div>
+          )}
           <div className={styles.footerItem}>
             <span className={styles.key}>esc</span> to close
           </div>
