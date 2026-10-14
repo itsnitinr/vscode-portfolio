@@ -11,7 +11,7 @@ import { fileRoutes } from '@/portfolio.config';
 
 import styles from '@/styles/Explorer.module.css';
 
-const Explorer = () => {
+const Explorer = ({ hidden = false }: { hidden?: boolean }) => {
   const pathname = usePathname();
   const { tabs, hydrated } = useEditorTabs();
   const [portfolioOpen, setPortfolioOpen] = useState(true);
@@ -21,7 +21,7 @@ const Explorer = () => {
     !hydrated || tabs.some(tab => tab.path === pathname) ? pathname : null;
 
   return (
-    <div className={styles.explorer}>
+    <div className={styles.explorer} hidden={hidden}>
       <p className={styles.title}>Explorer</p>
       <div>
         <input

@@ -14,7 +14,7 @@ import CommandPalette, { PaletteMode } from '@/components/CommandPalette';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import EmptyEditor from '@/components/EmptyEditor';
 import { routes } from '@/portfolio.config';
-import { openTab, useEditorActions, useEditorTabs } from '@/lib/editorTabs';
+import { openTab, restoreActiveTab, useEditorActions, useEditorTabs } from '@/lib/editorTabs';
 
 import styles from '@/styles/Layout.module.css';
 
@@ -79,12 +79,14 @@ const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   // Every page you land on gets a tab, however you got there (links inside
-  // pages, back/forward). The first tab of a session is opened pinned.
+  // pages, back/forward). Restoring a session respects a saved empty editor.
   useEffect(() => {
-    openTab(pathname, {
-      pin: previousPathRef.current === null,
-      after: previousPathRef.current,
-    });
+    if (previousPathRef.current === pathname) return;
+    if (previousPathRef.current === null) {
+      restoreActiveTab(pathname);
+    } else {
+      openTab(pathname, { after: previousPathRef.current });
+    }
     previousPathRef.current = pathname;
   }, [pathname]);
 
@@ -190,14 +192,21 @@ const Layout = ({ children }: LayoutProps) => {
   }, [toggleTerminal, openCommandPalette, chordKey, editor, paletteMode, resetChord, showPanel, toggleSidebar]);
 
   const showEmptyEditor = hydrated && tabs.length === 0;
+  const activePath =
+    !hydrated || tabs.some(tab => tab.path === pathname) ? pathname : null;
 
   return (
     <div className={styles.layout}>
       <Titlebar onOpenCommandPalette={() => openCommandPalette('commands')} />
       <div className={styles.main}>
-        <Sidebar activePanel={activePanel} onPanelSelect={selectPanel} />
-        {activePanel === 'explorer' && <Explorer />}
-        {activePanel === 'extensions' && <ExtensionsPanel />}
+        <Sidebar
+          activePath={activePath}
+          activePanel={activePanel}
+          onPanelSelect={selectPanel}
+        />
+        {/* Keep panel state (tree, search and categories) when hiding or switching. */}
+        <Explorer hidden={activePanel !== 'explorer'} />
+        <ExtensionsPanel hidden={activePanel !== 'extensions'} />
         <div className={styles.editorContainer}>
           <Tabsbar />
           {!showEmptyEditor && <Breadcrumbs />}

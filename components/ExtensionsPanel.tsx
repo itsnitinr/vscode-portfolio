@@ -82,7 +82,7 @@ const Category = ({ name, items }: CategoryProps) => {
   );
 };
 
-const ExtensionsPanel = () => {
+const ExtensionsPanel = ({ hidden = false }: { hidden?: boolean }) => {
   const [query, setQuery] = useState('');
 
   const normalizedQuery = query.trim().toLowerCase();
@@ -99,7 +99,7 @@ const ExtensionsPanel = () => {
   );
 
   return (
-    <div className={styles.panel}>
+    <div className={styles.panel} hidden={hidden}>
       <p className={styles.title}>Extensions</p>
       <div className={styles.search}>
         <input
