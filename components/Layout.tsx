@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
 import Titlebar from '@/components/Titlebar';
@@ -23,6 +23,7 @@ const Layout = ({ children }: LayoutProps) => {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [chordKey, setChordKey] = useState<string | null>(null);
+  const chordTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const toggleTerminal = useCallback(() => {
     setIsTerminalOpen(prev => !prev);
@@ -34,6 +35,22 @@ const Layout = ({ children }: LayoutProps) => {
 
   const closeCommandPalette = useCallback(() => {
     setIsCommandPaletteOpen(false);
+  }, []);
+
+  const resetChord = useCallback(() => {
+    if (chordTimeoutRef.current) {
+      clearTimeout(chordTimeoutRef.current);
+      chordTimeoutRef.current = null;
+    }
+    setChordKey(null);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (chordTimeoutRef.current) {
+        clearTimeout(chordTimeoutRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -69,37 +86,49 @@ const Layout = ({ children }: LayoutProps) => {
         return;
       }
 
+      // Chords are plain keys only, and never fire while the user is typing
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+      const target = e.target;
+      if (
+        target instanceof HTMLElement &&
+        (target.isContentEditable ||
+          target.closest('input, textarea, select'))
+      ) {
+        return;
+      }
+
       const key = e.key.toLowerCase();
 
       if (chordKey === 'g' && navigationRoutes[key]) {
         e.preventDefault();
         router.push(navigationRoutes[key]);
-        setChordKey(null);
+        resetChord();
         return;
       }
 
       if (chordKey === 'k' && key === 't') {
         e.preventDefault();
         openCommandPalette();
-        setChordKey(null);
+        resetChord();
         return;
       }
 
-      if ((key === 'g' || key === 'k') && !(e.target instanceof Element && e.target.closest('input, textarea'))) {
-        e.preventDefault();
+      if (key === 'g' || key === 'k') {
+        resetChord();
         setChordKey(key);
-        setTimeout(() => setChordKey(null), 2000);
+        chordTimeoutRef.current = setTimeout(resetChord, 2000);
         return;
       }
 
       if (chordKey && key !== chordKey) {
-        setChordKey(null);
+        resetChord();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [toggleTerminal, openCommandPalette, chordKey, router, isCommandPaletteOpen]);
+  }, [toggleTerminal, openCommandPalette, chordKey, router, isCommandPaletteOpen, resetChord]);
 
   return (
     <div className={styles.layout}>
